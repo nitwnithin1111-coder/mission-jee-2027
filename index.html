@@ -182,6 +182,21 @@
       border-color: #0284c7;
     }
 
+    .beta-pill {
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(234, 88, 12, 0.2));
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #fbbf24;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 10px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      line-height: 1.4;
+    }
+
     /* Header */
     header {
       display: flex;
@@ -935,11 +950,15 @@
       <a href="#" class="brand-logo">
         <div class="logo-badge">⚡</div>
         <div class="brand-text">
-          <h1>MISSION JEE 2027</h1>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <h1>MISSION JEE 2027</h1>
+            <span class="beta-pill">BETA</span>
+          </div>
           <p>Built to help JEE aspirants with quick PDFs</p>
         </div>
       </a>
       <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <div class="header-tag" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">🚀 EARLY ACCESS</div>
         <button class="chai-btn" onclick="subscribePushNotification()" id="notif-bell-btn" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8 !important;">
           <span>🔔</span>
           <span>Get Alerts</span>
@@ -957,7 +976,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-      <div class="hero-badge">✨ Free Community Resource • Quick Revision PDFs</div>
+      <div class="hero-badge">🚀 Early Access Beta • High-Yield Master PDFs</div>
       <h2>High-Yield Chapter Master PDFs</h2>
       <p>Clean, story-powered conceptual summaries designed to help JEE aspirants revise chapters rapidly with zero fluff and verified past year questions.</p>
       
