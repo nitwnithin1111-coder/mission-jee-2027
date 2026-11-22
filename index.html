@@ -596,8 +596,91 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+  
+    /* Global Client-Side Search Bar */
+    .search-container {
+      margin: 18px 0 24px 0;
+      position: relative;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #111827;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 6px 14px;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .search-box:focus-within {
+      border-color: #0284c7;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.25);
+      background: #0f172a;
+    }
+
+    .search-icon {
+      font-size: 16px;
+      margin-right: 10px;
+      opacity: 0.7;
+    }
+
+    #global-search {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #f8fafc;
+      font-family: inherit;
+      font-size: 14px;
+      padding: 6px 0;
+    }
+
+    #global-search::placeholder {
+      color: #64748b;
+    }
+
+    #search-clear {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    #search-clear:hover {
+      color: #f8fafc;
+      background: #334155;
+    }
+
+    .search-highlight {
+      background: rgba(245, 158, 11, 0.25);
+      color: #fbbf24;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    .tip-card {
+      background: #111827;
+      border: 1px solid #334155;
+      border-left: 4px solid #f59e0b;
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tip-card:hover {
+      border-color: #f59e0b;
+      transform: translateY(-2px);
+    }
+</style>
   <!-- Vercel Web Analytics -->
+  <script src="data.js"></script>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -661,6 +744,15 @@
     </section>
 
     <!-- 3 Subject Selector Tabs -->
+    <!-- Global Search Bar -->
+    <div class="search-container">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="global-search" placeholder="Search chapters, formulas, PDFs, or exam traps (e.g. Zener, Kepler, De Morgan)..." oninput="handleSearch(this.value)" autocomplete="off">
+        <button id="search-clear" onclick="clearSearch()" style="display: none;" title="Clear search">✕</button>
+      </div>
+    </div>
+
     <div class="subject-selector">
       <button class="subject-btn active physics" onclick="selectSubject('physics')">
         <span>⚛️</span>
@@ -1022,6 +1114,124 @@
       document.getElementById('subject-title').innerText = titles[subject];
 
       renderChapters();
+    }
+
+    
+    let searchDebounceTimer = null;
+
+    function handleSearch(query) {
+      clearTimeout(searchDebounceTimer);
+      searchDebounceTimer = setTimeout(() => {
+        executeSearch(query);
+      }, 150);
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('global-search');
+      input.value = '';
+      document.getElementById('search-clear').style.display = 'none';
+      renderChapters();
+    }
+
+    function executeSearch(rawQuery) {
+      const query = rawQuery.trim().toLowerCase();
+      const clearBtn = document.getElementById('search-clear');
+      clearBtn.style.display = query ? 'block' : 'none';
+
+      if (!query) {
+        renderChapters();
+        return;
+      }
+
+      Analytics.track('search', 'Query: ' + query);
+
+      const grid = document.getElementById('chapter-grid');
+      const countBadge = document.getElementById('chapter-count');
+
+      // 1. Search across all chapters in CHAPTER_DATA
+      const matchedChapters = [];
+      Object.keys(CHAPTER_DATA).forEach(subj => {
+        CHAPTER_DATA[subj].forEach(ch => {
+          const matchStr = (ch.title + ' ' + ch.desc + ' ' + ch.class + ' ' + ch.metaInfo).toLowerCase();
+          if (matchStr.includes(query)) {
+            matchedChapters.push({ ...ch, subject: subj });
+          }
+        });
+      });
+
+      // 2. Search across FORMULAS_DATA for tips and traps
+      const matchedTips = [];
+      if (typeof FORMULAS_DATA !== 'undefined' && Array.isArray(FORMULAS_DATA)) {
+        FORMULAS_DATA.forEach(f => {
+          const tipStr = (f.title + ' ' + f.chapter + ' ' + (f.funNote || '') + ' ' + (f.story || '')).toLowerCase();
+          if (tipStr.includes(query)) {
+            matchedTips.push(f);
+          }
+        });
+      }
+
+      const totalCount = matchedChapters.length + matchedTips.length;
+      countBadge.innerText = `${totalCount} Results for "${query}"`;
+
+      if (totalCount === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; background: #111827; border: 1px dashed #334155; border-radius: 12px; padding: 36px; text-align: center;">
+            <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
+            <div style="font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px;">No exact match found for "${escapeHtml(rawQuery)}"</div>
+            <p style="font-size: 13px; color: #94a3b8; max-width: 440px; margin: 0 auto 16px auto;">Want our academic team to prioritize this chapter or topic next?</p>
+            <a href="/support.html?chapter=${encodeURIComponent(rawQuery)}" class="btn-share" style="display: inline-flex; width: auto; padding: 10px 18px; text-decoration: none;">📬 Request this Topic / Chapter &rarr;</a>
+          </div>
+        `;
+        return;
+      }
+
+      // Render matching chapters
+      let html = matchedChapters.map(ch => `
+        <div class="chapter-card" onclick="openChapter('${ch.id}')">
+          <div>
+            <div class="card-top">
+              <span class="status-badge ${ch.status}">${ch.statusText}</span>
+              <span class="card-class">${ch.class} (${ch.subject.toUpperCase()})</span>
+            </div>
+            <div class="card-title">${highlightQuery(ch.title, query)}</div>
+            <div class="card-desc">${highlightQuery(ch.desc, query)}</div>
+          </div>
+          <div class="card-footer">
+            <span>${ch.metaInfo}</span>
+            <span class="card-action-btn">
+              ${ch.status === 'ready' ? '⚡ Open PDF' : '⏳ Soon'}
+            </span>
+          </div>
+        </div>
+      `).join('');
+
+      // Render matching tips / formulas
+      html += matchedTips.slice(0, 6).map(t => `
+        <div class="tip-card" onclick="alert('💡 Quick Exam Insight:\n\n${escapeAlert(t.funNote || t.story)}')">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase;">💡 Kota Trap / Exam Tip</span>
+            <span style="font-size: 11px; color: #94a3b8;">${t.chapter}</span>
+          </div>
+          <div style="font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">${highlightQuery(t.title, query)}</div>
+          <div style="font-size: 12px; color: #cbd5e1; line-height: 1.4;">${highlightQuery(t.funNote || t.story, query)}</div>
+        </div>
+      `).join('');
+
+      grid.innerHTML = html;
+    }
+
+    function highlightQuery(text, query) {
+      if (!text || !query) return text || '';
+      const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+      return text.replace(regex, '<span class="search-highlight">$1</span>');
+    }
+
+    function escapeHtml(str) {
+      return (str || '').replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[m]);
+    }
+
+    function escapeAlert(str) {
+      return (str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
     }
 
     function renderChapters() {
