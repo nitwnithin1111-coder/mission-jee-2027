@@ -678,6 +678,129 @@
       border-color: #f59e0b;
       transform: translateY(-2px);
     }
+
+    /* Today's Question Challenge Card */
+    .daily-pyq-card {
+      background: linear-gradient(180deg, #111827 0%, #0d1322 100%);
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    .daily-pyq-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #f59e0b, #0284c7, #10b981);
+    }
+
+    .daily-pyq-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .streak-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .pyq-meta-line {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .pyq-tag {
+      background: rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .pyq-question-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f1f5f9;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .pyq-options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .pyq-options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pyq-opt-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .pyq-opt-btn:hover:not(:disabled) {
+      background: #334155;
+      border-color: #0284c7;
+      color: #fff;
+    }
+
+    .pyq-opt-btn.correct {
+      background: rgba(16, 185, 129, 0.2) !important;
+      border-color: #10b981 !important;
+      color: #34d399 !important;
+    }
+
+    .pyq-opt-btn.wrong {
+      background: rgba(239, 68, 68, 0.2) !important;
+      border-color: #ef4444 !important;
+      color: #f87171 !important;
+    }
+
+    .pyq-expl-box {
+      background: rgba(2, 132, 199, 0.1);
+      border: 1px solid rgba(2, 132, 199, 0.25);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #bae6fd;
+      margin-top: 10px;
+      display: none;
+    }
 </style>
   <!-- Vercel Web Analytics -->
   <script src="data.js"></script>
@@ -1120,6 +1243,142 @@
       document.getElementById('subject-title').innerText = titles[subject];
 
       renderChapters();
+    initDailyQuestion();
+
+    // Today's Question & Streak Manager
+    let dailyQuestionsList = [];
+    let currentDailyQ = null;
+
+    async function initDailyQuestion() {
+      try {
+        const resp = await fetch('/questions.json');
+        dailyQuestionsList = await resp.json();
+      } catch (err) {
+        console.log('Using fallback daily question');
+        dailyQuestionsList = [
+          {
+            id: "q1",
+            chapter: "Gravitation",
+            examTag: "JEE Main 2024 (27 Jan Shift 1)",
+            archetype: "Orbital Speed Scaling",
+            question: "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
+            options: ["(A) 1 : 2", "(B) 2 : 1", "(C) 4 : 1", "(D) 1 : 4"],
+            correctIndex: 1,
+            explanation: "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore, (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. Ratio is 2 : 1."
+          }
+        ];
+      }
+
+      if (!dailyQuestionsList || dailyQuestionsList.length === 0) return;
+
+      // Select question based on calendar day
+      const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % dailyQuestionsList.length;
+      currentDailyQ = dailyQuestionsList[dayIndex];
+
+      renderStreak();
+      renderDailyQuestionUI();
+    }
+
+    function getTodayKey() {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    function getYesterdayKey() {
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      return d.toISOString().slice(0, 10);
+    }
+
+    function renderStreak() {
+      const streak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+      const lastDate = localStorage.getItem('mjee_last_date');
+      const today = getTodayKey();
+      const yesterday = getYesterdayKey();
+
+      let activeStreak = streak;
+      if (lastDate && lastDate !== today && lastDate !== yesterday) {
+        // Streak lost
+        activeStreak = 0;
+        localStorage.setItem('mjee_daily_streak', '0');
+      }
+
+      document.getElementById('streak-count').innerText = activeStreak;
+    }
+
+    function renderDailyQuestionUI() {
+      const q = currentDailyQ;
+      const today = getTodayKey();
+      const answeredRecord = localStorage.getItem('mjee_ans_' + today);
+
+      const body = document.getElementById('daily-pyq-body');
+      body.innerHTML = `
+        <div class="pyq-meta-line">
+          <span class="pyq-tag" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">${q.chapter}</span>
+          <span class="pyq-tag">${q.examTag}</span>
+          <span class="pyq-tag" style="color: #fbbf24;">${q.archetype}</span>
+        </div>
+        <div class="pyq-question-text">${escapeHtml(q.question)}</div>
+        <div class="pyq-options-grid" id="pyq-opts">
+          ${q.options.map((opt, i) => `
+            <button class="pyq-opt-btn" id="opt-btn-${i}" onclick="handleOptionSelect(${i})">${escapeHtml(opt)}</button>
+          `).join('')}
+        </div>
+        <div class="pyq-expl-box" id="pyq-expl">
+          <strong>Solution &amp; Takeaway:</strong><br>
+          ${escapeHtml(q.explanation)}
+        </div>
+      `;
+
+      if (answeredRecord) {
+        const selectedIdx = parseInt(answeredRecord, 10);
+        showAnswerState(selectedIdx);
+      }
+    }
+
+    function handleOptionSelect(chosenIdx) {
+      const q = currentDailyQ;
+      const today = getTodayKey();
+      const yesterday = getYesterdayKey();
+      const lastDate = localStorage.getItem('mjee_last_date');
+
+      // Save user answer
+      localStorage.setItem('mjee_ans_' + today, chosenIdx);
+
+      if (chosenIdx === q.correctIndex) {
+        // Increment streak if not completed yet today
+        if (lastDate !== today) {
+          let currentStreak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+          if (lastDate === yesterday) {
+            currentStreak += 1;
+          } else {
+            currentStreak = 1;
+          }
+          localStorage.setItem('mjee_daily_streak', currentStreak);
+          localStorage.setItem('mjee_last_date', today);
+          renderStreak();
+        }
+      }
+
+      Analytics.track('daily_pyq', `Answered ${chosenIdx === q.correctIndex ? 'Correct' : 'Wrong'}: ${q.chapter}`);
+      showAnswerState(chosenIdx);
+    }
+
+    function showAnswerState(chosenIdx) {
+      const q = currentDailyQ;
+      const buttons = document.querySelectorAll('.pyq-opt-btn');
+      buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === q.correctIndex) {
+          btn.classList.add('correct');
+        } else if (i === chosenIdx) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      const expl = document.getElementById('pyq-expl');
+      if (expl) expl.style.display = 'block';
+    }
+
     }
 
     
@@ -1137,6 +1396,142 @@
       input.value = '';
       document.getElementById('search-clear').style.display = 'none';
       renderChapters();
+    initDailyQuestion();
+
+    // Today's Question & Streak Manager
+    let dailyQuestionsList = [];
+    let currentDailyQ = null;
+
+    async function initDailyQuestion() {
+      try {
+        const resp = await fetch('/questions.json');
+        dailyQuestionsList = await resp.json();
+      } catch (err) {
+        console.log('Using fallback daily question');
+        dailyQuestionsList = [
+          {
+            id: "q1",
+            chapter: "Gravitation",
+            examTag: "JEE Main 2024 (27 Jan Shift 1)",
+            archetype: "Orbital Speed Scaling",
+            question: "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
+            options: ["(A) 1 : 2", "(B) 2 : 1", "(C) 4 : 1", "(D) 1 : 4"],
+            correctIndex: 1,
+            explanation: "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore, (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. Ratio is 2 : 1."
+          }
+        ];
+      }
+
+      if (!dailyQuestionsList || dailyQuestionsList.length === 0) return;
+
+      // Select question based on calendar day
+      const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % dailyQuestionsList.length;
+      currentDailyQ = dailyQuestionsList[dayIndex];
+
+      renderStreak();
+      renderDailyQuestionUI();
+    }
+
+    function getTodayKey() {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    function getYesterdayKey() {
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      return d.toISOString().slice(0, 10);
+    }
+
+    function renderStreak() {
+      const streak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+      const lastDate = localStorage.getItem('mjee_last_date');
+      const today = getTodayKey();
+      const yesterday = getYesterdayKey();
+
+      let activeStreak = streak;
+      if (lastDate && lastDate !== today && lastDate !== yesterday) {
+        // Streak lost
+        activeStreak = 0;
+        localStorage.setItem('mjee_daily_streak', '0');
+      }
+
+      document.getElementById('streak-count').innerText = activeStreak;
+    }
+
+    function renderDailyQuestionUI() {
+      const q = currentDailyQ;
+      const today = getTodayKey();
+      const answeredRecord = localStorage.getItem('mjee_ans_' + today);
+
+      const body = document.getElementById('daily-pyq-body');
+      body.innerHTML = `
+        <div class="pyq-meta-line">
+          <span class="pyq-tag" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">${q.chapter}</span>
+          <span class="pyq-tag">${q.examTag}</span>
+          <span class="pyq-tag" style="color: #fbbf24;">${q.archetype}</span>
+        </div>
+        <div class="pyq-question-text">${escapeHtml(q.question)}</div>
+        <div class="pyq-options-grid" id="pyq-opts">
+          ${q.options.map((opt, i) => `
+            <button class="pyq-opt-btn" id="opt-btn-${i}" onclick="handleOptionSelect(${i})">${escapeHtml(opt)}</button>
+          `).join('')}
+        </div>
+        <div class="pyq-expl-box" id="pyq-expl">
+          <strong>Solution &amp; Takeaway:</strong><br>
+          ${escapeHtml(q.explanation)}
+        </div>
+      `;
+
+      if (answeredRecord) {
+        const selectedIdx = parseInt(answeredRecord, 10);
+        showAnswerState(selectedIdx);
+      }
+    }
+
+    function handleOptionSelect(chosenIdx) {
+      const q = currentDailyQ;
+      const today = getTodayKey();
+      const yesterday = getYesterdayKey();
+      const lastDate = localStorage.getItem('mjee_last_date');
+
+      // Save user answer
+      localStorage.setItem('mjee_ans_' + today, chosenIdx);
+
+      if (chosenIdx === q.correctIndex) {
+        // Increment streak if not completed yet today
+        if (lastDate !== today) {
+          let currentStreak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+          if (lastDate === yesterday) {
+            currentStreak += 1;
+          } else {
+            currentStreak = 1;
+          }
+          localStorage.setItem('mjee_daily_streak', currentStreak);
+          localStorage.setItem('mjee_last_date', today);
+          renderStreak();
+        }
+      }
+
+      Analytics.track('daily_pyq', `Answered ${chosenIdx === q.correctIndex ? 'Correct' : 'Wrong'}: ${q.chapter}`);
+      showAnswerState(chosenIdx);
+    }
+
+    function showAnswerState(chosenIdx) {
+      const q = currentDailyQ;
+      const buttons = document.querySelectorAll('.pyq-opt-btn');
+      buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === q.correctIndex) {
+          btn.classList.add('correct');
+        } else if (i === chosenIdx) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      const expl = document.getElementById('pyq-expl');
+      if (expl) expl.style.display = 'block';
+    }
+
     }
 
     function executeSearch(rawQuery) {
@@ -1146,6 +1541,142 @@
 
       if (!query) {
         renderChapters();
+    initDailyQuestion();
+
+    // Today's Question & Streak Manager
+    let dailyQuestionsList = [];
+    let currentDailyQ = null;
+
+    async function initDailyQuestion() {
+      try {
+        const resp = await fetch('/questions.json');
+        dailyQuestionsList = await resp.json();
+      } catch (err) {
+        console.log('Using fallback daily question');
+        dailyQuestionsList = [
+          {
+            id: "q1",
+            chapter: "Gravitation",
+            examTag: "JEE Main 2024 (27 Jan Shift 1)",
+            archetype: "Orbital Speed Scaling",
+            question: "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
+            options: ["(A) 1 : 2", "(B) 2 : 1", "(C) 4 : 1", "(D) 1 : 4"],
+            correctIndex: 1,
+            explanation: "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore, (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. Ratio is 2 : 1."
+          }
+        ];
+      }
+
+      if (!dailyQuestionsList || dailyQuestionsList.length === 0) return;
+
+      // Select question based on calendar day
+      const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % dailyQuestionsList.length;
+      currentDailyQ = dailyQuestionsList[dayIndex];
+
+      renderStreak();
+      renderDailyQuestionUI();
+    }
+
+    function getTodayKey() {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    function getYesterdayKey() {
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      return d.toISOString().slice(0, 10);
+    }
+
+    function renderStreak() {
+      const streak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+      const lastDate = localStorage.getItem('mjee_last_date');
+      const today = getTodayKey();
+      const yesterday = getYesterdayKey();
+
+      let activeStreak = streak;
+      if (lastDate && lastDate !== today && lastDate !== yesterday) {
+        // Streak lost
+        activeStreak = 0;
+        localStorage.setItem('mjee_daily_streak', '0');
+      }
+
+      document.getElementById('streak-count').innerText = activeStreak;
+    }
+
+    function renderDailyQuestionUI() {
+      const q = currentDailyQ;
+      const today = getTodayKey();
+      const answeredRecord = localStorage.getItem('mjee_ans_' + today);
+
+      const body = document.getElementById('daily-pyq-body');
+      body.innerHTML = `
+        <div class="pyq-meta-line">
+          <span class="pyq-tag" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">${q.chapter}</span>
+          <span class="pyq-tag">${q.examTag}</span>
+          <span class="pyq-tag" style="color: #fbbf24;">${q.archetype}</span>
+        </div>
+        <div class="pyq-question-text">${escapeHtml(q.question)}</div>
+        <div class="pyq-options-grid" id="pyq-opts">
+          ${q.options.map((opt, i) => `
+            <button class="pyq-opt-btn" id="opt-btn-${i}" onclick="handleOptionSelect(${i})">${escapeHtml(opt)}</button>
+          `).join('')}
+        </div>
+        <div class="pyq-expl-box" id="pyq-expl">
+          <strong>Solution &amp; Takeaway:</strong><br>
+          ${escapeHtml(q.explanation)}
+        </div>
+      `;
+
+      if (answeredRecord) {
+        const selectedIdx = parseInt(answeredRecord, 10);
+        showAnswerState(selectedIdx);
+      }
+    }
+
+    function handleOptionSelect(chosenIdx) {
+      const q = currentDailyQ;
+      const today = getTodayKey();
+      const yesterday = getYesterdayKey();
+      const lastDate = localStorage.getItem('mjee_last_date');
+
+      // Save user answer
+      localStorage.setItem('mjee_ans_' + today, chosenIdx);
+
+      if (chosenIdx === q.correctIndex) {
+        // Increment streak if not completed yet today
+        if (lastDate !== today) {
+          let currentStreak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+          if (lastDate === yesterday) {
+            currentStreak += 1;
+          } else {
+            currentStreak = 1;
+          }
+          localStorage.setItem('mjee_daily_streak', currentStreak);
+          localStorage.setItem('mjee_last_date', today);
+          renderStreak();
+        }
+      }
+
+      Analytics.track('daily_pyq', `Answered ${chosenIdx === q.correctIndex ? 'Correct' : 'Wrong'}: ${q.chapter}`);
+      showAnswerState(chosenIdx);
+    }
+
+    function showAnswerState(chosenIdx) {
+      const q = currentDailyQ;
+      const buttons = document.querySelectorAll('.pyq-opt-btn');
+      buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === q.correctIndex) {
+          btn.classList.add('correct');
+        } else if (i === chosenIdx) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      const expl = document.getElementById('pyq-expl');
+      if (expl) expl.style.display = 'block';
+    }
+
         return;
       }
 
@@ -1413,6 +1944,142 @@
     }
 
     renderChapters();
+    initDailyQuestion();
+
+    // Today's Question & Streak Manager
+    let dailyQuestionsList = [];
+    let currentDailyQ = null;
+
+    async function initDailyQuestion() {
+      try {
+        const resp = await fetch('/questions.json');
+        dailyQuestionsList = await resp.json();
+      } catch (err) {
+        console.log('Using fallback daily question');
+        dailyQuestionsList = [
+          {
+            id: "q1",
+            chapter: "Gravitation",
+            examTag: "JEE Main 2024 (27 Jan Shift 1)",
+            archetype: "Orbital Speed Scaling",
+            question: "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
+            options: ["(A) 1 : 2", "(B) 2 : 1", "(C) 4 : 1", "(D) 1 : 4"],
+            correctIndex: 1,
+            explanation: "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore, (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. Ratio is 2 : 1."
+          }
+        ];
+      }
+
+      if (!dailyQuestionsList || dailyQuestionsList.length === 0) return;
+
+      // Select question based on calendar day
+      const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % dailyQuestionsList.length;
+      currentDailyQ = dailyQuestionsList[dayIndex];
+
+      renderStreak();
+      renderDailyQuestionUI();
+    }
+
+    function getTodayKey() {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    function getYesterdayKey() {
+      const d = new Date();
+      d.setDate(d.getDate() - 1);
+      return d.toISOString().slice(0, 10);
+    }
+
+    function renderStreak() {
+      const streak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+      const lastDate = localStorage.getItem('mjee_last_date');
+      const today = getTodayKey();
+      const yesterday = getYesterdayKey();
+
+      let activeStreak = streak;
+      if (lastDate && lastDate !== today && lastDate !== yesterday) {
+        // Streak lost
+        activeStreak = 0;
+        localStorage.setItem('mjee_daily_streak', '0');
+      }
+
+      document.getElementById('streak-count').innerText = activeStreak;
+    }
+
+    function renderDailyQuestionUI() {
+      const q = currentDailyQ;
+      const today = getTodayKey();
+      const answeredRecord = localStorage.getItem('mjee_ans_' + today);
+
+      const body = document.getElementById('daily-pyq-body');
+      body.innerHTML = `
+        <div class="pyq-meta-line">
+          <span class="pyq-tag" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">${q.chapter}</span>
+          <span class="pyq-tag">${q.examTag}</span>
+          <span class="pyq-tag" style="color: #fbbf24;">${q.archetype}</span>
+        </div>
+        <div class="pyq-question-text">${escapeHtml(q.question)}</div>
+        <div class="pyq-options-grid" id="pyq-opts">
+          ${q.options.map((opt, i) => `
+            <button class="pyq-opt-btn" id="opt-btn-${i}" onclick="handleOptionSelect(${i})">${escapeHtml(opt)}</button>
+          `).join('')}
+        </div>
+        <div class="pyq-expl-box" id="pyq-expl">
+          <strong>Solution &amp; Takeaway:</strong><br>
+          ${escapeHtml(q.explanation)}
+        </div>
+      `;
+
+      if (answeredRecord) {
+        const selectedIdx = parseInt(answeredRecord, 10);
+        showAnswerState(selectedIdx);
+      }
+    }
+
+    function handleOptionSelect(chosenIdx) {
+      const q = currentDailyQ;
+      const today = getTodayKey();
+      const yesterday = getYesterdayKey();
+      const lastDate = localStorage.getItem('mjee_last_date');
+
+      // Save user answer
+      localStorage.setItem('mjee_ans_' + today, chosenIdx);
+
+      if (chosenIdx === q.correctIndex) {
+        // Increment streak if not completed yet today
+        if (lastDate !== today) {
+          let currentStreak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+          if (lastDate === yesterday) {
+            currentStreak += 1;
+          } else {
+            currentStreak = 1;
+          }
+          localStorage.setItem('mjee_daily_streak', currentStreak);
+          localStorage.setItem('mjee_last_date', today);
+          renderStreak();
+        }
+      }
+
+      Analytics.track('daily_pyq', `Answered ${chosenIdx === q.correctIndex ? 'Correct' : 'Wrong'}: ${q.chapter}`);
+      showAnswerState(chosenIdx);
+    }
+
+    function showAnswerState(chosenIdx) {
+      const q = currentDailyQ;
+      const buttons = document.querySelectorAll('.pyq-opt-btn');
+      buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        if (i === q.correctIndex) {
+          btn.classList.add('correct');
+        } else if (i === chosenIdx) {
+          btn.classList.add('wrong');
+        }
+      });
+
+      const expl = document.getElementById('pyq-expl');
+      if (expl) expl.style.display = 'block';
+    }
+
   </script>
 
   <!-- Floating Support & Grievance Button -->
@@ -1433,4 +2100,22 @@
     }
   </script>
 </body>
-</html>
+</html><!-- Today's Question Challenge -->
+    <div class="daily-pyq-card" id="daily-pyq-box">
+      <div class="daily-pyq-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 18px;">🎯</span>
+          <span style="font-size: 13px; font-weight: 800; color: #f1f5f9; text-transform: uppercase; letter-spacing: 0.04em;">Today's JEE PYQ Challenge</span>
+        </div>
+        <div class="streak-badge" id="daily-streak-badge">
+          <span>🔥</span>
+          <span id="streak-count">0</span>
+          <span>Day Streak</span>
+        </div>
+      </div>
+      <div id="daily-pyq-body">
+        <div style="font-size: 12.5px; color: #94a3b8;">Loading today's question...</div>
+      </div>
+    </div>
+
+    

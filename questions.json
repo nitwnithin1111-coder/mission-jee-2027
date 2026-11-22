@@ -1,0 +1,107 @@
+[
+  {
+    "id": "q1",
+    "chapter": "Gravitation",
+    "examTag": "JEE Main 2024 (27 Jan Shift 1)",
+    "archetype": "Orbital Speed Scaling",
+    "question": "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
+    "options": [
+      "(A) 1 : 2",
+      "(B) 2 : 1",
+      "(C) 4 : 1",
+      "(D) 1 : 4"
+    ],
+    "correctIndex": 1,
+    "explanation": "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore, (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. Ratio is 2 : 1."
+  },
+  {
+    "id": "q2",
+    "chapter": "Semiconductor Electronics",
+    "examTag": "JEE Main 2024 (30 Jan Shift 1)",
+    "archetype": "Zener Diode Regulation",
+    "question": "A 10 V Zener diode is connected across an unregulated supply of 15 V with a series resistor R_s = 500 Ω. What is the series current I_s flowing through R_s?",
+    "options": [
+      "(A) 5 mA",
+      "(B) 10 mA",
+      "(C) 15 mA",
+      "(D) 20 mA"
+    ],
+    "correctIndex": 1,
+    "explanation": "Voltage drop across series resistor is V_s = V_in - V_z = 15 V - 10 V = 5 V. Current I_s = V_s / R_s = 5 V / 500 Ω = 0.010 A = 10 mA."
+  },
+  {
+    "id": "q3",
+    "chapter": "Gravitation",
+    "examTag": "JEE Main 2023 (24 Jan Shift 1)",
+    "archetype": "Height vs Depth Equivalence",
+    "question": "The acceleration due to gravity at a small height h (h << R) above Earth's surface equals the gravity at depth d inside Earth. What is the relation between h and d?",
+    "options": [
+      "(A) d = h",
+      "(B) d = h / 2",
+      "(C) d = 2h",
+      "(D) d = 4h"
+    ],
+    "correctIndex": 2,
+    "explanation": "For h << R, g_h ≈ g(1 - 2h/R). Inside Earth, g_d = g(1 - d/R). Equating gives 1 - 2h/R = 1 - d/R ⟹ d = 2h."
+  },
+  {
+    "id": "q4",
+    "chapter": "Semiconductor Electronics",
+    "examTag": "JEE Main 2023 (Online Shift)",
+    "archetype": "Rectifier Ripple Frequency",
+    "question": "A 50 Hz sinusoidal AC input is fed to a full-wave center-tapped rectifier. What is the fundamental ripple frequency of the output DC voltage?",
+    "options": [
+      "(A) 25 Hz",
+      "(B) 50 Hz",
+      "(C) 100 Hz",
+      "(D) 200 Hz"
+    ],
+    "correctIndex": 2,
+    "explanation": "In a full-wave rectifier, both positive and negative input half-cycles generate positive pulses. The output repeats every half-period (T' = T/2), so ripple frequency is 2f = 2 × 50 Hz = 100 Hz."
+  },
+  {
+    "id": "q5",
+    "chapter": "Gravitation",
+    "examTag": "JEE Main 2022 (29 July Shift 2)",
+    "archetype": "Escape Velocity Scaling",
+    "question": "The escape velocity from Earth is 11.2 km/s. If another planet has twice the mass (2M) and half the radius (R/2) of Earth, find the escape velocity from that planet.",
+    "options": [
+      "(A) 11.2 km/s",
+      "(B) 22.4 km/s",
+      "(C) 5.6 km/s",
+      "(D) 44.8 km/s"
+    ],
+    "correctIndex": 1,
+    "explanation": "v_e = √(2GM/R) ∝ √(M/R). Ratio v_p / v_e = √( (2M / (R/2)) / (M/R) ) = √4 = 2. Therefore, v_p = 2 × 11.2 km/s = 22.4 km/s."
+  },
+  {
+    "id": "q6",
+    "chapter": "Semiconductor Electronics",
+    "examTag": "JEE Main 2026 (April Shift)",
+    "archetype": "Logic Gates Inverter",
+    "question": "Input A is inverted by a NOT gate producing NOT(A). This output and input B feed into a NAND gate. If A = 0 and B = 1, what is output Y?",
+    "options": [
+      "(A) Y = 0",
+      "(B) Y = 1",
+      "(C) Oscillating",
+      "(D) Undefined"
+    ],
+    "correctIndex": 0,
+    "explanation": "NOT(A) = NOT(0) = 1. NAND input is (1, 1). Y = NOT(1 · 1) = NOT(1) = 0."
+  },
+  {
+    "id": "q7",
+    "chapter": "Gravitation",
+    "examTag": "JEE Main 2020 (8 Jan Shift 2)",
+    "archetype": "Weight Variation at Altitude",
+    "question": "A body weighs 72 N on the surface of the Earth. What is its weight at a height h = R/2 above the surface?",
+    "options": [
+      "(A) 32 N",
+      "(B) 36 N",
+      "(C) 48 N",
+      "(D) 24 N"
+    ],
+    "correctIndex": 0,
+    "explanation": "Exact height formula: W_h = W · (R / (R + h))² = 72 · (R / (1.5R))² = 72 · (2/3)² = 72 · (4/9) = 32 N."
+  }
+]
