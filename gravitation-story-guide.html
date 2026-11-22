@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravitation Master PDF | Mission JEE 2027</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-light: #fef3c7;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #cbd5e1;
+      --card-bg: #f8fafc;
+      --success: #15803d;
+      --success-light: #f0fdf4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text);
+      background-color: #f1f5f9;
+      line-height: 1.35;
+      font-size: 11px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Print / PDF Optimization - Strict 4-Page Zero-Waste Layout */
+    @page {
+      size: A4;
+      margin: 8mm 10mm 8mm 10mm;
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        font-size: 9.2pt;
+        line-height: 1.28;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .page-break {
+        page-break-before: always;
+        break-before: page;
+      }
+      .doc-container {
+        box-shadow: none !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #0f172a;
+      color: #fff;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+    }
+
+    .toolbar-title {
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-print {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 6px 14px;
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-print:hover {
+      background: #1d4ed8;
+    }
+
+    .doc-container {
+      max-width: 860px;
+      margin: 12px auto;
+      background: #ffffff;
+      padding: 18px 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Header */
+    .header-block {
+      border-bottom: 2px solid #0f172a;
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .chapter-tag {
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #2563eb;
+    }
+
+    h1 {
+      font-size: 16px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+    }
+
+    .meta-badge {
+      font-size: 9px;
+      background: #eff6ff;
+      color: #1e40af;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid #bfdbfe;
+    }
+
+    .symbol-pill-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+    .symbol-pill {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 3px;
+      padding: 1px 5px;
+      font-size: 9px;
+      font-weight: 600;
+      color: #334155;
+    }
+    .symbol-pill strong {
+      color: #0f172a;
+    }
+
+    /* Card styling */
+    .card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 6px 9px;
+      margin-bottom: 5px;
+    }
+
+    .card-title {
+      font-weight: 800;
+      font-size: 10.5px;
+      color: #1e3a8a;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 3px;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 2px;
+    }
+
+    .story-bubble {
+      background: #fdf4ff;
+      border-left: 3px solid #c084fc;
+      padding: 3px 6px;
+      border-radius: 3px;
+      font-size: 9.5px;
+      color: #6b21a8;
+      margin-bottom: 3px;
+      font-style: italic;
+    }
+
+    .formula-box {
+      background: #eff6ff;
+      border-left: 3px solid #2563eb;
+      border-radius: 3px;
+      padding: 4px 6px;
+      margin: 3px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9.5px;
+      color: #1e3a8a;
+    }
+
+    .formula-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 1px 0;
+    }
+
+    .formula-math {
+      font-weight: 700;
+    }
+
+    .formula-note {
+      font-size: 8.5px;
+      color: #475569;
+    }
+
+    ul {
+      margin-left: 14px;
+      margin-top: 2px;
+    }
+    li {
+      margin-bottom: 1px;
+      color: #334155;
+      font-size: 9.5px;
+    }
+
+    .trick-box {
+      background: #fefce8;
+      border: 1px solid #fde047;
+      padding: 4px 7px;
+      border-radius: 4px;
+      font-size: 9px;
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    /* PYQ Section - Page 3 */
+    .pyq-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      padding: 5px 8px;
+      margin-bottom: 4px;
+    }
+
+    .pyq-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+
+    .pyq-tag {
+      background: #fef3c7;
+      color: #92400e;
+      border: 1px solid #fde68a;
+      font-size: 8.5px;
+      font-weight: 800;
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
+    .pyq-number {
+      font-weight: 800;
+      font-size: 10px;
+      color: #0f172a;
+    }
+
+    .pyq-text {
+      font-size: 9.5px;
+      color: #1e293b;
+      margin-bottom: 3px;
+    }
+
+    .pyq-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 3px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+    }
+
+    .opt-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 2.5px 5px;
+      border-radius: 3px;
+    }
+
+    /* Solutions Section - Page 4 */
+    .solution-block {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 3px solid #16a34a;
+      padding: 5px 8px;
+      border-radius: 4px;
+      margin-bottom: 4.5px;
+    }
+
+    .sol-header {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 10px;
+      color: #166534;
+      margin-bottom: 2px;
+    }
+
+    .sol-ans {
+      background: #16a34a;
+      color: #fff;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 8.5px;
+    }
+
+    .steps-list {
+      margin-left: 12px;
+      font-size: 9px;
+      color: #1e293b;
+    }
+    .steps-list li {
+      margin-bottom: 1px;
+    }
+
+    .trap-alert {
+      background: #fff1f2;
+      border-left: 2px solid #e11d48;
+      padding: 2px 5px;
+      border-radius: 2px;
+      font-size: 8.5px;
+      color: #9f1239;
+      margin-top: 1.5px;
+    }
+
+    i.math {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Web Toolbar -->
+  <div class="toolbar no-print">
+    <div class="toolbar-title">
+      <span>🚀 MISSION JEE 2027</span>
+      <span style="opacity: 0.5;">|</span>
+      <span>Gravitation Master PDF</span>
+    </div>
+    <button class="btn-print" onclick="window.print()">🖨️ Save as PDF / Print</button>
+  </div>
+
+  <div class="doc-container">
+
+    <!-- ==================== PAGE 1 ==================== -->
+    <div class="header-block">
+      <div>
+        <div class="chapter-tag">PHYSICS CLASS 11</div>
+        <h1>Gravitation Master PDF</h1>
+      </div>
+      <div class="meta-badge">JEE MAIN 2027 + TS IPE</div>
+    </div>
+
+    <!-- Symbol Dictionary -->
+    <div class="symbol-pill-container">
+      <div class="symbol-pill"><strong>G:</strong> Universal Constant (6.67 &times; 10⁻¹¹ N m²/kg²)</div>
+      <div class="symbol-pill"><strong>R:</strong> Earth Radius (6400 km, Center to Ground)</div>
+      <div class="symbol-pill"><strong>h:</strong> Height strictly ABOVE Ground</div>
+      <div class="symbol-pill"><strong>r = R + h:</strong> Total distance from Earth's CENTER</div>
+      <div class="symbol-pill"><strong>d:</strong> Depth strictly BELOW Ground</div>
+    </div>
+
+    <!-- STORY 1 -->
+    <div class="card">
+      <div class="card-title">Story 1: The Invisible Cosmic Glue (Universal Law of Gravitation)</div>
+      <div class="story-bubble">"Why doesn't the Moon crash into Earth? Why does an apple drop?" — Newton's Insight</div>
+      <p style="font-size: 9.5px; color: #334155;">
+        Every mass in the universe attracts every other mass. The force acts along the line joining their centers. It gets stronger if masses are bigger, and drops sharply if they move apart: 
+        <strong>F = G &times; M₁ &times; M₂ / r²</strong>.
+      </p>
+      <div class="formula-box">
+        <div class="formula-row">
+          <span class="formula-math">g = GM / R²</span>
+          <span class="formula-note">Surface gravity (point mass / solid sphere)</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">g = (4/3) · π · G · ρ · R</span>
+          <span class="formula-note">In terms of planet density ρ: g ∝ ρ · R</span>
+        </div>
+      </div>
+      <ul>
+        <li><strong>Analogy:</strong> If two planets are the exact same size, but Planet A is made of solid gold (dense) and Planet B is made of wood (light), Planet A pulls you far harder (<i class="math">g</i> &prop; &rho;).</li>
+        <li><strong>Mass vs Radius Trap:</strong> If mass doubles (2<i class="math">M</i>) with radius constant &rarr; gravity doubles (2<i class="math">g</i>). But if radius doubles (2<i class="math">R</i>) with mass constant &rarr; gravity drops to one-fourth (<i class="math">g</i>/4) because of the power of 2!</li>
+      </ul>
+    </div>
+
+    <!-- STORY 2 -->
+    <div class="card">
+      <div class="card-title">Story 2: Flying High (How Gravity Drops as You Climb into Space)</div>
+      <div class="story-bubble">"Imagine Earth's gravity as a Wi-Fi signal radiating from the core"</div>
+      <p style="font-size: 9.5px; color: #334155;">
+        Gravity does <strong>not</strong> care where the grass is. It only measures distance from the <strong>dead center of Earth</strong> (<i class="math">r</i> = <i class="math">R</i> + <i class="math">h</i>). 
+        Because of the inverse-square law, climbing up weakens gravity faster and faster.
+      </p>
+      
+      <div class="formula-box">
+        <div class="formula-row">
+          <span class="formula-math">g<sub>h</sub> = g · [ R / (R + h) ]² = g · [ R / r ]²</span>
+          <span class="formula-note">EXACT FORMULA: Use when h is large (h = R/2, R, 2R)</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">g<sub>h</sub> ≈ g · (1 - 2h / R)</span>
+          <span class="formula-note">BINOMIAL APPROX: ONLY for small heights (h &lt; 5% of R, &lt; 320 km)</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">Fractional Drop: Δg / g = 2h / R</span>
+          <span class="formula-note">% Drop = (2h / R) &times; 100% (e.g. h = 1% R &rarr; g drops 2%)</span>
+        </div>
+      </div>
+
+      <div class="trick-box">
+        <strong>⚡ The 5-Second Mental Rule ("Flip &amp; Square"):</strong>
+        <br>1. Find total distance from center: <i class="math">r</i> = <i class="math">R</i> + <i class="math">h</i>. Express it as a fraction of <i class="math">R</i>.
+        <br>2. Flip the fraction, square it, and multiply by surface weight or <i class="math">g</i>!
+        <br>• At ground (<i class="math">h</i> = 0): Distance 1<i class="math">R</i> &rarr; (1/1)² = 1 &rarr; <strong>g</strong> (Full weight)
+        <br>• At <i class="math">h</i> = <i class="math">R</i> / 2: Distance 1.5<i class="math">R</i> = (3/2)<i class="math">R</i> &rarr; flip is 2/3 &rarr; (2/3)² = 4/9 &rarr; <strong>(4/9) g</strong> (Weight = 72 &times; 4/9 = 32 N)
+        <br>• At <i class="math">h</i> = <i class="math">R</i>: Distance 2<i class="math">R</i> &rarr; flip is 1/2 &rarr; (1/2)² = 1/4 &rarr; <strong>g / 4</strong> (Weight drops to 25%)
+        <br>• At <i class="math">h</i> = 2<i class="math">R</i>: Distance 3<i class="math">R</i> &rarr; flip is 1/3 &rarr; (1/3)² = 1/9 &rarr; <strong>g / 9</strong> (Weight drops to 11.1%)
+      </div>
+    </div>
+
+    <!-- STORY 3 -->
+    <div class="card">
+      <div class="card-title">Story 3: Journey to the Center of Earth (Variation with Depth d)</div>
+      <div class="story-bubble">"Newton's Onion Shell Theorem: Why you get LIGHTER as you dig down!"</div>
+      <p style="font-size: 9.5px; color: #334155;">
+        Most students guess: <em>"Distance to center decreases, so gravity must increase!"</em> <strong>Wrong!</strong> 
+        As you dig down to depth <i class="math">d</i>, the entire sphere of rock above your head pulls you <em>upward</em>, canceling out! 
+        Only the smaller inner ball of Earth below your feet pulls you downward.
+      </p>
+
+      <div class="formula-box">
+        <div class="formula-row">
+          <span class="formula-math">g<sub>d</sub> = g · (1 - d / R)</span>
+          <span class="formula-note">EXACT AT ANY DEPTH: Pure linear straight line! No power of 2.</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">% Drop at depth d = (d / R) · 100%</span>
+          <span class="formula-note">d = R/2 &rarr; 50% drop. d = R &rarr; 100% drop (g = 0).</span>
+        </div>
+      </div>
+      <ul>
+        <li><strong>At Earth's Center (<i class="math">d</i> = <i class="math">R</i>):</strong> <i class="math">g</i><sub>center</sub> = <i class="math">g</i>(1 &minus; 1) = <strong>0</strong>. Earth pulls you equally in all directions. You float weightless!</li>
+        <li><strong>Equal Drop Rule (Height vs Depth):</strong> For small <i class="math">h</i>, drop at height is 2<i class="math">h</i>/<i class="math">R</i>, while drop at depth is <i class="math">d</i>/<i class="math">R</i>. They are equal when: <strong>d = 2h</strong> (or <i class="math">h</i> = <i class="math">d</i> / 2). Going 5 km up loses as much gravity as digging 10 km down!</li>
+      </ul>
+    </div>
+
+    <!-- ==================== PAGE 2 ==================== -->
+    <div class="page-break"></div>
+
+    <div class="header-block">
+      <div>
+        <div class="chapter-tag">COSMIC MOTION &amp; SATELLITES</div>
+        <h1>Orbital Motion &amp; Planetary Laws</h1>
+      </div>
+      <div class="meta-badge">JEE MAIN 2027</div>
+    </div>
+
+    <!-- STORY 4 -->
+    <div class="card">
+      <div class="card-title">Story 4: Cosmic Speed Limits (Orbital Velocity vs. Escape Velocity)</div>
+      <div class="story-bubble">"Newton's Mountain Cannon: Fire a cannonball faster and faster..."</div>
+      <p style="font-size: 9.5px; color: #334155;">
+        Imagine standing on a super-tall mountain and firing a cannonball horizontally:
+        <br>1. <strong>Low Speed:</strong> Curves and hits the ground.
+        <br>2. <strong>Exact Orbital Speed (v<sub>o</sub>):</strong> The ground curves away under the cannonball at the exact same rate it falls! It enters a circular orbit, falling forever without hitting.
+        <br>3. <strong>Escape Speed (v<sub>e</sub>):</strong> Fired so fast that Earth's gravity can never pull it back to a halt. It breaks the gravitational cage permanently.
+      </p>
+
+      <div class="formula-box">
+        <div class="formula-row">
+          <span class="formula-math">v<sub>o</sub> (Orbital Velocity) = √(GM / r) = √(gR)</span>
+          <span class="formula-note">Near surface: v<sub>o</sub> ≈ 7.92 km/s (≈ 8 km/s)</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">v<sub>e</sub> (Escape Velocity) = √(2GM / R) = √(2gR)</span>
+          <span class="formula-note">From Earth surface: v<sub>e</sub> ≈ 11.2 km/s</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">The Golden Link: v<sub>e</sub> = √2 · v<sub>o</sub> ≈ 1.414 · v<sub>o</sub></span>
+          <span class="formula-note">Escape speed is exactly 41.4% faster than orbital speed!</span>
+        </div>
+      </div>
+
+      <ul>
+        <li><strong>Proper Name for v<sub>o</sub>:</strong> <strong>Orbital Velocity (<i class="math">v</i><sub>o</sub>)</strong> — the minimum horizontal velocity needed to put a satellite into orbit around Earth at distance <i class="math">r</i>.</li>
+        <li><strong>Proper Name for v<sub>e</sub>:</strong> <strong>Escape Velocity (<i class="math">v</i><sub>e</sub>)</strong> — the minimum speed given to a body from the surface so that it escapes Earth's gravitational field completely to infinity.</li>
+        <li><strong>Mass Independence:</strong> Both <i class="math">v</i><sub>o</sub> and <i class="math">v</i><sub>e</sub> do NOT depend on the mass of the projectile (a 1-gram pebble and a 100-ton rocket need the exact same 11.2 km/s to escape Earth).</li>
+        <li><strong>Angle Independence:</strong> Escape speed <i class="math">v</i><sub>e</sub> does NOT depend on launch angle &theta; (straight up, 45&deg;, or sideways—any path that avoids hitting the ground escapes).</li>
+      </ul>
+    </div>
+
+    <!-- STORY 5 -->
+    <div class="card">
+      <div class="card-title">Story 5: Kepler's Cosmic Clock (Planetary Laws)</div>
+      <p style="font-size: 9.5px; color: #334155;">Johannes Kepler analyzed decades of planetary orbits and discovered 3 laws that govern every satellite and planet:</p>
+      
+      <div class="formula-box">
+        <div class="formula-row">
+          <span class="formula-math">1. Law of Orbits: Ellipses</span>
+          <span class="formula-note">All planets orbit in ellipses with the Sun at one focus (not center!).</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">2. Law of Areas: dA/dt = L / (2m) = Constant</span>
+          <span class="formula-note">Equal areas in equal times. Result of Angular Momentum Conservation!</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">3. Law of Periods: T² ∝ r³   ⇒   (T₁ / T₂)² = (r₁ / r₂)³</span>
+          <span class="formula-note">Farther satellites travel slower and take much longer years.</span>
+        </div>
+      </div>
+      <ul>
+        <li><strong>Speed at Perihelion vs Aphelion:</strong> Because angular momentum <i class="math">L</i> = <i class="math">m v r</i> is conserved: when a planet is closest to the Sun (Perihelion, small <i class="math">r</i>), it flies fastest (<i class="math">v</i><sub>max</sub>). When farthest (Aphelion, large <i class="math">r</i>), it moves slowest (<i class="math">v</i><sub>min</sub>). <i class="math">v</i><sub>1</sub><i class="math">r</i><sub>1</sub> = <i class="math">v</i><sub>2</sub><i class="math">r</i><sub>2</sub>.</li>
+      </ul>
+    </div>
+
+    <!-- STORY 6 -->
+    <div class="card">
+      <div class="card-title">Story 6: Satellite Energies &amp; Gravitational Potential</div>
+      <div class="story-bubble">"Gravity is attractive, so Potential Energy is ALWAYS negative!"</div>
+      <p style="font-size: 9.5px; color: #334155;">
+        At infinity (infinitely far away), potential energy is zero. Since gravity pulls things inward, you must do negative work to bring a mass in from infinity.
+      </p>
+
+      <div class="formula-box">
+        <div class="formula-row">
+          <span class="formula-math">Gravitational Potential: V(r) = - GM / r</span>
+          <span class="formula-note">Scalar. Measured in J/kg. Negative everywhere!</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">Kinetic Energy (K) = + GMm / (2r)</span>
+          <span class="formula-note">Always positive motion energy: K = ½ m v<sub>o</sub>²</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">Potential Energy (U) = - GMm / r</span>
+          <span class="formula-note">U = 2 &times; Total Energy = - 2K</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">Total Mechanical Energy (E) = - GMm / (2r)</span>
+          <span class="formula-note">E = K + U = - K. Negative means BOUND orbit!</span>
+        </div>
+        <div class="formula-row">
+          <span class="formula-math">Binding Energy = + GMm / (2r) = |E|</span>
+          <span class="formula-note">Energy needed to free the satellite from Earth to infinity.</span>
+        </div>
+      </div>
+      <div class="trick-box">
+        <strong>⚡ The 1-2-1 Energy Ratio Trick:</strong> For any circular satellite orbit of radius <i class="math">r</i>:
+        <br><strong>|Kinetic Energy| : |Potential Energy| : |Total Energy| = 1 : 2 : 1</strong>
+        <br>• If Kinetic Energy is +100 J &rarr; Potential Energy is &minus;200 J &rarr; Total Energy is &minus;100 J &rarr; Binding Energy is +100 J!
+      </div>
+    </div>
+
+    <!-- ==================== PAGE 3 ==================== -->
+    <div class="page-break"></div>
+
+    <div style="border-bottom: 2px solid #0f172a; padding-bottom: 4px; margin-bottom: 6px; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div>
+        <div class="chapter-tag">EXAM DRILL • QUESTIONS ONLY</div>
+        <h1 style="font-size: 15px;">Must-Do JEE Main PYQs (2020 – 2024)</h1>
+      </div>
+      <div style="font-size: 9px; color: #64748b; font-weight: 600;">Verified solutions on Page 4 &rarr;</div>
+    </div>
+
+    <!-- Q1 -->
+    <div class="pyq-card">
+      <div class="pyq-header">
+        <span class="pyq-number">Question 1</span>
+        <span class="pyq-tag">JEE Main 2020 (8 Jan Shift 2)</span>
+      </div>
+      <div class="pyq-text">A body weighs <strong>72 N</strong> on the surface of the Earth. What is the gravitational force on it (its weight), at a height equal to half the radius of the Earth (<i class="math">h</i> = <i class="math">R</i> / 2)?</div>
+      <div class="pyq-options">
+        <div class="opt-box">(A) 32 N</div>
+        <div class="opt-box">(B) 36 N</div>
+        <div class="opt-box">(C) 48 N</div>
+        <div class="opt-box">(D) 24 N</div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="pyq-card">
+      <div class="pyq-header">
+        <span class="pyq-number">Question 2</span>
+        <span class="pyq-tag">JEE Main 2021 (26 Aug Shift 1)</span>
+      </div>
+      <div class="pyq-text">The value of acceleration due to gravity is <i class="math">g</i><sub>1</sub> at a height <i class="math">h</i> = <i class="math">R</i> / 2 (<i class="math">R</i> = radius of the Earth) from the surface of the Earth. It is again equal to <i class="math">g</i><sub>1</sub> at a depth <i class="math">d</i> below the surface of the Earth. The ratio (<i class="math">d</i> / <i class="math">R</i>) equals:</div>
+      <div class="pyq-options">
+        <div class="opt-box">(A) 4 / 9</div>
+        <div class="opt-box">(B) 5 / 9</div>
+        <div class="opt-box">(C) 1 / 3</div>
+        <div class="opt-box">(D) 7 / 9</div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="pyq-card">
+      <div class="pyq-header">
+        <span class="pyq-number">Question 3</span>
+        <span class="pyq-tag">JEE Main 2022 (29 July Shift 2)</span>
+      </div>
+      <div class="pyq-text">The escape velocity of a body from the Earth is <i class="math">v</i><sub>e</sub> = 11.2 km/s. If a planet has twice the mass (2<i class="math">M</i>) and half the radius (<i class="math">R</i> / 2) of the Earth, the escape velocity from that planet will be:</div>
+      <div class="pyq-options">
+        <div class="opt-box">(A) 11.2 km/s</div>
+        <div class="opt-box">(B) 5.6 km/s</div>
+        <div class="opt-box">(C) 22.4 km/s</div>
+        <div class="opt-box">(D) 44.8 km/s</div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="pyq-card">
+      <div class="pyq-header">
+        <span class="pyq-number">Question 4</span>
+        <span class="pyq-tag">JEE Main 2023 (24 Jan Shift 1)</span>
+      </div>
+      <div class="pyq-text">The acceleration due to gravity at a small height <i class="math">h</i> (<i class="math">h</i> &ll; <i class="math">R</i>) above the Earth's surface is the same as that at a depth <i class="math">d</i> inside the Earth. The correct relationship between <i class="math">h</i> and <i class="math">d</i> is:</div>
+      <div class="pyq-options">
+        <div class="opt-box">(A) d = h</div>
+        <div class="opt-box">(B) d = 2h</div>
+        <div class="opt-box">(C) h = 2d</div>
+        <div class="opt-box">(D) d = 4h</div>
+      </div>
+    </div>
+
+    <!-- Q5 -->
+    <div class="pyq-card">
+      <div class="pyq-header">
+        <span class="pyq-number">Question 5</span>
+        <span class="pyq-tag">JEE Main 2024 (27 Jan Shift 1)</span>
+      </div>
+      <div class="pyq-text">Two satellites <i class="math">A</i> and <i class="math">B</i> move in circular orbits around Earth. The distance of <i class="math">A</i> from the center of Earth is <i class="math">r</i><sub>A</sub> = <i class="math">R</i>, while the distance of <i class="math">B</i> from the center of Earth is <i class="math">r</i><sub>B</sub> = 4<i class="math">R</i>. The ratio of their orbital speeds (<i class="math">v</i><sub>A</sub> / <i class="math">v</i><sub>B</sub>) is:</div>
+      <div class="pyq-options">
+        <div class="opt-box">(A) 1 : 2</div>
+        <div class="opt-box">(B) 2 : 1</div>
+        <div class="opt-box">(C) 4 : 1</div>
+        <div class="opt-box">(D) 1 : 4</div>
+      </div>
+    </div>
+
+    <!-- Q6 -->
+    <div class="pyq-card">
+      <div class="pyq-header">
+        <span class="pyq-number">Question 6</span>
+        <span class="pyq-tag">JEE Main 2023 (1 Feb Shift 1)</span>
+      </div>
+      <div class="pyq-text">Two point bodies of masses <i class="math">m</i> and 4<i class="math">m</i> are separated by distance <i class="math">r</i>. The gravitational potential at the point on the line joining them where the gravitational field is zero is:</div>
+      <div class="pyq-options">
+        <div class="opt-box">(A) - 9 GM / r</div>
+        <div class="opt-box">(B) - 6 GM / r</div>
+        <div class="opt-box">(C) - 4 GM / r</div>
+        <div class="opt-box">(D) 0</div>
+      </div>
+    </div>
+
+    <!-- Q7 -->
+    <div class="pyq-card">
+      <div class="pyq-header">
+        <span class="pyq-number">Question 7</span>
+        <span class="pyq-tag">JEE Main 2024 (29 Jan Shift 2)</span>
+      </div>
+      <div class="pyq-text">If the radius of the Earth shrinks by 1% while its mass remains constant, the percentage change in the acceleration due to gravity on its surface will be:</div>
+      <div class="pyq-options">
+        <div class="opt-box">(A) Increases by 2%</div>
+        <div class="opt-box">(B) Decreases by 2%</div>
+        <div class="opt-box">(C) Increases by 1%</div>
+        <div class="opt-box">(D) Decreases by 1%</div>
+      </div>
+    </div>
+
+    <!-- ==================== PAGE 4 ==================== -->
+    <div class="page-break"></div>
+
+    <div style="border-bottom: 2px solid #16a34a; padding-bottom: 4px; margin-bottom: 6px;">
+      <div class="chapter-tag" style="color: #16a34a;">OFFICIAL ANSWER KEY &amp; DERIVATIONS</div>
+      <h1 style="font-size: 15px; color: #14532d;">Verified Solutions (Source: NTA Official Keys)</h1>
+    </div>
+
+    <!-- SOL 1 -->
+    <div class="solution-block">
+      <div class="sol-header">
+        <span>Question 1 Solution</span>
+        <span class="sol-ans">Correct Answer: (A) 32 N</span>
+      </div>
+      <ol class="steps-list">
+        <li>Since <i class="math">h</i> = <i class="math">R</i> / 2 is large (not tiny), use exact formula: <i class="math">g</i><sub>h</sub> = <i class="math">g</i> · [ <i class="math">R</i> / (<i class="math">R</i> + <i class="math">h</i>) ]².</li>
+        <li>Total distance from center: <i class="math">r</i> = <i class="math">R</i> + <i class="math">R</i> / 2 = (3/2)<i class="math">R</i>.</li>
+        <li><i class="math">g</i><sub>h</sub> = <i class="math">g</i> · [ <i class="math">R</i> / ((3/2)<i class="math">R</i>) ]² = <i class="math">g</i> · (2/3)² = <strong>(4/9) g</strong>.</li>
+        <li>Weight: <i class="math">W</i><sub>h</sub> = (4/9) &times; <i class="math">W</i><sub>surface</sub> = (4/9) &times; 72 = <strong>32 N</strong>.</li>
+      </ol>
+      <div class="trap-alert">⚠️ <strong>Trap:</strong> Do NOT divide by 2! 72 / 2 = 36 N is the NTA distractor. Gravity follows an inverse-square law.</div>
+    </div>
+
+    <!-- SOL 2 -->
+    <div class="solution-block">
+      <div class="sol-header">
+        <span>Question 2 Solution</span>
+        <span class="sol-ans">Correct Answer: (B) 5 / 9</span>
+      </div>
+      <ol class="steps-list">
+        <li>At height <i class="math">h</i> = <i class="math">R</i> / 2: <i class="math">g</i><sub>1</sub> = <i class="math">g</i> · [ <i class="math">R</i> / (<i class="math">R</i> + <i class="math">R</i>/2) ]² = <strong>(4/9) g</strong>.</li>
+        <li>At depth <i class="math">d</i>: <i class="math">g</i><sub>d</sub> = <i class="math">g</i> · (1 &minus; <i class="math">d</i> / <i class="math">R</i>).</li>
+        <li>Equate both: <i class="math">g</i>(1 &minus; <i class="math">d</i> / <i class="math">R</i>) = (4/9)<i class="math">g</i> &rarr; 1 &minus; <i class="math">d</i> / <i class="math">R</i> = 4/9 &rarr; <i class="math">d</i> / <i class="math">R</i> = 1 &minus; 4/9 = <strong>5 / 9</strong>.</li>
+      </ol>
+    </div>
+
+    <!-- SOL 3 -->
+    <div class="solution-block">
+      <div class="sol-header">
+        <span>Question 3 Solution</span>
+        <span class="sol-ans">Correct Answer: (C) 22.4 km/s</span>
+      </div>
+      <ol class="steps-list">
+        <li>Escape speed formula: <i class="math">v</i><sub>e</sub> = √(2<i class="math">GM</i> / <i class="math">R</i>).</li>
+        <li>For new planet: <i class="math">M'</i> = 2<i class="math">M</i> and <i class="math">R'</i> = <i class="math">R</i> / 2.</li>
+        <li><i class="math">v'</i><sub>e</sub> = √[ 2<i class="math">G</i>(2<i class="math">M</i>) / (<i class="math">R</i>/2) ] = √[ 4 &times; (2<i class="math">GM</i> / <i class="math">R</i>) ] = 2 &times; <i class="math">v</i><sub>e</sub> = 2 &times; 11.2 = <strong>22.4 km/s</strong>.</li>
+      </ol>
+    </div>
+
+    <!-- SOL 4 -->
+    <div class="solution-block">
+      <div class="sol-header">
+        <span>Question 4 Solution</span>
+        <span class="sol-ans">Correct Answer: (B) d = 2h</span>
+      </div>
+      <ol class="steps-list">
+        <li>Small height (<i class="math">h</i> &ll; <i class="math">R</i>): <i class="math">g</i><sub>h</sub> = <i class="math">g</i> (1 &minus; 2<i class="math">h</i> / <i class="math">R</i>). Depth: <i class="math">g</i><sub>d</sub> = <i class="math">g</i> (1 &minus; <i class="math">d</i> / <i class="math">R</i>).</li>
+        <li>Equate <i class="math">g</i><sub>h</sub> = <i class="math">g</i><sub>d</sub> &rarr; 2<i class="math">h</i> / <i class="math">R</i> = <i class="math">d</i> / <i class="math">R</i> &rarr; <strong>d = 2h</strong> (or <i class="math">h</i> = <i class="math">d</i> / 2).</li>
+      </ol>
+    </div>
+
+    <!-- SOL 5 -->
+    <div class="solution-block">
+      <div class="sol-header">
+        <span>Question 5 Solution</span>
+        <span class="sol-ans">Correct Answer: (B) 2 : 1</span>
+      </div>
+      <ol class="steps-list">
+        <li>Orbital speed formula: <i class="math">v</i><sub>o</sub> = √( <i class="math">GM</i> / <i class="math">r</i> ) &rarr; <i class="math">v</i><sub>o</sub> ∝ 1 / √<i class="math">r</i>.</li>
+        <li>Ratio: <i class="math">v</i><sub>A</sub> / <i class="math">v</i><sub>B</sub> = √( <i class="math">r</i><sub>B</sub> / <i class="math">r</i><sub>A</sub> ) = √( 4<i class="math">R</i> / <i class="math">R</i> ) = √4 = <strong>2 : 1</strong>.</li>
+      </ol>
+    </div>
+
+    <!-- SOL 6 -->
+    <div class="solution-block">
+      <div class="sol-header">
+        <span>Question 6 Solution</span>
+        <span class="sol-ans">Correct Answer: (A) - 9 GM / r</span>
+      </div>
+      <ol class="steps-list">
+        <li>Field is zero at distance <i class="math">x</i> from mass <i class="math">m</i>: <i class="math">G m</i> / <i class="math">x</i>² = <i class="math">G(4m)</i> / (<i class="math">r</i> &minus; <i class="math">x</i>)².</li>
+        <li>Square root both sides: 1 / <i class="math">x</i> = 2 / (<i class="math">r</i> &minus; <i class="math">x</i>) &rarr; <i class="math">r</i> &minus; <i class="math">x</i> = 2<i class="math">x</i> &rarr; <i class="math">x</i> = <i class="math">r</i> / 3. Distance from 4<i class="math">m</i> is 2<i class="math">r</i> / 3.</li>
+        <li>Potential at this point: <i class="math">V</i> = &minus; <i class="math">G m</i> / (<i class="math">r</i> / 3) &minus; <i class="math">G(4m)</i> / (2<i class="math">r</i> / 3) = &minus; 3<i class="math">Gm</i> / <i class="math">r</i> &minus; 6<i class="math">Gm</i> / <i class="math">r</i> = <strong>- 9 GM / r</strong>.</li>
+      </ol>
+    </div>
+
+    <!-- SOL 7 -->
+    <div class="solution-block">
+      <div class="sol-header">
+        <span>Question 7 Solution</span>
+        <span class="sol-ans">Correct Answer: (A) Increases by 2%</span>
+      </div>
+      <ol class="steps-list">
+        <li>Surface gravity formula: <i class="math">g</i> = <i class="math">G M</i> / <i class="math">R</i>².</li>
+        <li>For small percentage change (mass constant): &Delta;<i class="math">g</i> / <i class="math">g</i> &approx; &minus; 2 (&Delta;<i class="math">R</i> / <i class="math">R</i>).</li>
+        <li>Given radius shrinks by 1% (&Delta;<i class="math">R</i> / <i class="math">R</i> = &minus; 1%): &Delta;<i class="math">g</i> / <i class="math">g</i> = &minus; 2(&minus; 1%) = <strong>+ 2% (Increases by 2%)</strong>.</li>
+      </ol>
+    </div>
+
+    <!-- Minimal Disclaimer Footer -->
+    <div style="font-size: 8.5px; color: #94a3b8; text-align: center; margin-top: 6px; padding-top: 3px; border-top: 1px solid #e2e8f0;">
+      📌 Note: This PDF was generated with AI assistance. It may contain small mistakes; please confirm with your teacher.
+    </div>
+
+  </div>
+
+</body>
+</html>

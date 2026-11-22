@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mission JEE 2027 — Quick PDFs for JEE Aspirants</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-hover: #1f2937;
+      --card-border: #1f293d;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.25);
+      --physics: #38bdf8;
+      --chemistry: #34d399;
+      --maths: #f472b6;
+      --accent: #fbbf24;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px 16px 60px 16px;
+      width: 100%;
+    }
+
+    /* Top Announcement Strip */
+    .top-announcement {
+      background: linear-gradient(90deg, rgba(220, 39, 67, 0.15), rgba(188, 24, 136, 0.15));
+      border: 1px solid rgba(220, 39, 67, 0.3);
+      border-radius: 30px;
+      padding: 6px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 11.5px;
+    }
+
+    .ig-badge-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #f1f5f9;
+      font-weight: 600;
+    }
+
+    .ig-follow-btn {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 0 2px 10px rgba(220, 39, 67, 0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+    }
+    .ig-follow-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(220, 39, 67, 0.5);
+    }
+
+    .share-wa-btn {
+      background: #22c55e;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 10px rgba(34, 197, 94, 0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+    }
+    .share-wa-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(34, 197, 94, 0.5);
+      background: #16a34a;
+    }
+
+    .chai-btn {
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 2px 10px rgba(245, 158, 11, 0.3);
+      transition: transform 0.15s, box-shadow 0.15s;
+      white-space: nowrap;
+    }
+    .chai-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.5);
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 24px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 0 15px var(--primary-glow);
+    }
+
+    .brand-text h1 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-text p {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .header-tag {
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      color: var(--primary);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 20px 12px 28px 12px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.25);
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11.5px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* 3 Subject Selector Tabs */
+    .subject-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      background: var(--surface);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--card-border);
+      margin-bottom: 24px;
+    }
+
+    .subject-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .subject-btn:hover {
+      color: var(--text-main);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .subject-btn.active.physics {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--physics);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .subject-btn.active.chemistry {
+      background: rgba(52, 211, 153, 0.15);
+      color: var(--chemistry);
+      box-shadow: 0 0 20px rgba(52, 211, 153, 0.2);
+      border: 1px solid rgba(52, 211, 153, 0.3);
+    }
+
+    .subject-btn.active.maths {
+      background: rgba(244, 114, 182, 0.15);
+      color: var(--maths);
+      box-shadow: 0 0 20px rgba(244, 114, 182, 0.2);
+      border: 1px solid rgba(244, 114, 182, 0.3);
+    }
+
+    /* Chapter List Controls */
+    .list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      padding: 0 4px;
+    }
+
+    .loading-strip {
+      background: rgba(59, 130, 246, 0.08);
+      border: 1px dashed rgba(59, 130, 246, 0.3);
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 11.5px;
+      color: #93c5fd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .list-title {
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .count-badge {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* Chapter Grid */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .chapter-card {
+      background: var(--surface);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .chapter-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(59, 130, 246, 0.4);
+      background: var(--surface-hover);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    .status-badge {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-badge.ready {
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #4ade80;
+    }
+
+    .status-badge.coming {
+      background: rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      color: #94a3b8;
+    }
+
+    .card-class {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+      line-height: 1.45;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 10px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .card-action-btn {
+      background: rgba(59, 130, 246, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      animation: modalSlide 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes modalSlide {
+      from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .modal-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: var(--text-muted);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+    }
+
+    .modal-badges {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .modal-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .modal-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .modal-features {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-bottom: 6px;
+    }
+    .feature-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .modal-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-download {
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s;
+    }
+    .btn-download:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-view {
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      text-decoration: none;
+      padding: 11px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn-view:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .modal-disclaimer {
+      font-size: 10.5px;
+      color: #64748b;
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--card-border);
+      padding: 20px 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .hero h2 {
+        font-size: 22px;
+      }
+      .subject-btn {
+        padding: 10px 8px;
+        font-size: 12.5px;
+      }
+      .chapter-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Top Announcement Strip for Instagram -->
+    <div class="top-announcement">
+      <div class="ig-badge-left">
+        <span>📸</span>
+        <span>Follow our page on Instagram for daily notes &amp; chapter drops:</span>
+      </div>
+      <a href="https://instagram.com/nithlabs" target="_blank" rel="noopener noreferrer" class="ig-follow-btn" onclick="Analytics.track('ig_click', 'Top Banner')">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        <span>Follow @nithlabs</span>
+      </a>
+    </div>
+
+    <!-- Top Header -->
+    <header>
+      <a href="#" class="brand-logo">
+        <div class="logo-badge">⚡</div>
+        <div class="brand-text">
+          <h1>MISSION JEE 2027</h1>
+          <p>Built to help JEE aspirants with quick PDFs</p>
+        </div>
+      </a>
+      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <button class="chai-btn" onclick="openChaiModal()">
+          <span>☕</span>
+          <span>Buy Me a Chai</span>
+        </button>
+        <div class="header-tag">TS IPE + JEE MAIN 2027</div>
+        <a href="https://instagram.com/nithlabs" target="_blank" rel="noopener noreferrer" class="ig-follow-btn" style="padding: 4px 10px; font-size: 10.5px;" onclick="Analytics.track('ig_click', 'Header')">
+          <span>@nithlabs</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-badge">✨ Free Community Resource • Quick Revision PDFs</div>
+      <h2>High-Yield Chapter Master PDFs</h2>
+      <p>Clean, story-powered conceptual summaries designed to help JEE aspirants revise chapters rapidly with zero fluff and verified past year questions.</p>
+      
+      <div style="margin-top: 16px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <button class="share-wa-btn" onclick="shareWebsite()" style="padding: 8px 16px; font-size: 12.5px;">
+          <span>📲</span>
+          <span>Share with Your Friends (WhatsApp)</span>
+        </button>
+        <button class="ig-follow-btn" onclick="copyWebsiteLink()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); box-shadow: none; padding: 8px 14px; font-size: 12px;" id="copy-link-btn">
+          <span>🔗</span>
+          <span id="copy-link-text">Copy Link</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 3 Subject Selector Tabs -->
+    <div class="subject-selector">
+      <button class="subject-btn active physics" onclick="selectSubject('physics')">
+        <span>⚛️</span>
+        <span>Physics</span>
+      </button>
+      <button class="subject-btn chemistry" onclick="selectSubject('chemistry')">
+        <span>🧪</span>
+        <span>Chemistry</span>
+      </button>
+      <button class="subject-btn maths" onclick="selectSubject('maths')">
+        <span>📐</span>
+        <span>Mathematics</span>
+      </button>
+    </div>
+
+    <!-- Active Loading Notice Banner -->
+    <div class="loading-strip">
+      <span>⚡</span>
+      <span><strong>More chapters loading soon!</strong> We are actively compiling and verifying new high-yield master guides daily.</span>
+    </div>
+
+    <!-- Chapter Section -->
+    <div class="list-header">
+      <div class="list-title">
+        <span id="subject-title">Physics Chapters</span>
+        <span class="count-badge" id="chapter-count">1 Available</span>
+      </div>
+    </div>
+
+    <!-- Chapter Grid -->
+    <div class="chapter-grid" id="chapter-grid">
+      <!-- Populated via JS -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p><strong>Mission JEE 2027</strong> • Built to help JEE aspirants succeed • Free &amp; Open</p>
+      <p style="font-size: 11px; margin-top: 4px; color: #475569;">Generated with AI assistance. Verify any doubts with your teacher.</p>
+    </footer>
+
+  </div>
+
+  <!-- Chapter Action Modal -->
+  <div class="modal-overlay" id="chapter-modal" onclick="closeModalOnOverlay(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <div class="modal-badges">
+            <span class="status-badge ready" id="modal-badge">🔥 MASTER PDF READY</span>
+            <span class="card-class" id="modal-class">Class 11</span>
+          </div>
+          <div class="modal-title" id="modal-title">Gravitation</div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">&times;</button>
+      </div>
+
+      <div class="modal-desc" id="modal-desc">
+        Complete intuitive story guide covering Surface gravity, Height &amp; Depth formulas, Orbital vs. Escape velocities, Kepler's Laws, and verified JEE Main PYQs.
+      </div>
+
+      <div class="modal-features">
+        <div class="feature-item">
+          <span>📄</span>
+          <span><strong>Compact &amp; Printable:</strong> High-density layout designed for quick revision without wasting paper.</span>
+        </div>
+        <div class="feature-item">
+          <span>🧠</span>
+          <span><strong>Story Explanations:</strong> Intuitive mental models (Flip &amp; Square rule, Onion shell) that make concepts stick.</span>
+        </div>
+        <div class="feature-item">
+          <span>🎯</span>
+          <span><strong>Must-Do JEE Main PYQs:</strong> Handpicked authentic questions to test yourself before checking solutions.</span>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <a href="gravitation-story-guide.pdf" download="Gravitation_Master_PDF_JEE2027.pdf" class="btn-download" id="modal-download-btn" onclick="Analytics.track('download', activeChapterTitle)">
+          <span>📥</span>
+          <span>Download Chapter PDF</span>
+        </a>
+        <a href="gravitation-story-guide.html" target="_blank" class="btn-view" id="modal-view-btn">
+          <span>📖</span>
+          <span>Read Master Guide Online</span>
+        </a>
+        <button class="btn-view" onclick="shareCurrentChapter()" style="background: rgba(34, 197, 94, 0.12); border-color: rgba(34, 197, 94, 0.3); color: #4ade80; cursor: pointer;">
+          <span>📲</span>
+          <span>Share this Chapter on WhatsApp</span>
+        </button>
+      </div>
+
+      <div class="modal-disclaimer">
+        📌 Generated with AI assistance. Verified with official NTA answer keys. Please confirm with your teacher.
+      </div>
+    </div>
+  </div>
+
+  <!-- Buy Me a Chai Modal -->
+  <div class="modal-overlay" id="chai-modal" onclick="closeChaiModalOnOverlay(event)">
+    <div class="modal-box" style="text-align: center; max-width: 440px;">
+      <div style="display: flex; justify-content: flex-end;">
+        <button class="modal-close" onclick="closeChaiModal()">&times;</button>
+      </div>
+
+      <div style="font-size: 38px; margin-bottom: 8px;">☕</div>
+      <h3 style="font-size: 20px; font-weight: 800; color: #fff;">Buy Me a Chai</h3>
+      <p style="font-size: 12.5px; color: var(--text-muted); margin: 6px 0 16px 0; line-height: 1.45;">
+        If these free chapter PDFs saved you hours of study confusion, fuel the project with a cutting chai! Every rupee goes into creating more free guides.
+      </p>
+
+      <!-- Amount Selector Pills -->
+      <div style="display: flex; justify-content: center; gap: 8px; margin-bottom: 16px;">
+        <button id="amt-20" class="card-action-btn" style="background: #f59e0b; color: #000; font-weight: 800; padding: 6px 14px; font-size: 12px; cursor: pointer; border: none;" onclick="setChaiAmount(20)">₹20 (Cutting Chai)</button>
+        <button id="amt-50" class="card-action-btn" style="background: rgba(255,255,255,0.06); color: #fff; font-weight: 700; padding: 6px 14px; font-size: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.15);" onclick="setChaiAmount(50)">₹50 (Special Chai)</button>
+        <button id="amt-custom" class="card-action-btn" style="background: rgba(255,255,255,0.06); color: #fff; font-weight: 700; padding: 6px 14px; font-size: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.15);" onclick="setChaiAmount(0)">Custom</button>
+      </div>
+
+      <!-- Dynamic QR Code Card -->
+      <div style="background: #ffffff; padding: 14px; border-radius: 12px; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.3); margin-bottom: 14px;">
+        <img id="chai-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi%3A%2F%2Fpay%3Fpa%3Dzenithink%40fam%26pn%3DNithLabs%20(Mission%20JEE)%26am%3D20%26cu%3DINR%26tn%3DChai%20for%20Mission%20JEE%20Notes" alt="FamPay UPI QR Code" style="width: 170px; height: 170px; display: block;" />
+      </div>
+
+      <!-- FamPay UPI ID Display & Copy -->
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #fbbf24;">zenithink@fam</span>
+        <button onclick="copyUpiId()" id="copy-upi-btn" style="background: rgba(251, 191, 36, 0.15); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; cursor: pointer;">Copy ID</button>
+      </div>
+
+      <!-- Direct UPI Mobile Pay Button -->
+      <a id="chai-upi-link" href="upi://pay?pa=zenithink@fam&pn=NithLabs%20(Mission%20JEE)&am=20&cu=INR&tn=Chai%20for%20Mission%20JEE%20Notes" class="btn-download" style="background: linear-gradient(135deg, #f59e0b, #d97706); text-decoration: none; padding: 11px; font-size: 13.5px;" onclick="Analytics.track('chai_pay_clicked', selectedChaiAmount)">
+        <span>⚡</span>
+        <span id="chai-pay-btn-text">Pay ₹20 via GPay / PhonePe / Paytm</span>
+      </a>
+
+      <p style="font-size: 10.5px; color: #64748b; margin-top: 10px;">
+        Works seamlessly with FamPay, Google Pay, PhonePe, Paytm, or any UPI app.
+      </p>
+    </div>
+  </div>
+
+  <!-- Application Logic -->
+  <script>
+    // Analytics Tracking Engine
+    const Analytics = {
+      storageKey: 'mission_jee_analytics',
+      get() {
+        try {
+          return JSON.parse(localStorage.getItem(this.storageKey)) || {
+            visits: 0,
+            downloads: 0,
+            shares: 0,
+            chapterClicks: 0,
+            igClicks: 0,
+            chapters: {},
+            events: []
+          };
+        } catch(e) {
+          return { visits: 0, downloads: 0, shares: 0, chapterClicks: 0, igClicks: 0, chapters: {}, events: [] };
+        }
+      },
+      track(type, meta = '') {
+        const data = this.get();
+        const now = new Date().toISOString();
+        if (type === 'visit') data.visits++;
+        if (type === 'download') {
+          data.downloads++;
+          data.chapters[meta] = (data.chapters[meta] || 0) + 1;
+        }
+        if (type === 'share') data.shares++;
+        if (type === 'chapter_click') data.chapterClicks++;
+        if (type === 'ig_click') data.igClicks++;
+        if (type === 'chai_modal_open' || type === 'chai_pay_clicked') data.chaiClicks = (data.chaiClicks || 0) + 1;
+
+        data.events.unshift({ type, meta, time: now });
+        if (data.events.length > 100) data.events.pop(); // Keep last 100
+
+        localStorage.setItem(this.storageKey, JSON.stringify(data));
+      }
+    };
+
+    // Track Page Visit on Load
+    Analytics.track('visit', 'Homepage');
+
+    const CHAPTER_DATA = {
+      physics: [
+        {
+          id: 'gravitation',
+          title: 'Gravitation',
+          class: 'Class 11',
+          desc: 'Universal law, variation with height & depth, orbital/escape speeds, Kepler laws & verified PYQs.',
+          status: 'ready',
+          statusText: '🔥 PDF Ready',
+          pdfUrl: 'gravitation-story-guide.pdf',
+          htmlUrl: 'gravitation-story-guide.html',
+          metaInfo: 'Complete Master Guide • Verified PYQs'
+        },
+        {
+          id: 'semiconductors',
+          title: 'Semiconductors',
+          class: 'Class 12',
+          desc: 'P-N junction diodes, Zener diodes, logic gates & truth tables. 100% direct marks chapter.',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'High-Yield Revision'
+        },
+        {
+          id: 'current-electricity',
+          title: 'Current Electricity',
+          class: 'Class 12',
+          desc: "Ohm's law, Kirchhoff's laws, potentiometer, meter bridge & combination circuits.",
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'Dual-Shield Chapter'
+        },
+        {
+          id: 'modern-physics',
+          title: 'Modern Physics & Dual Nature',
+          class: 'Class 12',
+          desc: 'Photoelectric effect, de Broglie wavelength, Bohr atomic model & nuclear binding energy.',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'High-Scoring Pocket Marks'
+        },
+        {
+          id: 'kinematics',
+          title: 'Kinematics & Motion in 1D/2D',
+          class: 'Class 11',
+          desc: 'Equations of motion, projectile motion trajectories, relative velocity & graphs.',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'Core Mechanics Foundation'
+        }
+      ],
+      chemistry: [
+        {
+          id: 'solutions',
+          title: 'Solutions & Colligative Properties',
+          class: 'Class 12',
+          desc: "Raoult's law, elevation in boiling point, depression in freezing point & Van 't Hoff factor.",
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'Core Physical Chemistry'
+        },
+        {
+          id: 'electrochemistry',
+          title: 'Electrochemistry',
+          class: 'Class 12',
+          desc: 'Nernst equation, Gibbs free energy, Kohlrausch law, Faraday laws & batteries.',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'High-Yield Dual Shield'
+        },
+        {
+          id: 'chemical-kinetics',
+          title: 'Chemical Kinetics',
+          class: 'Class 12',
+          desc: 'Rate law, integrated rate equations for 0th/1st order, half-life & Arrhenius equation.',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'Fast-Solve Numerical Chapter'
+        },
+        {
+          id: 'biomolecules',
+          title: 'Biomolecules',
+          class: 'Class 12',
+          desc: 'Carbohydrates (glucose/fructose), amino acids, peptide bonds, proteins & nucleic acids.',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'High-Scoring Pocket Marks'
+        }
+      ],
+      maths: [
+        {
+          id: 'vectors-3d',
+          title: 'Vectors & 3D Geometry',
+          class: 'Class 12',
+          desc: 'Dot & cross products, shortest distance between skew lines, lines & planes geometry.',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'Highest Weightage JEE Chapter'
+        },
+        {
+          id: 'definite-integrals',
+          title: 'Definite Integrals',
+          class: 'Class 12',
+          desc: 'King property, periodic properties, Leibniz integral rule & area under curves.',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'Core Calculus Powerhouse'
+        },
+        {
+          id: 'matrices-determinants',
+          title: 'Matrices & Determinants',
+          class: 'Class 12',
+          desc: 'Properties of determinants, inverse of matrix, system of linear equations (Cramer rule).',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'Direct Scoring Marks'
+        },
+        {
+          id: 'statistics',
+          title: 'Statistics & Probability',
+          class: 'Class 11 & 12',
+          desc: 'Variance, standard deviation, mean deviation, conditional probability & Bayes theorem.',
+          status: 'coming',
+          statusText: '⏳ Coming Soon',
+          pdfUrl: '#',
+          htmlUrl: '#',
+          metaInfo: 'Fast-Kill Pocket Chapter'
+        }
+      ]
+    };
+
+    let currentSubject = 'physics';
+
+    function selectSubject(subject) {
+      currentSubject = subject;
+      
+      document.querySelectorAll('.subject-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.querySelector(`.subject-btn.${subject}`).classList.add('active');
+
+      const titles = {
+        physics: 'Physics Chapters',
+        chemistry: 'Chemistry Chapters',
+        maths: 'Mathematics Chapters'
+      };
+      document.getElementById('subject-title').innerText = titles[subject];
+
+      renderChapters();
+    }
+
+    function renderChapters() {
+      const chapters = CHAPTER_DATA[currentSubject];
+      const grid = document.getElementById('chapter-grid');
+      const countBadge = document.getElementById('chapter-count');
+
+      const readyCount = chapters.filter(c => c.status === 'ready').length;
+      countBadge.innerText = `${readyCount} Ready • ${chapters.length} Total`;
+
+      grid.innerHTML = chapters.map(ch => `
+        <div class="chapter-card" onclick="openChapter('${ch.id}')">
+          <div>
+            <div class="card-top">
+              <span class="status-badge ${ch.status}">${ch.statusText}</span>
+              <span class="card-class">${ch.class}</span>
+            </div>
+            <div class="card-title">${ch.title}</div>
+            <div class="card-desc">${ch.desc}</div>
+          </div>
+          <div class="card-footer">
+            <span>${ch.metaInfo}</span>
+            <span class="card-action-btn">
+              ${ch.status === 'ready' ? '⚡ Open PDF' : '⏳ Soon'}
+            </span>
+          </div>
+        </div>
+      `).join('') + `
+        <div class="chapter-card" style="border: 1px dashed rgba(255,255,255,0.15); background: rgba(255,255,255,0.02); cursor: default;">
+          <div>
+            <div class="card-top">
+              <span class="status-badge coming">🚀 ACTIVE</span>
+              <span class="card-class">More Chapters</span>
+            </div>
+            <div class="card-title" style="color: #94a3b8;">Loading Soon...</div>
+            <div class="card-desc">More high-yield chapters for this subject are currently being written and verified.</div>
+          </div>
+          <div class="card-footer">
+            <span style="color: #64748b;">Daily Drops</span>
+            <span style="font-size: 11px; color: #94a3b8;">Stay Tuned 🔔</span>
+          </div>
+        </div>
+      `;
+    }
+
+    function openChapter(id) {
+      const chapter = CHAPTER_DATA[currentSubject].find(c => c.id === id);
+      if (!chapter) return;
+
+      Analytics.track('chapter_click', chapter.title);
+
+      if (chapter.status === 'coming') {
+        alert(`"${chapter.title}" Master PDF is currently being compiled and will be released soon!`);
+        return;
+      }
+
+      activeChapterTitle = chapter.title;
+      document.getElementById('modal-title').innerText = chapter.title;
+      document.getElementById('modal-class').innerText = chapter.class;
+      document.getElementById('modal-desc').innerText = chapter.desc;
+      document.getElementById('modal-download-btn').href = chapter.pdfUrl;
+      document.getElementById('modal-view-btn').href = chapter.htmlUrl;
+
+      document.getElementById('chapter-modal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('chapter-modal').classList.remove('active');
+    }
+
+    function closeModalOnOverlay(e) {
+      if (e.target.id === 'chapter-modal') {
+        closeModal();
+      }
+    }
+
+    // Chai Modal Functions
+    let selectedChaiAmount = 20;
+
+    function openChaiModal() {
+      Analytics.track('chai_modal_open', 'User clicked Buy Me a Chai');
+      document.getElementById('chai-modal').classList.add('active');
+    }
+
+    function closeChaiModal() {
+      document.getElementById('chai-modal').classList.remove('active');
+    }
+
+    function closeChaiModalOnOverlay(e) {
+      if (e.target.id === 'chai-modal') {
+        closeChaiModal();
+      }
+    }
+
+    function setChaiAmount(amt) {
+      selectedChaiAmount = amt;
+      const upiId = "zenithink@fam";
+      const name = "NithLabs (Mission JEE)";
+      const note = "Chai for Mission JEE Notes";
+
+      // Reset button styles
+      ['amt-20', 'amt-50', 'amt-custom'].forEach(id => {
+        const btn = document.getElementById(id);
+        btn.style.background = 'rgba(255,255,255,0.06)';
+        btn.style.color = '#fff';
+        btn.style.fontWeight = '700';
+      });
+
+      const activeBtnId = amt === 20 ? 'amt-20' : amt === 50 ? 'amt-50' : 'amt-custom';
+      const activeBtn = document.getElementById(activeBtnId);
+      activeBtn.style.background = '#f59e0b';
+      activeBtn.style.color = '#000';
+      activeBtn.style.fontWeight = '800';
+
+      const upiUrl = amt > 0 
+        ? `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amt}&cu=INR&tn=${encodeURIComponent(note)}`
+        : `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+      // Update link and QR
+      document.getElementById('chai-upi-link').href = upiUrl;
+      document.getElementById('chai-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiUrl)}`;
+      document.getElementById('chai-pay-btn-text').innerText = amt > 0 
+        ? `Pay ₹${amt} via GPay / PhonePe / Paytm`
+        : `Pay Custom Amount via Any UPI App`;
+    }
+
+    function copyUpiId() {
+      navigator.clipboard.writeText('zenithink@fam').then(() => {
+        const btn = document.getElementById('copy-upi-btn');
+        btn.innerText = 'Copied! ✅';
+        setTimeout(() => { btn.innerText = 'Copy ID'; }, 2000);
+      });
+    }
+
+    // Share Functions
+    let activeChapterTitle = 'Gravitation';
+
+    function shareWebsite() {
+      Analytics.track('share', 'WhatsApp Hero');
+      const shareUrl = window.location.href;
+      const shareText = `⚡ Hey! Check out Mission JEE 2027: Free high-yield Chapter Master PDFs with intuitive story breakdowns & verified PYQs for JEE Main & TS IPE: ${shareUrl}`;
+
+      if (navigator.share) {
+        navigator.share({
+          title: 'Mission JEE 2027',
+          text: shareText,
+          url: shareUrl
+        }).catch(() => {});
+      } else {
+        const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+        window.open(waUrl, '_blank');
+      }
+    }
+
+    function shareCurrentChapter() {
+      Analytics.track('share', 'WhatsApp Chapter: ' + activeChapterTitle);
+      const shareUrl = window.location.href;
+      const shareText = `🚀 Bro! Found this quick Master PDF for "${activeChapterTitle}" with verified JEE Main Past Year Questions & zero fluff: ${shareUrl}`;
+      const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    function copyWebsiteLink() {
+      Analytics.track('share', 'Link Copied');
+      const shareUrl = window.location.href;
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        const btnText = document.getElementById('copy-link-text');
+        btnText.innerText = 'Copied! ✅';
+        setTimeout(() => {
+          btnText.innerText = 'Copy Link';
+        }, 2000);
+      });
+    }
+
+    renderChapters();
+  </script>
+
+</body>
+</html>

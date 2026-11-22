@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Ultimate JEE Gravitation Master Guide + Solved PYQ Bank</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- KaTeX for crisp LaTeX Math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]})"></script>
+
+  <style>
+    @media print {
+      body {
+        background: white !important;
+        color: #0f172a !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      .card-print {
+        border: 1px solid #cbd5e1 !important;
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans leading-relaxed selection:bg-indigo-500 selection:text-white">
+
+  <!-- Print Button Bar (Hidden when printing) -->
+  <div class="no-print sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center space-x-3">
+      <a href="index.html" class="text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition font-medium">
+        ← Back to Formula Vault
+      </a>
+      <span class="text-xs text-slate-400 font-mono">Gravitation Master Dossier • Complete Concepts & Categorized Solved PYQs</span>
+    </div>
+    <button onclick="window.print()" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs px-4 py-2 rounded-lg shadow-lg shadow-indigo-600/30 transition flex items-center space-x-2">
+      <span>🖨️ Save as PDF / Print</span>
+    </button>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-6 py-10 space-y-12">
+
+    <!-- Title Banner -->
+    <header class="text-center space-y-4 border-b border-slate-800 pb-10">
+      <div class="inline-flex items-center space-x-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 px-3 py-1 rounded-full text-xs font-semibold">
+        <span>🚀 JEE Main & Advanced Physics</span>
+        <span>•</span>
+        <span>Concept Stories + Complete Solved PYQs (2002–2026)</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black tracking-tight bg-gradient-to-r from-indigo-400 via-sky-300 to-purple-400 bg-clip-text text-transparent">
+        The Gravitation Master Guide & Solved Question Bank
+      </h1>
+      <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+        Every single formula, story-powered intuition, and official JEE Main PYQ categorized with step-by-step derivations, shortcuts, and NTA traps.
+      </p>
+    </header>
+
+    <!-- Master Blueprint Index -->
+    <nav class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 card-print">
+      <h2 class="text-base font-bold text-white mb-3">📑 Roadmap of this Guide</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+        <a href="#pillar-1" class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-indigo-500 transition block">
+          <span class="font-bold text-indigo-400">Pillar 1:</span> Newton's Law & Circular Orbit Symmetry
+        </a>
+        <a href="#pillar-2" class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-indigo-500 transition block">
+          <span class="font-bold text-emerald-400">Pillar 2:</span> Variations of $g$ (Height, Depth, Rotation)
+        </a>
+        <a href="#pillar-3" class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-indigo-500 transition block">
+          <span class="font-bold text-sky-400">Pillar 3:</span> Potential Energy & The Cosmic Debt
+        </a>
+        <a href="#pillar-4" class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-indigo-500 transition block">
+          <span class="font-bold text-amber-400">Pillar 4:</span> Escape Velocity & Planet Parameter Ratios
+        </a>
+        <a href="#pillar-5" class="p-2.5 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-indigo-500 transition block">
+          <span class="font-bold text-purple-400">Pillar 5:</span> Satellites, Kepler's 3rd Law & Energy Triangle
+        </a>
+        <a href="#solved-bank" class="p-2.5 rounded-xl bg-indigo-950/40 border border-indigo-500/40 hover:border-indigo-400 transition block">
+          <span class="font-bold text-amber-300">🔥 Section 6:</span> Categorized Official Solved PYQs (With Solutions)
+        </a>
+      </div>
+    </nav>
+
+    <!-- ==================================================== -->
+    <!-- PILLAR 1: NEWTON'S LAW & SYMMETRY -->
+    <!-- ==================================================== -->
+    <section id="pillar-1" class="space-y-6 pt-6">
+      <div class="border-l-4 border-indigo-500 pl-4">
+        <span class="text-xs font-bold text-indigo-400 uppercase tracking-widest">Pillar 1</span>
+        <h2 class="text-2xl font-black text-white">Newton's Law, Symmetry Systems & Mutual Orbits</h2>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-4 card-print">
+        <h3 class="text-lg font-bold text-indigo-300">💡 The Intuitive Story: The Shyest Force in the Universe</h3>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Gravity is the weakest fundamental force in nature. Two 1 kg iron balls placed 1 meter apart attract each other with only $6.67 \times 10^{-11}\text{ N}$—the weight of a single bacterium. 
+          Gravity only becomes formidable because it is <strong>strictly attractive</strong> (unlike electromagnetism, there is no negative charge to cancel it out). As masses accumulate into planets and stars, this tiny force becomes an unyielding cosmic grip.
+        </p>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-center text-sm text-sky-300">
+          $$F = G \frac{m_1 m_2}{r^2}, \quad G = 6.67 \times 10^{-11} \text{ N}\cdot\text{m}^2/\text{kg}^2$$
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-sm font-bold text-white">🎯 Key High-Yield Symmetry Patterns:</h4>
+          
+          <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-xs space-y-2">
+            <span class="font-bold text-amber-400 block">1. Particles Moving in a Mutual Gravitational Circle:</span>
+            <p class="text-slate-300">
+              When two equal masses $m$ revolve in a circle of radius $r$ under mutual gravity, the distance between them is the <strong>diameter</strong> $2r$.
+              $$\text{Gravitational Force} = \frac{Gm^2}{(2r)^2} = \frac{Gm^2}{4r^2}$$
+              $$\text{Centripetal Force} = \frac{mv^2}{r} \implies \frac{Gm^2}{4r^2} = \frac{mv^2}{r} \implies \mathbf{v = \sqrt{\frac{Gm}{4r}}}$$
+            </p>
+            <p class="text-rose-400 font-medium">⚠️ Trap: Forgetting that the separation distance is $2r$ instead of $r$ is the classic negative-mark trap!</p>
+          </div>
+
+          <div class="bg-slate-950/60 p-4 rounded-xl border border-slate-800 text-xs space-y-2">
+            <span class="font-bold text-amber-400 block">2. The Cavity / "Negative Mass" Technique:</span>
+            <p class="text-slate-300">
+              When a scoop of radius $R/3$ is cut out of a solid sphere of mass $M$, never try to integrate the weird remaining shape!
+              Instead, treat the leftover sphere as:
+              $$\mathbf{\text{Remaining Force}} = \mathbf{\text{Force of Full Sphere}} - \mathbf{\text{Force of the Cut-out Scoop}}$$
+              Mass of cut-out scoop: Since volume $\propto r^3$, mass of scoop $m_{\text{scoop}} = M \times \left(\frac{R/3}{R}\right)^3 = \frac{M}{27}$.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- PILLAR 2: VARIATIONS OF g -->
+    <!-- ==================================================== -->
+    <section id="pillar-2" class="space-y-6 pt-6">
+      <div class="border-l-4 border-emerald-500 pl-4">
+        <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest">Pillar 2 (28% of all JEE Questions)</span>
+        <h2 class="text-2xl font-black text-white">Acceleration Due to Gravity ($g$) & Its 4 Variations</h2>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-4 card-print">
+        <h3 class="text-lg font-bold text-emerald-300">💡 The Intuitive Story: Earth's Gravitational Peak</h3>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Acceleration due to gravity is maximum on Earth's surface ($g \approx 9.8\text{ m/s}^2$). As you climb into space, you get farther from the mass, so $g$ drops inversely with the square of distance. As you dig into a mine toward the center, the outer shell of Earth pulls you in all directions equally (net zero force), so only the smaller inner sphere pulls you, causing $g$ to drop linearly to zero at the core.
+        </p>
+
+        <!-- Formulas Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+            <span class="text-xs font-bold text-indigo-400">1. At Height $h$ (General):</span>
+            <p class="text-sm font-mono text-sky-300">$$g_h = \frac{g}{\left(1 + \frac{h}{R}\right)^2}$$</p>
+            <p class="text-[11px] text-slate-400">Use this whenever $h$ is large ($h = R, 2R, R/2$).</p>
+          </div>
+
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+            <span class="text-xs font-bold text-indigo-400">2. At Height $h$ (Approximation for $h \ll R$):</span>
+            <p class="text-sm font-mono text-sky-300">$$g_h \approx g\left(1 - \frac{2h}{R}\right)$$</p>
+            <p class="text-[11px] text-slate-400">Use only when $h \le 300\text{ km}$ ($h/R \le 5\%$).</p>
+          </div>
+
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+            <span class="text-xs font-bold text-emerald-400">3. At Depth $d$ Below Surface:</span>
+            <p class="text-sm font-mono text-emerald-300">$$g_d = g\left(1 - \frac{d}{R}\right)$$</p>
+            <p class="text-[11px] text-slate-400">Exact at ANY depth! At center ($d=R$), $g_d = 0$.</p>
+          </div>
+
+          <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+            <span class="text-xs font-bold text-amber-400">4. Rotation Effect at Latitude $\lambda$:</span>
+            <p class="text-sm font-mono text-amber-300">$$g' = g - \omega^2 R \cos^2\lambda$$</p>
+            <p class="text-[11px] text-slate-400">Equator ($\lambda=0$): $g_{\text{eq}} = g - \omega^2 R$ (Min). Pole ($\lambda=90^\circ$): $g_{\text{pole}} = g$ (Max).</p>
+          </div>
+        </div>
+
+        <!-- The Classic JEE Trap -->
+        <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 text-xs space-y-2">
+          <span class="font-bold text-amber-400 text-sm">🔥 The #1 Repeated NTA Question Archetype:</span>
+          <p class="text-slate-300 font-semibold">
+            "At what depth $d$ is gravity equal to that at a height $h$?"
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-400">
+            <li><strong>Case A (When $h \ll R$, e.g. $16\text{ km}$ or $32\text{ km}$):</strong><br/>
+              $1 - \frac{d}{R} = 1 - \frac{2h}{R} \implies \mathbf{d = 2h}$. (Depth must be twice the height!)
+            </li>
+            <li><strong>Case B (When $h = R$ or $h$ is large):</strong><br/>
+              You MUST use the exact formula! For $h = R$: $g_h = \frac{g}{(1+1)^2} = \frac{g}{4}$.<br/>
+              $1 - \frac{d}{R} = \frac{1}{4} \implies \mathbf{d = \frac{3}{4}R}$.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- PILLAR 3: POTENTIAL & ENERGY -->
+    <!-- ==================================================== -->
+    <section id="pillar-3" class="space-y-6 pt-6">
+      <div class="border-l-4 border-sky-500 pl-4">
+        <span class="text-xs font-bold text-sky-400 uppercase tracking-widest">Pillar 3</span>
+        <h2 class="text-2xl font-black text-white">Gravitational Potential & Potential Energy</h2>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-4 card-print">
+        <h3 class="text-lg font-bold text-sky-300">💡 The Intuitive Story: Why is Potential Energy Negative?</h3>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Think of infinity ($\infty$) as zero debt—you are completely free from Earth's gravity ($U=0$). As you fall toward Earth, gravity does positive work, meaning you fall into a gravitational debt pit. That is why potential energy is negative: <strong>$U = -\frac{GMm}{r}$</strong>. To climb out of the well and escape forever, you must pay back that energy.
+        </p>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3">
+          <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">The Golden Formula for Raising a Mass to Height $h$:</span>
+          <p class="text-base font-mono text-sky-300 text-center">
+            $$\Delta U = U_f - U_i = \mathbf{\frac{mgh}{1 + \frac{h}{R}}}$$
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center text-xs pt-2 border-t border-slate-800">
+            <div class="p-2 rounded-lg bg-slate-900"><span class="text-slate-400">If $h \ll R$:</span> <strong class="text-white">$\Delta U \approx mgh$</strong></div>
+            <div class="p-2 rounded-lg bg-slate-900"><span class="text-slate-400">If $h = R$:</span> <strong class="text-emerald-400">$\Delta U = \frac{1}{2}mgR$</strong></div>
+            <div class="p-2 rounded-lg bg-slate-900"><span class="text-slate-400">If $h = 2R$:</span> <strong class="text-emerald-400">$\Delta U = \frac{2}{3}mgR$</strong></div>
+          </div>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 text-xs space-y-2">
+          <span class="font-bold text-purple-400">Solid Sphere Potential (Inside vs Outside):</span>
+          <p class="text-slate-300">
+            • At surface: $V_{\text{surface}} = -\frac{GM}{R}$<br/>
+            • At center: $V_{\text{center}} = -\frac{3}{2}\frac{GM}{R} = \mathbf{1.5 \times V_{\text{surface}}}$ (The deepest point of the pit!)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- PILLAR 4: ESCAPE VELOCITY -->
+    <!-- ==================================================== -->
+    <section id="pillar-4" class="space-y-6 pt-6">
+      <div class="border-l-4 border-amber-500 pl-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Pillar 4</span>
+        <h2 class="text-2xl font-black text-white">Escape Velocity ($v_e$) & Planet Ratios</h2>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-4 card-print">
+        <h3 class="text-lg font-bold text-amber-300">💡 The Intuitive Story: Buying a One-Way Ticket to Infinity</h3>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          Escape velocity is the minimum launch speed where kinetic energy completely cancels your negative potential energy debt ($K + U = 0$). 
+          Once you have this speed, you coast all the way to infinity with zero fuel, arriving with exactly zero velocity.
+        </p>
+
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 font-mono text-center text-sm text-amber-300 space-y-1">
+          $$v_e = \sqrt{\frac{2GM}{R}} = \sqrt{2gR} = \mathbf{R \sqrt{\frac{8\pi G \rho}{3}}}$$
+          <p class="text-[11px] text-slate-400 font-sans">For Earth: $v_e \approx 11.2\text{ km/s}$</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+          <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800">
+            <span class="font-bold text-sky-400">When Given Mass & Radius Ratio:</span>
+            <p class="font-mono text-slate-300 mt-1">$$v_e \propto \sqrt{\frac{M}{R}}$$</p>
+          </div>
+          <div class="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800">
+            <span class="font-bold text-sky-400">When Given Density & Radius Ratio:</span>
+            <p class="font-mono text-slate-300 mt-1">$$v_e \propto R \sqrt{\rho}$$</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- PILLAR 5: SATELLITES & KEPLER -->
+    <!-- ==================================================== -->
+    <section id="pillar-5" class="space-y-6 pt-6">
+      <div class="border-l-4 border-purple-500 pl-4">
+        <span class="text-xs font-bold text-purple-400 uppercase tracking-widest">Pillar 5</span>
+        <h2 class="text-2xl font-black text-white">Satellite Motion, The Energy Triangle & Kepler's Laws</h2>
+      </div>
+
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-4 card-print">
+        <h3 class="text-lg font-bold text-purple-300">💡 The Intuitive Story: Falling Forever and Never Landing</h3>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          An orbiting satellite is in continuous free fall. It is dropping toward Earth at $9.8\text{ m/s}^2$, but it is moving horizontally so fast ($\approx 7.9\text{ km/s}$) that as it falls, the curved surface of Earth drops away beneath it at the exact same rate. The satellite falls forever around the bend.
+        </p>
+
+        <!-- Energy Triangle -->
+        <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 text-center space-y-3">
+          <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">The Sacred Energy Triangle of an Orbiting Satellite:</span>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-mono">
+            <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+              <span class="text-slate-400 block mb-1">Kinetic Energy (Positive):</span>
+              <span class="text-emerald-400 font-bold text-sm">$$K = +\frac{GMm}{2r}$$</span>
+            </div>
+            <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+              <span class="text-slate-400 block mb-1">Potential Energy (Negative):</span>
+              <span class="text-rose-400 font-bold text-sm">$$U = -\frac{GMm}{r}$$</span>
+            </div>
+            <div class="p-3 bg-slate-900 rounded-xl border border-slate-800">
+              <span class="text-slate-400 block mb-1">Total Energy (Negative):</span>
+              <span class="text-sky-400 font-bold text-sm">$$E = -\frac{GMm}{2r}$$</span>
+            </div>
+          </div>
+          <div class="p-2.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-xs font-bold text-indigo-300">
+            $$\mathbf{U = 2E}, \quad \mathbf{K = -E}, \quad \mathbf{E = -K = \frac{U}{2}}$$
+          </div>
+        </div>
+
+        <!-- Kepler's 3rd Law & Boosts -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+          <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 space-y-2">
+            <span class="font-bold text-amber-400">Kepler's Law (Variable Star Mass):</span>
+            <p class="font-mono text-sky-300 text-sm">$$T = 2\pi \sqrt{\frac{r^3}{GM_*}} \implies T^2 \propto \frac{r^3}{M_*}$$</p>
+            <p class="text-slate-400">Remember: If star mass doubles, period drops by $\sqrt{2}$.</p>
+          </div>
+
+          <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800 space-y-2">
+            <span class="font-bold text-emerald-400">Extra Velocity to Escape from Low Orbit:</span>
+            <p class="font-mono text-emerald-300 text-sm">$$\Delta v = v_e - v_o = (\sqrt{2} - 1)\sqrt{gR}$$</p>
+            <p class="text-slate-400">Numerically: $\Delta v \approx 8(\sqrt{2}-1)\text{ km/s} \approx 3.3\text{ km/s}$.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- SECTION 6: CATEGORIZED SOLVED PYQ BANK -->
+    <!-- ==================================================== -->
+    <section id="solved-bank" class="space-y-8 pt-8 border-t border-slate-800">
+      <div class="border-l-4 border-amber-500 pl-4">
+        <span class="text-xs font-bold text-amber-400 uppercase tracking-widest">Master Solved PYQ Bank</span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white">Categorized Official PYQs with Step-by-Step Solutions</h2>
+        <p class="text-xs text-slate-400 mt-1">Directly extracted from your 2023–2026 JEE Main question papers.</p>
+      </div>
+
+      <!-- CATEGORY 1: VARIATION OF G & POTENTIAL ENERGY -->
+      <div class="space-y-4">
+        <h3 class="text-base font-bold text-indigo-400 flex items-center space-x-2">
+          <span>📍 Category A: Variations of $g$ & Potential Energy at Heights</span>
+        </h3>
+
+        <!-- Question 1 -->
+        <article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3 card-print">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              Q1 • JEE Main 2026 (5th April Evening Shift)
+            </span>
+            <span class="text-xs font-semibold text-emerald-400">Correct: (D) $\frac{2}{3}mgR_e$</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-200">
+            A body of mass $m$ is taken from the surface of earth to a height equal to twice the radius of earth ($R_e$). The increase in potential energy will be:
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono text-slate-400">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(A) $\frac{1}{2}mgR_e$</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(B) $\frac{3}{4}mgR_e$</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(C) $\frac{1}{3}mgR_e$</div>
+            <div class="p-2 rounded bg-slate-950 border border-emerald-500/40 text-emerald-300 font-bold">(D) $\frac{2}{3}mgR_e$</div>
+          </div>
+
+          <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 text-xs space-y-2 mt-3">
+            <span class="font-bold text-sky-400 block">💡 Step-by-Step Derivation:</span>
+            <p class="text-slate-300 font-mono">
+              Initial PE at surface ($r_i = R_e$): $U_i = -\frac{GM_e m}{R_e}$<br/>
+              Final PE at height $h = 2R_e$ ($r_f = R_e + 2R_e = 3R_e$): $U_f = -\frac{GM_e m}{3R_e}$<br/>
+              $$\Delta U = U_f - U_i = -\frac{GM_e m}{3R_e} - \left(-\frac{GM_e m}{R_e}\right) = \frac{GM_e m}{R_e}\left(1 - \frac{1}{3}\right) = \frac{2}{3}\frac{GM_e m}{R_e}$$
+              Since $g = \frac{GM_e}{R_e^2} \implies \frac{GM_e m}{R_e} = mgR_e$, we get:
+              $$\mathbf{\Delta U = \frac{2}{3}mgR_e}$$
+            </p>
+            <p class="text-amber-400 font-sans">⚡ <strong>10-Second Shortcut:</strong> Directly use $\Delta U = \frac{mgh}{1 + h/R}$. Plug in $h=2R \implies \frac{mg(2R)}{1+2} = \mathbf{\frac{2}{3}mgR}$. Done in 5 seconds!</p>
+          </div>
+        </article>
+
+        <!-- Question 2 -->
+        <article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3 card-print">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              Q2 • JEE Main 2026 (5th April Morning Shift)
+            </span>
+            <span class="text-xs font-semibold text-emerald-400">Correct: (B) 0.25</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-200">
+            When one moves from a point 16 km below the earth's surface to a point 16 km above the earth's surface, the change in $g$ is approximately $\alpha\%$. The value of $\alpha$ is: (Take radius of the earth = 6400 km.)
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono text-slate-400">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(A) 0.12</div>
+            <div class="p-2 rounded bg-slate-950 border border-emerald-500/40 text-emerald-300 font-bold">(B) 0.25</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(C) 0.50</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(D) 0.75</div>
+          </div>
+
+          <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 text-xs space-y-2 mt-3">
+            <span class="font-bold text-sky-400 block">💡 Step-by-Step Derivation:</span>
+            <p class="text-slate-300 font-mono">
+              Here $h = d = 16\text{ km} \ll R$ ($6400\text{ km}$).<br/>
+              Gravity at depth $d$: $g_{\text{below}} = g\left(1 - \frac{d}{R}\right)$<br/>
+              Gravity at height $h$: $g_{\text{above}} \approx g\left(1 - \frac{2h}{R}\right)$<br/>
+              Change in $g$: $\Delta g = g_{\text{below}} - g_{\text{above}} = g\left[\left(1 - \frac{d}{R}\right) - \left(1 - \frac{2h}{R}\right)\right] = g\left(\frac{2h - d}{R}\right)$<br/>
+              Since $h = d = 16\text{ km}$:
+              $$\Delta g = g\frac{16}{6400} = \frac{g}{400}$$
+              Percentage change: $\alpha\% = \frac{\Delta g}{g} \times 100 = \frac{1}{400} \times 100 = \mathbf{0.25\%}$.
+            </p>
+          </div>
+        </article>
+
+        <!-- Question 3 -->
+        <article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3 card-print">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              Q3 • JEE Main 2026 (4th April Evening Shift)
+            </span>
+            <span class="text-xs font-semibold text-emerald-400">Correct: (C) $2R$</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-200">
+            The height in terms of radius of the earth ($R$), at which the acceleration due to gravity becomes $g/9$, where $g$ is acceleration due to gravity on earth's surface, is:
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono text-slate-400">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(A) $\sqrt{3}R$</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(B) $2\sqrt{2}R$</div>
+            <div class="p-2 rounded bg-slate-950 border border-emerald-500/40 text-emerald-300 font-bold">(C) $2R$</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(D) $\frac{4}{9}R$</div>
+          </div>
+
+          <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 text-xs space-y-2 mt-3">
+            <span class="font-bold text-sky-400 block">💡 Step-by-Step Derivation:</span>
+            <p class="text-slate-300 font-mono">
+              $$g_h = \frac{g}{\left(1 + \frac{h}{R}\right)^2} = \frac{g}{9}$$
+              $$\left(1 + \frac{h}{R}\right)^2 = 9 \implies 1 + \frac{h}{R} = 3 \implies \frac{h}{R} = 2 \implies \mathbf{h = 2R}$$
+            </p>
+            <p class="text-rose-400 font-sans">⚠️ <strong>Trap:</strong> If a student wrongly used the linear formula $g(1-2h/R) = g/9 \implies 2h/R = 8/9 \implies h = 4R/9$, they would have picked option (D) and lost 5 marks!</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- CATEGORY 2: KEPLER'S LAWS & ORBITS -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-base font-bold text-purple-400 flex items-center space-x-2">
+          <span>📍 Category B: Kepler's 3rd Law & Orbital Periods</span>
+        </h3>
+
+        <!-- Question 5 -->
+        <article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3 card-print">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              Q5 • JEE Main 2026 (2nd April Morning Shift)
+            </span>
+            <span class="text-xs font-semibold text-emerald-400">Correct: (B) 2</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-200">
+            A planet ($P_1$) is moving around a star of mass $2M$ in an orbit of radius $R$. Another planet ($P_2$) is moving around another star of mass $4M$ in an orbit of radius $2R$. The ratio of time periods of revolution of $P_2$ and $P_1$ is:
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono text-slate-400">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(A) 1/2</div>
+            <div class="p-2 rounded bg-slate-950 border border-emerald-500/40 text-emerald-300 font-bold">(B) 2</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(C) 4</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(D) 1/4</div>
+          </div>
+
+          <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 text-xs space-y-2 mt-3">
+            <span class="font-bold text-sky-400 block">💡 Step-by-Step Derivation:</span>
+            <p class="text-slate-300 font-mono">
+              From gravitational centripetal balance: $\frac{G M_* m}{r^2} = m\omega^2 r = m\left(\frac{2\pi}{T}\right)^2 r$<br/>
+              $$T^2 = \frac{4\pi^2 r^3}{G M_*} \implies T \propto \sqrt{\frac{r^3}{M_*}}$$
+              $$\frac{T_2}{T_1} = \sqrt{\frac{r_2^3}{r_1^3} \times \frac{M_{*1}}{M_{*2}}} = \sqrt{\frac{(2R)^3}{R^3} \times \frac{2M}{4M}} = \sqrt{8 \times \frac{1}{2}} = \sqrt{4} = \mathbf{2}$$
+            </p>
+          </div>
+        </article>
+
+        <!-- Question 10 from 2023 PDF -->
+        <article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3 card-print">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              Q10 • JEE Main 2023 (29th Jan Evening Shift)
+            </span>
+            <span class="text-xs font-semibold text-emerald-400">Correct: (D) 3 hours</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-200">
+            The time period of a satellite of earth is 24 hours. If the separation between the earth and the satellite is decreased to one fourth of the previous value, then its new time period will become:
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono text-slate-400">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(A) 4 hours</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(B) 6 hours</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(C) 12 hours</div>
+            <div class="p-2 rounded bg-slate-950 border border-emerald-500/40 text-emerald-300 font-bold">(D) 3 hours</div>
+          </div>
+
+          <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 text-xs space-y-2 mt-3">
+            <span class="font-bold text-sky-400 block">💡 Step-by-Step Derivation:</span>
+            <p class="text-slate-300 font-mono">
+              $$T^2 \propto r^3 \implies \frac{T_2}{T_1} = \left(\frac{r_2}{r_1}\right)^{3/2}$$
+              Here $r_2 = \frac{r_1}{4}$:
+              $$\frac{T_2}{24} = \left(\frac{1}{4}\right)^{3/2} = \left[\left(\frac{1}{2}\right)^2\right]^{3/2} = \left(\frac{1}{2}\right)^3 = \frac{1}{8}$$
+              $$T_2 = \frac{24}{8} = \mathbf{3\text{ hours}}$$
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- CATEGORY 3: ESCAPE VELOCITY -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-base font-bold text-amber-400 flex items-center space-x-2">
+          <span>📍 Category C: Escape Velocity & Parameter Ratios</span>
+        </h3>
+
+        <!-- Question 8 from 2026 -->
+        <article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3 card-print">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              Q8 • JEE Main 2026 (22nd Jan Morning Shift)
+            </span>
+            <span class="text-xs font-semibold text-emerald-400">Correct: (D) $100\sqrt{10}\text{ m/s}$</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-200">
+            The escape velocity from a spherical planet A is $10\text{ km/s}$. The escape velocity from another planet B whose density and radius are $10\%$ of those of planet A, is:
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono text-slate-400">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(A) 1000 m/s</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(B) $200\sqrt{5}\text{ m/s}$</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(C) $1000\sqrt{2}\text{ m/s}$</div>
+            <div class="p-2 rounded bg-slate-950 border border-emerald-500/40 text-emerald-300 font-bold">(D) $100\sqrt{10}\text{ m/s}$</div>
+          </div>
+
+          <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 text-xs space-y-2 mt-3">
+            <span class="font-bold text-sky-400 block">💡 Step-by-Step Derivation:</span>
+            <p class="text-slate-300 font-mono">
+              Escape velocity in terms of density:
+              $$v_e = \sqrt{\frac{2GM}{R}} = \sqrt{\frac{2G(\frac{4}{3}\pi R^3 \rho)}{R}} = R \sqrt{\frac{8\pi G \rho}{3}} \implies \mathbf{v_e \propto R\sqrt{\rho}}$$
+              $$\frac{v_B}{v_A} = \frac{R_B}{R_A} \sqrt{\frac{\rho_B}{\rho_A}} = \left(\frac{1}{10}\right) \sqrt{\frac{1}{10}} = \frac{1}{10\sqrt{10}}$$
+              $$v_B = \frac{10\text{ km/s}}{10\sqrt{10}} = \frac{10 \times 10^3\text{ m/s}}{10\sqrt{10}} = \frac{1000}{\sqrt{10}} = \frac{1000\sqrt{10}}{10} = \mathbf{100\sqrt{10}\text{ m/s}}$$
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- CATEGORY 4: SATELLITE ENERGIES & TRANSITIONS -->
+      <div class="space-y-4 pt-4">
+        <h3 class="text-base font-bold text-emerald-400 flex items-center space-x-2">
+          <span>📍 Category D: Orbital Energy Transitions</span>
+        </h3>
+
+        <!-- Question 10 from 2026 -->
+        <article class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-3 card-print">
+          <div class="flex items-center justify-between">
+            <span class="text-[11px] font-bold px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
+              Q10 • JEE Main 2026 (21st Jan Morning Shift)
+            </span>
+            <span class="text-xs font-semibold text-emerald-400">Correct: (B) 1000</span>
+          </div>
+          <p class="text-sm font-semibold text-slate-200">
+            Initially a satellite of $100\text{ kg}$ is in a circular orbit of radius $1.5R_E$. This satellite can be moved to a circular orbit of radius $3R_E$ by supplying $\alpha \times 10^6\text{ J}$ of energy. The value of $\alpha$ is: (Take Radius of Earth $R_E = 6 \times 10^6\text{ m}$ and $g = 10\text{ m/s}^2$)
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs font-mono text-slate-400">
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(A) 500</div>
+            <div class="p-2 rounded bg-slate-950 border border-emerald-500/40 text-emerald-300 font-bold">(B) 1000</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(C) 100</div>
+            <div class="p-2 rounded bg-slate-950 border border-slate-800">(D) 150</div>
+          </div>
+
+          <div class="bg-slate-950/80 p-4 rounded-xl border border-slate-800/80 text-xs space-y-2 mt-3">
+            <span class="font-bold text-sky-400 block">💡 Step-by-Step Derivation:</span>
+            <p class="text-slate-300 font-mono">
+              Total energy of a satellite in orbit of radius $r$: $E = -\frac{GM_E m}{2r}$<br/>
+              Energy required:
+              $$\Delta E = E_f - E_i = -\frac{GM_E m}{2(3R_E)} - \left(-\frac{GM_E m}{2(1.5R_E)}\right) = \frac{GM_E m}{2R_E}\left(\frac{1}{1.5} - \frac{1}{3}\right)$$
+              Notice $\frac{1}{1.5} - \frac{1}{3} = \frac{2}{3} - \frac{1}{3} = \frac{1}{3}$.
+              $$\Delta E = \frac{GM_E m}{2R_E}\left(\frac{1}{3}\right) = \frac{GM_E m}{6R_E} = \frac{mgR_E}{6}$$
+              Now plug in the values:
+              $$\Delta E = \frac{100 \times 10 \times (6 \times 10^6)}{6} = 100 \times 10 \times 10^6 = \mathbf{1000 \times 10^6\text{ J}}$$
+              Therefore, $\mathbf{\alpha = 1000}$.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </section>
+
+    <!-- Footer Note -->
+    <footer class="text-center text-xs text-slate-500 pt-8 border-t border-slate-800">
+      <p>🎯 Master this guide, solve these 4 categories by hand, and your 4 marks in JEE Main Gravitation are guaranteed.</p>
+      <p class="mt-1 text-[11px] text-slate-600">Generated for you in your Antigravity Workspace • Press Ctrl+P to save as PDF</p>
+    </footer>
+
+  </div>
+</body>
+</html>
