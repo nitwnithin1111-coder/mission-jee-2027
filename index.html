@@ -1654,8 +1654,9 @@
           <span>📲</span>
           <span>Install</span>
         </button>
-        <button class="header-pill-btn" onclick="openChaiModal()" title="Support the Creator">
+        <button class="header-pill-btn" onclick="openChaiModal()" title="Buy Me a Coffee">
           <span>☕</span>
+          <span class="desktop-only">Coffee</span>
         </button>
       </div>
     </header>
@@ -1793,7 +1794,7 @@
     </div>
   </div>
 
-  <!-- Buy Me a Chai Modal -->
+  <!-- Buy Me a Coffee Modal -->
   <div class="modal-overlay" id="chai-modal" onclick="closeChaiModalOnOverlay(event)">
     <div class="modal-box" style="text-align: center; max-width: 440px;">
       <div style="display: flex; justify-content: flex-end;">
@@ -1801,21 +1802,21 @@
       </div>
 
       <div style="font-size: 38px; margin-bottom: 8px;">☕</div>
-      <h3 style="font-size: 20px; font-weight: 800; color: #fff;">Buy Me a Chai</h3>
+      <h3 style="font-size: 20px; font-weight: 800; color: #fff;">Buy Me a Coffee</h3>
       <p style="font-size: 12.5px; color: var(--text-muted); margin: 6px 0 16px 0; line-height: 1.45;">
-        If these free chapter PDFs saved you hours of study confusion, fuel the project with a cutting chai! Every rupee goes into creating more free guides.
+        If these free chapter PDFs saved you hours of study confusion, fuel the project with a coffee! ☕ Every rupee goes into creating more free guides.
       </p>
 
       <!-- Amount Selector Pills -->
       <div style="display: flex; justify-content: center; gap: 8px; margin-bottom: 16px;">
-        <button id="amt-20" class="card-action-btn" style="background: #f59e0b; color: #000; font-weight: 800; padding: 6px 14px; font-size: 12px; cursor: pointer; border: none;" onclick="setChaiAmount(20)">₹20 (Cutting Chai)</button>
-        <button id="amt-50" class="card-action-btn" style="background: rgba(255,255,255,0.06); color: #fff; font-weight: 700; padding: 6px 14px; font-size: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.15);" onclick="setChaiAmount(50)">₹50 (Special Chai)</button>
+        <button id="amt-20" class="card-action-btn" style="background: #f59e0b; color: #000; font-weight: 800; padding: 6px 14px; font-size: 12px; cursor: pointer; border: none;" onclick="setChaiAmount(20)">₹20 (Coffee)</button>
+        <button id="amt-50" class="card-action-btn" style="background: rgba(255,255,255,0.06); color: #fff; font-weight: 700; padding: 6px 14px; font-size: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.15);" onclick="setChaiAmount(50)">₹50 (Special Coffee)</button>
         <button id="amt-custom" class="card-action-btn" style="background: rgba(255,255,255,0.06); color: #fff; font-weight: 700; padding: 6px 14px; font-size: 12px; cursor: pointer; border: 1px solid rgba(255,255,255,0.15);" onclick="setChaiAmount(0)">Custom</button>
       </div>
 
       <!-- Dynamic QR Code Card -->
       <div style="background: #ffffff; padding: 14px; border-radius: 12px; display: inline-block; box-shadow: 0 10px 25px rgba(0,0,0,0.3); margin-bottom: 14px;">
-        <img id="chai-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi%3A%2F%2Fpay%3Fpa%3Dzenithink%40fam%26pn%3DNithLabs%20(Mission%20JEE)%26am%3D20%26cu%3DINR%26tn%3DChai%20for%20Mission%20JEE%20Notes" alt="FamPay UPI QR Code" style="width: 170px; height: 170px; display: block;" />
+        <img id="chai-qr" src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=upi%3A%2F%2Fpay%3Fpa%3Dzenithink%40fam%26pn%3DNithLabs%20(Mission%20JEE)%26am%3D20%26cu%3DINR%26tn%3DCoffee%20for%20Mission%20JEE%20Notes" alt="FamPay UPI QR Code" style="width: 170px; height: 170px; display: block;" />
       </div>
 
       <!-- FamPay UPI ID Display & Copy -->
@@ -1825,7 +1826,7 @@
       </div>
 
       <!-- Direct UPI Mobile Pay Button -->
-      <a id="chai-upi-link" href="upi://pay?pa=zenithink@fam&pn=NithLabs%20(Mission%20JEE)&am=20&cu=INR&tn=Chai%20for%20Mission%20JEE%20Notes" class="btn-download" style="background: linear-gradient(135deg, #f59e0b, #d97706); text-decoration: none; padding: 11px; font-size: 13.5px;" onclick="Analytics.track('chai_pay_clicked', selectedChaiAmount)">
+      <a id="chai-upi-link" href="upi://pay?pa=zenithink@fam&pn=NithLabs%20(Mission%20JEE)&am=20&cu=INR&tn=Coffee%20for%20Mission%20JEE%20Notes" class="btn-download" style="background: linear-gradient(135deg, #f59e0b, #d97706); text-decoration: none; padding: 11px; font-size: 13.5px;" onclick="Analytics.track('chai_pay_clicked', selectedChaiAmount)">
         <span>⚡</span>
         <span id="chai-pay-btn-text">Pay ₹20 via GPay / PhonePe / Paytm</span>
       </a>
@@ -2400,7 +2401,7 @@
     let selectedChaiAmount = 20;
 
     function openChaiModal() {
-      Analytics.track('chai_modal_open', 'User clicked Buy Me a Chai');
+      Analytics.track('chai_modal_open', 'User clicked Buy Me a Coffee');
       document.getElementById('chai-modal').classList.add('active');
     }
 
@@ -2418,7 +2419,7 @@
       selectedChaiAmount = amt;
       const upiId = "zenithink@fam";
       const name = "NithLabs (Mission JEE)";
-      const note = "Chai for Mission JEE Notes";
+      const note = "Coffee for Mission JEE Notes";
 
       ['amt-20', 'amt-50', 'amt-custom'].forEach(id => {
         const btn = document.getElementById(id);
