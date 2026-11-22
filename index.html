@@ -136,6 +136,52 @@
       box-shadow: 0 4px 14px rgba(245, 158, 11, 0.5);
     }
 
+    /* Request a Topic Button */
+    .request-topic-btn {
+      background: rgba(2, 132, 199, 0.18);
+      color: #38bdf8 !important;
+      border: 1px solid rgba(2, 132, 199, 0.4);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 10px rgba(2, 132, 199, 0.2);
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      white-space: nowrap;
+    }
+    .request-topic-btn:hover {
+      background: #0284c7;
+      color: #ffffff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.45);
+    }
+
+    .request-topic-btn-sm {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8 !important;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      text-decoration: none;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+      margin-left: 8px;
+      white-space: nowrap;
+    }
+    .request-topic-btn-sm:hover {
+      background: #0284c7;
+      color: #ffffff !important;
+      border-color: #0284c7;
+    }
+
     /* Header */
     header {
       display: flex;
@@ -225,6 +271,211 @@
       margin: 0 auto;
     }
 
+    /* Global Client-Side Search Bar */
+    .search-container {
+      margin: 18px 0 20px 0;
+      position: relative;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #111827;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 6px 14px;
+      transition: all 0.2s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .search-box:focus-within {
+      border-color: #0284c7;
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.25);
+      background: #0f172a;
+    }
+
+    .search-icon {
+      font-size: 16px;
+      margin-right: 10px;
+      opacity: 0.7;
+    }
+
+    #global-search {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #f8fafc;
+      font-family: inherit;
+      font-size: 14px;
+      padding: 6px 0;
+    }
+
+    #global-search::placeholder {
+      color: #64748b;
+    }
+
+    #search-clear {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    #search-clear:hover {
+      color: #f8fafc;
+      background: #334155;
+    }
+
+    .search-highlight {
+      background: rgba(245, 158, 11, 0.25);
+      color: #fbbf24;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    .tip-card {
+      background: #111827;
+      border: 1px solid #334155;
+      border-left: 4px solid #f59e0b;
+      border-radius: 10px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tip-card:hover {
+      border-color: #f59e0b;
+      transform: translateY(-2px);
+    }
+
+    /* Today's Question Challenge Card */
+    .daily-pyq-card {
+      background: linear-gradient(180deg, #111827 0%, #0d1322 100%);
+      border: 1px solid #1e293b;
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+
+    .daily-pyq-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #f59e0b, #0284c7, #10b981);
+    }
+
+    .daily-pyq-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .streak-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .pyq-meta-line {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .pyq-tag {
+      background: rgba(255, 255, 255, 0.08);
+      color: #94a3b8;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .pyq-question-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: #f1f5f9;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .pyq-options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .pyq-options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pyq-opt-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #e2e8f0;
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .pyq-opt-btn:hover:not(:disabled) {
+      background: #334155;
+      border-color: #0284c7;
+      color: #fff;
+    }
+
+    .pyq-opt-btn.correct {
+      background: rgba(16, 185, 129, 0.2) !important;
+      border-color: #10b981 !important;
+      color: #34d399 !important;
+    }
+
+    .pyq-opt-btn.wrong {
+      background: rgba(239, 68, 68, 0.2) !important;
+      border-color: #ef4444 !important;
+      color: #f87171 !important;
+    }
+
+    .pyq-expl-box {
+      background: rgba(2, 132, 199, 0.1);
+      border: 1px solid rgba(2, 132, 199, 0.25);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: #bae6fd;
+      margin-top: 10px;
+      display: none;
+    }
+
     /* 3 Subject Selector Tabs */
     .subject-selector {
       display: grid;
@@ -298,6 +549,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 8px;
       margin-bottom: 18px;
       text-align: center;
@@ -596,218 +848,17 @@
         grid-template-columns: 1fr;
       }
     }
-  
-    /* Global Client-Side Search Bar */
-    .search-container {
-      margin: 18px 0 24px 0;
-      position: relative;
-    }
+  </style>
 
-    .search-box {
-      display: flex;
-      align-items: center;
-      background: #111827;
-      border: 1px solid #334155;
-      border-radius: 12px;
-      padding: 6px 14px;
-      transition: all 0.2s;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    .search-box:focus-within {
-      border-color: #0284c7;
-      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.25);
-      background: #0f172a;
-    }
-
-    .search-icon {
-      font-size: 16px;
-      margin-right: 10px;
-      opacity: 0.7;
-    }
-
-    #global-search {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: #f8fafc;
-      font-family: inherit;
-      font-size: 14px;
-      padding: 6px 0;
-    }
-
-    #global-search::placeholder {
-      color: #64748b;
-    }
-
-    #search-clear {
-      background: none;
-      border: none;
-      color: #94a3b8;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      padding: 4px 8px;
-      border-radius: 4px;
-    }
-
-    #search-clear:hover {
-      color: #f8fafc;
-      background: #334155;
-    }
-
-    .search-highlight {
-      background: rgba(245, 158, 11, 0.25);
-      color: #fbbf24;
-      padding: 0 2px;
-      border-radius: 2px;
-    }
-
-    .tip-card {
-      background: #111827;
-      border: 1px solid #334155;
-      border-left: 4px solid #f59e0b;
-      border-radius: 10px;
-      padding: 16px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .tip-card:hover {
-      border-color: #f59e0b;
-      transform: translateY(-2px);
-    }
-
-    /* Today's Question Challenge Card */
-    .daily-pyq-card {
-      background: linear-gradient(180deg, #111827 0%, #0d1322 100%);
-      border: 1px solid #1e293b;
-      border-radius: 14px;
-      padding: 20px 22px;
-      margin-bottom: 24px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
-    }
-
-    .daily-pyq-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, #f59e0b, #0284c7, #10b981);
-    }
-
-    .daily-pyq-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .streak-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: rgba(245, 158, 11, 0.15);
-      color: #fbbf24;
-      border: 1px solid rgba(245, 158, 11, 0.35);
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .pyq-meta-line {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-size: 11px;
-      font-weight: 700;
-    }
-
-    .pyq-tag {
-      background: rgba(255, 255, 255, 0.08);
-      color: #94a3b8;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
-
-    .pyq-question-text {
-      font-size: 14px;
-      font-weight: 600;
-      color: #f1f5f9;
-      line-height: 1.5;
-      margin-bottom: 14px;
-    }
-
-    .pyq-options-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    @media (max-width: 600px) {
-      .pyq-options-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .pyq-opt-btn {
-      background: #1e293b;
-      border: 1px solid #334155;
-      color: #e2e8f0;
-      padding: 9px 12px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 600;
-      text-align: left;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-
-    .pyq-opt-btn:hover:not(:disabled) {
-      background: #334155;
-      border-color: #0284c7;
-      color: #fff;
-    }
-
-    .pyq-opt-btn.correct {
-      background: rgba(16, 185, 129, 0.2) !important;
-      border-color: #10b981 !important;
-      color: #34d399 !important;
-    }
-
-    .pyq-opt-btn.wrong {
-      background: rgba(239, 68, 68, 0.2) !important;
-      border-color: #ef4444 !important;
-      color: #f87171 !important;
-    }
-
-    .pyq-expl-box {
-      background: rgba(2, 132, 199, 0.1);
-      border: 1px solid rgba(2, 132, 199, 0.25);
-      border-radius: 8px;
-      padding: 12px 14px;
-      font-size: 12.5px;
-      line-height: 1.5;
-      color: #bae6fd;
-      margin-top: 10px;
-      display: none;
-    }
-</style>
-  <!-- Vercel Web Analytics -->
+  <!-- External Data File -->
   <script src="data.js"></script>
+
+  <!-- Vercel Web Analytics -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
+
   <!-- Progressive Web App (PWA) -->
   <link rel="manifest" href="/manifest.json">
   <meta name="theme-color" content="#0284c7">
@@ -847,7 +898,7 @@
           <span>☕</span>
           <span>Buy Me a Chai</span>
         </button>
-        <div class="header-tag">TS IPE + JEE MAIN 2027</div>
+        <div class="header-tag">JEE MAIN 2027</div>
         <a href="https://instagram.com/nithlabs" target="_blank" rel="noopener noreferrer" class="ig-follow-btn" style="padding: 4px 10px; font-size: 10.5px;" onclick="Analytics.track('ig_click', 'Header')">
           <span>@nithlabs</span>
         </a>
@@ -869,11 +920,15 @@
           <span>🔗</span>
           <span id="copy-link-text">Copy Link</span>
         </button>
+        <!-- Request a Topic Button -->
+        <a href="https://ig.me/m/nithlabs" target="_blank" rel="noopener noreferrer" class="request-topic-btn" id="hero-request-topic-btn" onclick="Analytics.track('request_topic', 'Hero Button')">
+          <span>📬</span>
+          <span>Request a Topic (Instagram DM)</span>
+        </a>
       </div>
     </section>
 
-    <!-- 3 Subject Selector Tabs -->
-    <!-- Global Search Bar -->
+    <!-- Global Client-Side Search Bar -->
     <div class="search-container">
       <div class="search-box">
         <span class="search-icon">🔍</span>
@@ -882,6 +937,25 @@
       </div>
     </div>
 
+    <!-- Today's Question Challenge -->
+    <div class="daily-pyq-card" id="daily-pyq-box">
+      <div class="daily-pyq-header">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="font-size: 18px;">🎯</span>
+          <span style="font-size: 13px; font-weight: 800; color: #f1f5f9; text-transform: uppercase; letter-spacing: 0.04em;">Today's JEE PYQ Challenge</span>
+        </div>
+        <div class="streak-badge" id="daily-streak-badge">
+          <span>🔥</span>
+          <span id="streak-count">0</span>
+          <span>Day Streak</span>
+        </div>
+      </div>
+      <div id="daily-pyq-body">
+        <div style="font-size: 12.5px; color: #94a3b8;">Loading today's question...</div>
+      </div>
+    </div>
+
+    <!-- 3 Subject Selector Tabs -->
     <div class="subject-selector">
       <button class="subject-btn active physics" onclick="selectSubject('physics')">
         <span>⚛️</span>
@@ -897,17 +971,18 @@
       </button>
     </div>
 
-    <!-- Active Loading Notice Banner -->
+    <!-- Active Loading Notice Banner with Request Topic Link -->
     <div class="loading-strip">
       <span>⚡</span>
       <span><strong>More chapters loading soon!</strong> We are actively compiling and verifying new high-yield master guides daily.</span>
+      <a href="https://ig.me/m/nithlabs" target="_blank" rel="noopener noreferrer" class="request-topic-btn-sm" onclick="Analytics.track('request_topic', 'Loading Strip')">Request a Topic &rarr;</a>
     </div>
 
     <!-- Chapter Section -->
     <div class="list-header">
       <div class="list-title">
         <span id="subject-title">Physics Chapters</span>
-        <span class="count-badge" id="chapter-count">1 Available</span>
+        <span class="count-badge" id="chapter-count">2 Ready • 5 Total</span>
       </div>
     </div>
 
@@ -921,7 +996,9 @@
       <p><strong>Mission JEE 2027</strong> • Open Educational Initiative for JEE Main Aspirants • Free &amp; Ad-Free</p>
       
       <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 12.5px;">
-        <a href="/support.html" style="color: #38bdf8; text-decoration: none; font-weight: 700;">📬 Raise a Request or Complaint</a>
+        <a href="https://ig.me/m/nithlabs" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: 700;">📬 Request a Topic (Instagram DM)</a>
+        <span style="color: #475569;">•</span>
+        <a href="/support.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">Raise a Request or Complaint</a>
         <span style="color: #475569;">•</span>
         <a href="/privacy.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">Privacy Policy</a>
         <span style="color: #475569;">•</span>
@@ -982,7 +1059,7 @@
       </div>
 
       <div class="modal-disclaimer">
-        📌 Generated with AI assistance. Verified with official NTA answer keys. Please confirm with your teacher.
+        📌 Verified with official NTA answer keys. Please confirm with your teacher.
       </div>
     </div>
   </div>
@@ -1043,11 +1120,12 @@
             shares: 0,
             chapterClicks: 0,
             igClicks: 0,
+            topicRequests: 0,
             chapters: {},
             events: []
           };
         } catch(e) {
-          return { visits: 0, downloads: 0, shares: 0, chapterClicks: 0, igClicks: 0, chapters: {}, events: [] };
+          return { visits: 0, downloads: 0, shares: 0, chapterClicks: 0, igClicks: 0, topicRequests: 0, chapters: {}, events: [] };
         }
       },
       track(type, meta = '') {
@@ -1061,10 +1139,11 @@
         if (type === 'share') data.shares++;
         if (type === 'chapter_click') data.chapterClicks++;
         if (type === 'ig_click') data.igClicks++;
+        if (type === 'request_topic') data.topicRequests = (data.topicRequests || 0) + 1;
         if (type === 'chai_modal_open' || type === 'chai_pay_clicked') data.chaiClicks = (data.chaiClicks || 0) + 1;
 
         data.events.unshift({ type, meta, time: now });
-        if (data.events.length > 100) data.events.pop(); // Keep last 100
+        if (data.events.length > 100) data.events.pop();
 
         localStorage.setItem(this.storageKey, JSON.stringify(data));
       }
@@ -1243,145 +1322,9 @@
       document.getElementById('subject-title').innerText = titles[subject];
 
       renderChapters();
-    initDailyQuestion();
-
-    // Today's Question & Streak Manager
-    let dailyQuestionsList = [];
-    let currentDailyQ = null;
-
-    async function initDailyQuestion() {
-      try {
-        const resp = await fetch('/questions.json');
-        dailyQuestionsList = await resp.json();
-      } catch (err) {
-        console.log('Using fallback daily question');
-        dailyQuestionsList = [
-          {
-            id: "q1",
-            chapter: "Gravitation",
-            examTag: "JEE Main 2024 (27 Jan Shift 1)",
-            archetype: "Orbital Speed Scaling",
-            question: "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
-            options: ["(A) 1 : 2", "(B) 2 : 1", "(C) 4 : 1", "(D) 1 : 4"],
-            correctIndex: 1,
-            explanation: "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore, (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. Ratio is 2 : 1."
-          }
-        ];
-      }
-
-      if (!dailyQuestionsList || dailyQuestionsList.length === 0) return;
-
-      // Select question based on calendar day
-      const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % dailyQuestionsList.length;
-      currentDailyQ = dailyQuestionsList[dayIndex];
-
-      renderStreak();
-      renderDailyQuestionUI();
     }
 
-    function getTodayKey() {
-      return new Date().toISOString().slice(0, 10);
-    }
-
-    function getYesterdayKey() {
-      const d = new Date();
-      d.setDate(d.getDate() - 1);
-      return d.toISOString().slice(0, 10);
-    }
-
-    function renderStreak() {
-      const streak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
-      const lastDate = localStorage.getItem('mjee_last_date');
-      const today = getTodayKey();
-      const yesterday = getYesterdayKey();
-
-      let activeStreak = streak;
-      if (lastDate && lastDate !== today && lastDate !== yesterday) {
-        // Streak lost
-        activeStreak = 0;
-        localStorage.setItem('mjee_daily_streak', '0');
-      }
-
-      document.getElementById('streak-count').innerText = activeStreak;
-    }
-
-    function renderDailyQuestionUI() {
-      const q = currentDailyQ;
-      const today = getTodayKey();
-      const answeredRecord = localStorage.getItem('mjee_ans_' + today);
-
-      const body = document.getElementById('daily-pyq-body');
-      body.innerHTML = `
-        <div class="pyq-meta-line">
-          <span class="pyq-tag" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">${q.chapter}</span>
-          <span class="pyq-tag">${q.examTag}</span>
-          <span class="pyq-tag" style="color: #fbbf24;">${q.archetype}</span>
-        </div>
-        <div class="pyq-question-text">${escapeHtml(q.question)}</div>
-        <div class="pyq-options-grid" id="pyq-opts">
-          ${q.options.map((opt, i) => `
-            <button class="pyq-opt-btn" id="opt-btn-${i}" onclick="handleOptionSelect(${i})">${escapeHtml(opt)}</button>
-          `).join('')}
-        </div>
-        <div class="pyq-expl-box" id="pyq-expl">
-          <strong>Solution &amp; Takeaway:</strong><br>
-          ${escapeHtml(q.explanation)}
-        </div>
-      `;
-
-      if (answeredRecord) {
-        const selectedIdx = parseInt(answeredRecord, 10);
-        showAnswerState(selectedIdx);
-      }
-    }
-
-    function handleOptionSelect(chosenIdx) {
-      const q = currentDailyQ;
-      const today = getTodayKey();
-      const yesterday = getYesterdayKey();
-      const lastDate = localStorage.getItem('mjee_last_date');
-
-      // Save user answer
-      localStorage.setItem('mjee_ans_' + today, chosenIdx);
-
-      if (chosenIdx === q.correctIndex) {
-        // Increment streak if not completed yet today
-        if (lastDate !== today) {
-          let currentStreak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
-          if (lastDate === yesterday) {
-            currentStreak += 1;
-          } else {
-            currentStreak = 1;
-          }
-          localStorage.setItem('mjee_daily_streak', currentStreak);
-          localStorage.setItem('mjee_last_date', today);
-          renderStreak();
-        }
-      }
-
-      Analytics.track('daily_pyq', `Answered ${chosenIdx === q.correctIndex ? 'Correct' : 'Wrong'}: ${q.chapter}`);
-      showAnswerState(chosenIdx);
-    }
-
-    function showAnswerState(chosenIdx) {
-      const q = currentDailyQ;
-      const buttons = document.querySelectorAll('.pyq-opt-btn');
-      buttons.forEach((btn, i) => {
-        btn.disabled = true;
-        if (i === q.correctIndex) {
-          btn.classList.add('correct');
-        } else if (i === chosenIdx) {
-          btn.classList.add('wrong');
-        }
-      });
-
-      const expl = document.getElementById('pyq-expl');
-      if (expl) expl.style.display = 'block';
-    }
-
-    }
-
-    
+    // Global Search Logic
     let searchDebounceTimer = null;
 
     function handleSearch(query) {
@@ -1396,142 +1339,6 @@
       input.value = '';
       document.getElementById('search-clear').style.display = 'none';
       renderChapters();
-    initDailyQuestion();
-
-    // Today's Question & Streak Manager
-    let dailyQuestionsList = [];
-    let currentDailyQ = null;
-
-    async function initDailyQuestion() {
-      try {
-        const resp = await fetch('/questions.json');
-        dailyQuestionsList = await resp.json();
-      } catch (err) {
-        console.log('Using fallback daily question');
-        dailyQuestionsList = [
-          {
-            id: "q1",
-            chapter: "Gravitation",
-            examTag: "JEE Main 2024 (27 Jan Shift 1)",
-            archetype: "Orbital Speed Scaling",
-            question: "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
-            options: ["(A) 1 : 2", "(B) 2 : 1", "(C) 4 : 1", "(D) 1 : 4"],
-            correctIndex: 1,
-            explanation: "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore, (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. Ratio is 2 : 1."
-          }
-        ];
-      }
-
-      if (!dailyQuestionsList || dailyQuestionsList.length === 0) return;
-
-      // Select question based on calendar day
-      const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % dailyQuestionsList.length;
-      currentDailyQ = dailyQuestionsList[dayIndex];
-
-      renderStreak();
-      renderDailyQuestionUI();
-    }
-
-    function getTodayKey() {
-      return new Date().toISOString().slice(0, 10);
-    }
-
-    function getYesterdayKey() {
-      const d = new Date();
-      d.setDate(d.getDate() - 1);
-      return d.toISOString().slice(0, 10);
-    }
-
-    function renderStreak() {
-      const streak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
-      const lastDate = localStorage.getItem('mjee_last_date');
-      const today = getTodayKey();
-      const yesterday = getYesterdayKey();
-
-      let activeStreak = streak;
-      if (lastDate && lastDate !== today && lastDate !== yesterday) {
-        // Streak lost
-        activeStreak = 0;
-        localStorage.setItem('mjee_daily_streak', '0');
-      }
-
-      document.getElementById('streak-count').innerText = activeStreak;
-    }
-
-    function renderDailyQuestionUI() {
-      const q = currentDailyQ;
-      const today = getTodayKey();
-      const answeredRecord = localStorage.getItem('mjee_ans_' + today);
-
-      const body = document.getElementById('daily-pyq-body');
-      body.innerHTML = `
-        <div class="pyq-meta-line">
-          <span class="pyq-tag" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">${q.chapter}</span>
-          <span class="pyq-tag">${q.examTag}</span>
-          <span class="pyq-tag" style="color: #fbbf24;">${q.archetype}</span>
-        </div>
-        <div class="pyq-question-text">${escapeHtml(q.question)}</div>
-        <div class="pyq-options-grid" id="pyq-opts">
-          ${q.options.map((opt, i) => `
-            <button class="pyq-opt-btn" id="opt-btn-${i}" onclick="handleOptionSelect(${i})">${escapeHtml(opt)}</button>
-          `).join('')}
-        </div>
-        <div class="pyq-expl-box" id="pyq-expl">
-          <strong>Solution &amp; Takeaway:</strong><br>
-          ${escapeHtml(q.explanation)}
-        </div>
-      `;
-
-      if (answeredRecord) {
-        const selectedIdx = parseInt(answeredRecord, 10);
-        showAnswerState(selectedIdx);
-      }
-    }
-
-    function handleOptionSelect(chosenIdx) {
-      const q = currentDailyQ;
-      const today = getTodayKey();
-      const yesterday = getYesterdayKey();
-      const lastDate = localStorage.getItem('mjee_last_date');
-
-      // Save user answer
-      localStorage.setItem('mjee_ans_' + today, chosenIdx);
-
-      if (chosenIdx === q.correctIndex) {
-        // Increment streak if not completed yet today
-        if (lastDate !== today) {
-          let currentStreak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
-          if (lastDate === yesterday) {
-            currentStreak += 1;
-          } else {
-            currentStreak = 1;
-          }
-          localStorage.setItem('mjee_daily_streak', currentStreak);
-          localStorage.setItem('mjee_last_date', today);
-          renderStreak();
-        }
-      }
-
-      Analytics.track('daily_pyq', `Answered ${chosenIdx === q.correctIndex ? 'Correct' : 'Wrong'}: ${q.chapter}`);
-      showAnswerState(chosenIdx);
-    }
-
-    function showAnswerState(chosenIdx) {
-      const q = currentDailyQ;
-      const buttons = document.querySelectorAll('.pyq-opt-btn');
-      buttons.forEach((btn, i) => {
-        btn.disabled = true;
-        if (i === q.correctIndex) {
-          btn.classList.add('correct');
-        } else if (i === chosenIdx) {
-          btn.classList.add('wrong');
-        }
-      });
-
-      const expl = document.getElementById('pyq-expl');
-      if (expl) expl.style.display = 'block';
-    }
-
     }
 
     function executeSearch(rawQuery) {
@@ -1541,142 +1348,6 @@
 
       if (!query) {
         renderChapters();
-    initDailyQuestion();
-
-    // Today's Question & Streak Manager
-    let dailyQuestionsList = [];
-    let currentDailyQ = null;
-
-    async function initDailyQuestion() {
-      try {
-        const resp = await fetch('/questions.json');
-        dailyQuestionsList = await resp.json();
-      } catch (err) {
-        console.log('Using fallback daily question');
-        dailyQuestionsList = [
-          {
-            id: "q1",
-            chapter: "Gravitation",
-            examTag: "JEE Main 2024 (27 Jan Shift 1)",
-            archetype: "Orbital Speed Scaling",
-            question: "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
-            options: ["(A) 1 : 2", "(B) 2 : 1", "(C) 4 : 1", "(D) 1 : 4"],
-            correctIndex: 1,
-            explanation: "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore, (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. Ratio is 2 : 1."
-          }
-        ];
-      }
-
-      if (!dailyQuestionsList || dailyQuestionsList.length === 0) return;
-
-      // Select question based on calendar day
-      const dayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % dailyQuestionsList.length;
-      currentDailyQ = dailyQuestionsList[dayIndex];
-
-      renderStreak();
-      renderDailyQuestionUI();
-    }
-
-    function getTodayKey() {
-      return new Date().toISOString().slice(0, 10);
-    }
-
-    function getYesterdayKey() {
-      const d = new Date();
-      d.setDate(d.getDate() - 1);
-      return d.toISOString().slice(0, 10);
-    }
-
-    function renderStreak() {
-      const streak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
-      const lastDate = localStorage.getItem('mjee_last_date');
-      const today = getTodayKey();
-      const yesterday = getYesterdayKey();
-
-      let activeStreak = streak;
-      if (lastDate && lastDate !== today && lastDate !== yesterday) {
-        // Streak lost
-        activeStreak = 0;
-        localStorage.setItem('mjee_daily_streak', '0');
-      }
-
-      document.getElementById('streak-count').innerText = activeStreak;
-    }
-
-    function renderDailyQuestionUI() {
-      const q = currentDailyQ;
-      const today = getTodayKey();
-      const answeredRecord = localStorage.getItem('mjee_ans_' + today);
-
-      const body = document.getElementById('daily-pyq-body');
-      body.innerHTML = `
-        <div class="pyq-meta-line">
-          <span class="pyq-tag" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">${q.chapter}</span>
-          <span class="pyq-tag">${q.examTag}</span>
-          <span class="pyq-tag" style="color: #fbbf24;">${q.archetype}</span>
-        </div>
-        <div class="pyq-question-text">${escapeHtml(q.question)}</div>
-        <div class="pyq-options-grid" id="pyq-opts">
-          ${q.options.map((opt, i) => `
-            <button class="pyq-opt-btn" id="opt-btn-${i}" onclick="handleOptionSelect(${i})">${escapeHtml(opt)}</button>
-          `).join('')}
-        </div>
-        <div class="pyq-expl-box" id="pyq-expl">
-          <strong>Solution &amp; Takeaway:</strong><br>
-          ${escapeHtml(q.explanation)}
-        </div>
-      `;
-
-      if (answeredRecord) {
-        const selectedIdx = parseInt(answeredRecord, 10);
-        showAnswerState(selectedIdx);
-      }
-    }
-
-    function handleOptionSelect(chosenIdx) {
-      const q = currentDailyQ;
-      const today = getTodayKey();
-      const yesterday = getYesterdayKey();
-      const lastDate = localStorage.getItem('mjee_last_date');
-
-      // Save user answer
-      localStorage.setItem('mjee_ans_' + today, chosenIdx);
-
-      if (chosenIdx === q.correctIndex) {
-        // Increment streak if not completed yet today
-        if (lastDate !== today) {
-          let currentStreak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
-          if (lastDate === yesterday) {
-            currentStreak += 1;
-          } else {
-            currentStreak = 1;
-          }
-          localStorage.setItem('mjee_daily_streak', currentStreak);
-          localStorage.setItem('mjee_last_date', today);
-          renderStreak();
-        }
-      }
-
-      Analytics.track('daily_pyq', `Answered ${chosenIdx === q.correctIndex ? 'Correct' : 'Wrong'}: ${q.chapter}`);
-      showAnswerState(chosenIdx);
-    }
-
-    function showAnswerState(chosenIdx) {
-      const q = currentDailyQ;
-      const buttons = document.querySelectorAll('.pyq-opt-btn');
-      buttons.forEach((btn, i) => {
-        btn.disabled = true;
-        if (i === q.correctIndex) {
-          btn.classList.add('correct');
-        } else if (i === chosenIdx) {
-          btn.classList.add('wrong');
-        }
-      });
-
-      const expl = document.getElementById('pyq-expl');
-      if (expl) expl.style.display = 'block';
-    }
-
         return;
       }
 
@@ -1716,7 +1387,10 @@
             <div style="font-size: 32px; margin-bottom: 8px;">🔍</div>
             <div style="font-size: 16px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px;">No exact match found for "${escapeHtml(rawQuery)}"</div>
             <p style="font-size: 13px; color: #94a3b8; max-width: 440px; margin: 0 auto 16px auto;">Want our academic team to prioritize this chapter or topic next?</p>
-            <a href="/support.html?chapter=${encodeURIComponent(rawQuery)}" class="btn-share" style="display: inline-flex; width: auto; padding: 10px 18px; text-decoration: none;">📬 Request this Topic / Chapter &rarr;</a>
+            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+              <a href="https://ig.me/m/nithlabs" target="_blank" rel="noopener noreferrer" class="request-topic-btn" onclick="Analytics.track('request_topic', 'Search Empty')">📬 Request on Instagram DM &rarr;</a>
+              <a href="/support.html?category=Chapter+Request&chapter=${encodeURIComponent(rawQuery)}" class="btn-view" style="font-size: 12px; padding: 6px 14px;">Use Web Form</a>
+            </div>
           </div>
         `;
         return;
@@ -1746,7 +1420,7 @@
       html += matchedTips.slice(0, 6).map(t => `
         <div class="tip-card" onclick="alert('💡 Quick Exam Insight:\n\n${escapeAlert(t.funNote || t.story)}')">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-            <span style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase;">💡 Kota Trap / Exam Tip</span>
+            <span style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase;">💡 Exam Trap / Formula Tip</span>
             <span style="font-size: 11px; color: #94a3b8;">${t.chapter}</span>
           </div>
           <div style="font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px;">${highlightQuery(t.title, query)}</div>
@@ -1771,6 +1445,7 @@
       return (str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
     }
 
+    // Chapters Rendering
     function renderChapters() {
       const chapters = CHAPTER_DATA[currentSubject];
       const grid = document.getElementById('chapter-grid');
@@ -1808,7 +1483,7 @@
           </div>
           <div class="card-footer">
             <span style="color: #64748b;">Daily Drops</span>
-            <span style="font-size: 11px; color: #94a3b8;">Stay Tuned 🔔</span>
+            <a href="https://ig.me/m/nithlabs" target="_blank" rel="noopener noreferrer" class="request-topic-btn-sm" style="margin-left: 0;" onclick="Analytics.track('request_topic', 'Card Footer')">Request Topic 🔔</a>
           </div>
         </div>
       `;
@@ -1845,108 +1520,7 @@
       }
     }
 
-    // Chai Modal Functions
-    let selectedChaiAmount = 20;
-
-    function openChaiModal() {
-      Analytics.track('chai_modal_open', 'User clicked Buy Me a Chai');
-      document.getElementById('chai-modal').classList.add('active');
-    }
-
-    function closeChaiModal() {
-      document.getElementById('chai-modal').classList.remove('active');
-    }
-
-    function closeChaiModalOnOverlay(e) {
-      if (e.target.id === 'chai-modal') {
-        closeChaiModal();
-      }
-    }
-
-    function setChaiAmount(amt) {
-      selectedChaiAmount = amt;
-      const upiId = "zenithink@fam";
-      const name = "NithLabs (Mission JEE)";
-      const note = "Chai for Mission JEE Notes";
-
-      // Reset button styles
-      ['amt-20', 'amt-50', 'amt-custom'].forEach(id => {
-        const btn = document.getElementById(id);
-        btn.style.background = 'rgba(255,255,255,0.06)';
-        btn.style.color = '#fff';
-        btn.style.fontWeight = '700';
-      });
-
-      const activeBtnId = amt === 20 ? 'amt-20' : amt === 50 ? 'amt-50' : 'amt-custom';
-      const activeBtn = document.getElementById(activeBtnId);
-      activeBtn.style.background = '#f59e0b';
-      activeBtn.style.color = '#000';
-      activeBtn.style.fontWeight = '800';
-
-      const upiUrl = amt > 0 
-        ? `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amt}&cu=INR&tn=${encodeURIComponent(note)}`
-        : `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&cu=INR&tn=${encodeURIComponent(note)}`;
-
-      // Update link and QR
-      document.getElementById('chai-upi-link').href = upiUrl;
-      document.getElementById('chai-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiUrl)}`;
-      document.getElementById('chai-pay-btn-text').innerText = amt > 0 
-        ? `Pay ₹${amt} via GPay / PhonePe / Paytm`
-        : `Pay Custom Amount via Any UPI App`;
-    }
-
-    function copyUpiId() {
-      navigator.clipboard.writeText('zenithink@fam').then(() => {
-        const btn = document.getElementById('copy-upi-btn');
-        btn.innerText = 'Copied! ✅';
-        setTimeout(() => { btn.innerText = 'Copy ID'; }, 2000);
-      });
-    }
-
-    // Share Functions
-    let activeChapterTitle = 'Gravitation';
-
-    function shareWebsite() {
-      Analytics.track('share', 'WhatsApp Hero');
-      const shareUrl = window.location.href;
-      const shareText = `⚡ Hey! Check out Mission JEE 2027: Free high-yield Chapter Master PDFs with intuitive story breakdowns & verified PYQs for JEE Main & TS IPE: ${shareUrl}`;
-
-      if (navigator.share) {
-        navigator.share({
-          title: 'Mission JEE 2027',
-          text: shareText,
-          url: shareUrl
-        }).catch(() => {});
-      } else {
-        const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
-        window.open(waUrl, '_blank');
-      }
-    }
-
-    function shareCurrentChapter() {
-      Analytics.track('share', 'WhatsApp Chapter: ' + activeChapterTitle);
-      const shareUrl = window.location.href;
-      const shareText = `🚀 Bro! Found this quick Master PDF for "${activeChapterTitle}" with verified JEE Main Past Year Questions & zero fluff: ${shareUrl}`;
-      const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
-      window.open(waUrl, '_blank');
-    }
-
-    function copyWebsiteLink() {
-      Analytics.track('share', 'Link Copied');
-      const shareUrl = window.location.href;
-      navigator.clipboard.writeText(shareUrl).then(() => {
-        const btnText = document.getElementById('copy-link-text');
-        btnText.innerText = 'Copied! ✅';
-        setTimeout(() => {
-          btnText.innerText = 'Copy Link';
-        }, 2000);
-      });
-    }
-
-    renderChapters();
-    initDailyQuestion();
-
-    // Today's Question & Streak Manager
+    // Today's Question & Streak Tracker
     let dailyQuestionsList = [];
     let currentDailyQ = null;
 
@@ -1998,20 +1572,22 @@
 
       let activeStreak = streak;
       if (lastDate && lastDate !== today && lastDate !== yesterday) {
-        // Streak lost
         activeStreak = 0;
         localStorage.setItem('mjee_daily_streak', '0');
       }
 
-      document.getElementById('streak-count').innerText = activeStreak;
+      const streakElem = document.getElementById('streak-count');
+      if (streakElem) streakElem.innerText = activeStreak;
     }
 
     function renderDailyQuestionUI() {
       const q = currentDailyQ;
+      if (!q) return;
       const today = getTodayKey();
       const answeredRecord = localStorage.getItem('mjee_ans_' + today);
 
       const body = document.getElementById('daily-pyq-body');
+      if (!body) return;
       body.innerHTML = `
         <div class="pyq-meta-line">
           <span class="pyq-tag" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">${q.chapter}</span>
@@ -2038,6 +1614,7 @@
 
     function handleOptionSelect(chosenIdx) {
       const q = currentDailyQ;
+      if (!q) return;
       const today = getTodayKey();
       const yesterday = getYesterdayKey();
       const lastDate = localStorage.getItem('mjee_last_date');
@@ -2046,7 +1623,6 @@
       localStorage.setItem('mjee_ans_' + today, chosenIdx);
 
       if (chosenIdx === q.correctIndex) {
-        // Increment streak if not completed yet today
         if (lastDate !== today) {
           let currentStreak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
           if (lastDate === yesterday) {
@@ -2066,6 +1642,7 @@
 
     function showAnswerState(chosenIdx) {
       const q = currentDailyQ;
+      if (!q) return;
       const buttons = document.querySelectorAll('.pyq-opt-btn');
       buttons.forEach((btn, i) => {
         btn.disabled = true;
@@ -2080,6 +1657,109 @@
       if (expl) expl.style.display = 'block';
     }
 
+    // Chai Modal Functions
+    let selectedChaiAmount = 20;
+
+    function openChaiModal() {
+      Analytics.track('chai_modal_open', 'User clicked Buy Me a Chai');
+      document.getElementById('chai-modal').classList.add('active');
+    }
+
+    function closeChaiModal() {
+      document.getElementById('chai-modal').classList.remove('active');
+    }
+
+    function closeChaiModalOnOverlay(e) {
+      if (e.target.id === 'chai-modal') {
+        closeChaiModal();
+      }
+    }
+
+    function setChaiAmount(amt) {
+      selectedChaiAmount = amt;
+      const upiId = "zenithink@fam";
+      const name = "NithLabs (Mission JEE)";
+      const note = "Chai for Mission JEE Notes";
+
+      ['amt-20', 'amt-50', 'amt-custom'].forEach(id => {
+        const btn = document.getElementById(id);
+        if (btn) {
+          btn.style.background = 'rgba(255,255,255,0.06)';
+          btn.style.color = '#fff';
+          btn.style.fontWeight = '700';
+        }
+      });
+
+      const activeBtnId = amt === 20 ? 'amt-20' : amt === 50 ? 'amt-50' : 'amt-custom';
+      const activeBtn = document.getElementById(activeBtnId);
+      if (activeBtn) {
+        activeBtn.style.background = '#f59e0b';
+        activeBtn.style.color = '#000';
+        activeBtn.style.fontWeight = '800';
+      }
+
+      const upiUrl = amt > 0 
+        ? `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&am=${amt}&cu=INR&tn=${encodeURIComponent(note)}`
+        : `upi://pay?pa=${upiId}&pn=${encodeURIComponent(name)}&cu=INR&tn=${encodeURIComponent(note)}`;
+
+      document.getElementById('chai-upi-link').href = upiUrl;
+      document.getElementById('chai-qr').src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(upiUrl)}`;
+      document.getElementById('chai-pay-btn-text').innerText = amt > 0 
+        ? `Pay ₹${amt} via GPay / PhonePe / Paytm`
+        : `Pay Custom Amount via Any UPI App`;
+    }
+
+    function copyUpiId() {
+      navigator.clipboard.writeText('zenithink@fam').then(() => {
+        const btn = document.getElementById('copy-upi-btn');
+        btn.innerText = 'Copied! ✅';
+        setTimeout(() => { btn.innerText = 'Copy ID'; }, 2000);
+      });
+    }
+
+    // Share Functions
+    let activeChapterTitle = 'Gravitation';
+
+    function shareWebsite() {
+      Analytics.track('share', 'WhatsApp Hero');
+      const shareUrl = window.location.href;
+      const shareText = `⚡ Hey! Check out Mission JEE 2027: Free high-yield Chapter Master PDFs with intuitive story breakdowns & verified PYQs for JEE Main: ${shareUrl}`;
+
+      if (navigator.share) {
+        navigator.share({
+          title: 'Mission JEE 2027',
+          text: shareText,
+          url: shareUrl
+        }).catch(() => {});
+      } else {
+        const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+        window.open(waUrl, '_blank');
+      }
+    }
+
+    function shareCurrentChapter() {
+      Analytics.track('share', 'WhatsApp Chapter: ' + activeChapterTitle);
+      const shareUrl = window.location.href;
+      const shareText = `🚀 Bro! Found this quick Master PDF for "${activeChapterTitle}" with verified JEE Main Past Year Questions & zero fluff: ${shareUrl}`;
+      const waUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText)}`;
+      window.open(waUrl, '_blank');
+    }
+
+    function copyWebsiteLink() {
+      Analytics.track('share', 'Link Copied');
+      const shareUrl = window.location.href;
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        const btnText = document.getElementById('copy-link-text');
+        btnText.innerText = 'Copied! ✅';
+        setTimeout(() => {
+          btnText.innerText = 'Copy Link';
+        }, 2000);
+      });
+    }
+
+    // Initialization on page load
+    renderChapters();
+    initDailyQuestion();
   </script>
 
   <!-- Floating Support & Grievance Button -->
@@ -2087,7 +1767,6 @@
     <span style="font-size: 14px;">📬</span>
     <span>Raise Request / Report Error</span>
   </a>
-
 
   <!-- PWA Service Worker Registration -->
   <script>
@@ -2100,22 +1779,4 @@
     }
   </script>
 </body>
-</html><!-- Today's Question Challenge -->
-    <div class="daily-pyq-card" id="daily-pyq-box">
-      <div class="daily-pyq-header">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 18px;">🎯</span>
-          <span style="font-size: 13px; font-weight: 800; color: #f1f5f9; text-transform: uppercase; letter-spacing: 0.04em;">Today's JEE PYQ Challenge</span>
-        </div>
-        <div class="streak-badge" id="daily-streak-badge">
-          <span>🔥</span>
-          <span id="streak-count">0</span>
-          <span>Day Streak</span>
-        </div>
-      </div>
-      <div id="daily-pyq-body">
-        <div style="font-size: 12.5px; color: #94a3b8;">Loading today's question...</div>
-      </div>
-    </div>
-
-    
+</html>
