@@ -1,4 +1,10 @@
-// Mission JEE 2027 - Offline Service Worker (Cache-First with Network Revalidation)
+// Mission JEE 2027 - Offline Service Worker & Push Notifications
+try {
+  importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
+} catch (e) {
+  // Graceful fallback when offline
+}
+
 const CACHE_NAME = 'mission-jee-cache-v1';
 
 const STATIC_ASSETS = [

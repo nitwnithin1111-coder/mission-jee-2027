@@ -853,6 +853,52 @@
   <!-- External Data File -->
   <script src="data.js"></script>
 
+  <!-- OneSignal Web Push SDK -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "ONESIGNAL_APP_ID_PLACEHOLDER", // <-- Replace with your OneSignal App ID
+        allowLocalhostAsSecureOrigin: true,
+        notifyButton: {
+          enable: false,
+        },
+        promptOptions: {
+          slidedown: {
+            prompts: [
+              {
+                type: "push",
+                autoPrompt: true,
+                text: {
+                  actionMessage: "Get instant alerts whenever new JEE Chapter Master PDFs & Daily PYQs drop!",
+                  acceptButton: "Allow Alerts 🔔",
+                  cancelButton: "Maybe Later"
+                },
+                delay: {
+                  pageViews: 1,
+                  timeDelay: 3
+                }
+              }
+            ]
+          }
+        }
+      });
+    });
+
+    function subscribePushNotification() {
+      if (window.OneSignalDeferred) {
+        window.OneSignalDeferred.push(async function(OneSignal) {
+          try {
+            await OneSignal.Slidedown.promptPush();
+          } catch (e) {
+            console.log('OneSignal prompt:', e);
+          }
+        });
+      }
+    }
+  </script>
+
   <!-- Vercel Web Analytics -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -894,6 +940,10 @@
         </div>
       </a>
       <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <button class="chai-btn" onclick="subscribePushNotification()" id="notif-bell-btn" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8 !important;">
+          <span>🔔</span>
+          <span>Get Alerts</span>
+        </button>
         <button class="chai-btn" onclick="openChaiModal()">
           <span>☕</span>
           <span>Buy Me a Chai</span>
