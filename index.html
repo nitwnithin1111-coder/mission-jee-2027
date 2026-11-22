@@ -597,6 +597,11 @@
       }
     }
   </style>
+  <!-- Vercel Web Analytics -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -690,10 +695,19 @@
       <!-- Populated via JS -->
     </div>
 
-    <!-- Footer -->
-    <footer>
-      <p><strong>Mission JEE 2027</strong> • Built to help JEE aspirants succeed • Free &amp; Open</p>
-      <p style="font-size: 11px; margin-top: 4px; color: #475569;">Generated with AI assistance. Verify any doubts with your teacher.</p>
+    <!-- Footer with Legal & Support Links -->
+    <footer style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e293b; text-align: center;">
+      <p><strong>Mission JEE 2027</strong> • Open Educational Initiative for JEE Main Aspirants • Free &amp; Ad-Free</p>
+      
+      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 12.5px;">
+        <a href="/support.html" style="color: #38bdf8; text-decoration: none; font-weight: 700;">📬 Raise a Request or Complaint</a>
+        <span style="color: #475569;">•</span>
+        <a href="/privacy.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">Privacy Policy</a>
+        <span style="color: #475569;">•</span>
+        <a href="/terms.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">Terms &amp; Conditions</a>
+      </div>
+
+      <p style="font-size: 11px; margin-top: 10px; color: #475569;">Questions referenced from past NTA exams under educational fair use. Zero student data tracking.</p>
     </footer>
 
   </div>
@@ -1184,6 +1198,12 @@
 
     renderChapters();
   </script>
+
+  <!-- Floating Support & Grievance Button -->
+  <a href="/support.html" id="floating-support-btn" style="position: fixed; bottom: 20px; right: 20px; z-index: 99; background: #0284c7; color: #ffffff; padding: 10px 16px; border-radius: 30px; font-size: 12.5px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 16px rgba(2,132,199,0.4); display: flex; align-items: center; gap: 8px; transition: all 0.2s; border: 1px solid rgba(255,255,255,0.15);" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(2,132,199,0.6)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 16px rgba(2,132,199,0.4)';">
+    <span style="font-size: 14px;">📬</span>
+    <span>Raise Request / Report Error</span>
+  </a>
 
 </body>
 </html>
