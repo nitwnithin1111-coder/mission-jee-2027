@@ -1787,7 +1787,7 @@
           <span>📥</span>
           <span>Download Chapter PDF</span>
         </a>
-        <a href="gravitation-story-guide.html" target="_blank" class="btn-view" id="modal-view-btn">
+        <a href="gravitation-story-guide.html" class="btn-view" id="modal-view-btn">
           <span>📖</span>
           <span>Read Master Guide Online</span>
         </a>
@@ -2151,7 +2151,7 @@
             <div class="card-btn-row">
               ${ch.status === 'ready' ? `
                 <a href="${ch.pdfUrl}" download class="card-btn pdf" onclick="event.stopPropagation(); Analytics.track('download', '${ch.title}')">📥 PDF</a>
-                <span class="card-btn view">📖 View</span>
+                <a href="${ch.htmlUrl}" class="card-btn view" onclick="event.stopPropagation(); Analytics.track('chapter_click', '${ch.title}')">📖 Read Guide</a>
               ` : `
                 <span class="card-btn view" style="opacity: 0.5;">⏳ Soon</span>
               `}
@@ -2213,7 +2213,7 @@
             <div class="card-btn-row">
               ${ch.status === 'ready' ? `
                 <a href="${ch.pdfUrl}" download class="card-btn pdf" onclick="event.stopPropagation(); Analytics.track('download', '${ch.title}')">📥 PDF</a>
-                <span class="card-btn view">📖 View</span>
+                <a href="${ch.htmlUrl}" class="card-btn view" onclick="event.stopPropagation(); Analytics.track('chapter_click', '${ch.title}')">📖 Read Guide</a>
               ` : `
                 <span class="card-btn view" style="opacity: 0.5;">⏳ Soon</span>
               `}
@@ -2249,14 +2249,8 @@
         return;
       }
 
-      activeChapterTitle = chapter.title;
-      document.getElementById('modal-title').innerText = chapter.title;
-      document.getElementById('modal-class').innerText = chapter.class;
-      document.getElementById('modal-desc').innerText = chapter.desc;
-      document.getElementById('modal-download-btn').href = chapter.pdfUrl;
-      document.getElementById('modal-view-btn').href = chapter.htmlUrl;
-
-      document.getElementById('chapter-modal').classList.add('active');
+      // Direct, reliable navigation without popup blockers
+      window.location.href = chapter.htmlUrl;
     }
 
     function closeModal() {
