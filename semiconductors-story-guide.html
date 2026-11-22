@@ -396,7 +396,79 @@
     table.data-table tr:nth-child(even) {
       background-color: #F5F1E8;
     }
-    </style>
+    
+    /* Solutions & Answer Key Styling */
+    .jump-sol-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0284C7;
+      text-decoration: none;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(2, 132, 199, 0.08);
+      border: 1px solid rgba(2, 132, 199, 0.25);
+      transition: all 0.15s;
+    }
+    .jump-sol-btn:hover {
+      background: #0284C7;
+      color: #FFFFFF !important;
+    }
+    .back-q-btn {
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748B;
+      text-decoration: none;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      transition: all 0.15s;
+    }
+    .back-q-btn:hover {
+      color: #0F172A;
+      background: #E2E8F0;
+    }
+    .solution-card {
+      background: #FAF7F0;
+      border: 1px solid var(--border-soft);
+      border-left: 4px solid #0284C7;
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+      page-break-inside: avoid;
+    }
+    .sol-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border-soft);
+      padding-bottom: 8px;
+    }
+    .sol-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #1E293B;
+    }
+    .key-pill {
+      background: #0284C7;
+      color: #FFFFFF;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      display: inline-block;
+    }
+    .answer-key-table {
+      width: 100%;
+      margin: 16px 0 24px 0;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+  </style>
   <!-- OneSignal Web Push SDK -->
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
@@ -890,13 +962,14 @@
     </div>
 
     <!-- Section 7 -->
-    <h2>7. Solved JEE Main PYQ Archetypes (2018–2026)</h2>
-    <p>
-      Representative questions reflecting the verified question archetypes tested by NTA across recent years:
-    </p>
+        <!-- Section 7: Questions Only -->
+    <h2>7. Verified JEE Main PYQ Practice Bank (2018–2026)</h2>
+    <div class="exam-notice-box" style="background: #F0FDF4; border: 1px solid #BBF7D0; border-left: 4px solid #16A34A; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 13px; color: #166534;">
+      <strong>🎯 Exam Practice Mode:</strong> Attempt all 7 questions below without checking the solutions first. All answers and detailed derivations are grouped separately in <strong>Section 8</strong> below.
+    </div>
 
-    <!-- PYQ 1 -->
-    <div class="question-card">
+    <!-- Question 1 -->
+    <div class="question-card" id="q-1">
       <div class="q-meta">
         <span class="q-exam">JEE Main 2026 (April Shift)</span>
         <span class="q-arch">Archetype 1: Multi-Gate Circuit Analysis</span>
@@ -909,6 +982,196 @@
         <div><b>(B)</b> $Y = 0,\; Y = 1$</div>
         <div><b>(C)</b> $Y = 0,\; Y = 0$</div>
         <div><b>(D)</b> $Y = 1,\; Y = 1$</div>
+      </div>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-1" class="jump-sol-btn">Jump to Solution #1 &darr;</a>
+      </div>
+    </div>
+    <!-- Question 2 -->
+    <div class="question-card" id="q-2">
+      <div class="q-meta">
+        <span class="q-exam">JEE Main 2025 (January Shift)</span>
+        <span class="q-arch">Archetype 2: Non-Ideal Diode with Knee Voltage Drop</span>
+      </div>
+      <div class="q-text">
+        A silicon diode with a forward knee barrier voltage drop of $0.7\text{ V}$ is connected in series with a resistor $R = 200\ \Omega$ across a $5.7\text{ V}$ DC supply. Calculate the current flowing in the circuit.
+      </div>
+      <div class="q-options">
+        <div><b>(A)</b> $28.5\text{ mA}$</div>
+        <div><b>(B)</b> $25.0\text{ mA}$</div>
+        <div><b>(C)</b> $21.5\text{ mA}$</div>
+        <div><b>(D)</b> $30.0\text{ mA}$</div>
+      </div>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-2" class="jump-sol-btn">Jump to Solution #2 &darr;</a>
+      </div>
+    </div>
+    <!-- Question 3 -->
+    <div class="question-card" id="q-3">
+      <div class="q-meta">
+        <span class="q-exam">JEE Main 2024 (April Shift)</span>
+        <span class="q-arch">Archetype 3: Zener Voltage Regulation Limits</span>
+      </div>
+      <div class="q-text">
+        A $10\text{ V}$ Zener diode with series resistor $R_s = 500\ \Omega$ is connected across an unregulated DC supply that varies between $15\text{ V}$ and $25\text{ V}$. A load resistor $R_L = 1000\ \Omega$ is in parallel with the Zener. Find the minimum and maximum currents through the Zener diode.
+      </div>
+      <div class="q-options">
+        <div><b>(A)</b> $0\text{ mA},\; 10\text{ mA}$</div>
+        <div><b>(B)</b> $0\text{ mA},\; 20\text{ mA}$</div>
+        <div><b>(C)</b> $10\text{ mA},\; 30\text{ mA}$</div>
+        <div><b>(D)</b> $5\text{ mA},\; 25\text{ mA}$</div>
+      </div>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-3" class="jump-sol-btn">Jump to Solution #3 &darr;</a>
+      </div>
+    </div>
+    <!-- Question 4 -->
+    <div class="question-card" id="q-4">
+      <div class="q-meta">
+        <span class="q-exam">JEE Main 2024 (January Shift)</span>
+        <span class="q-arch">Archetype 4: Diode Network Biasing</span>
+      </div>
+      <div class="q-text">
+        Two ideal diodes $D_1$ and $D_2$ are connected in parallel branches with resistors $R_1 = 100\ \Omega$ and $R_2 = 200\ \Omega$ across a $12\text{ V}$ battery. $D_1$ is forward-biased and $D_2$ is reverse-biased. Find the total current drawn from the battery.
+      </div>
+      <div class="q-options">
+        <div><b>(A)</b> $60\text{ mA}$</div>
+        <div><b>(B)</b> $120\text{ mA}$</div>
+        <div><b>(C)</b> $180\text{ mA}$</div>
+        <div><b>(D)</b> $40\text{ mA}$</div>
+      </div>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-4" class="jump-sol-btn">Jump to Solution #4 &darr;</a>
+      </div>
+    </div>
+    <!-- Question 5 -->
+    <div class="question-card" id="q-5">
+      <div class="q-meta">
+        <span class="q-exam">JEE Main 2023 (Online Shift)</span>
+        <span class="q-arch">Archetype 5: Rectifier Ripple Frequency</span>
+      </div>
+      <div class="q-text">
+        A $50\text{ Hz}$ sinusoidal AC input is fed to a full-wave center-tapped rectifier. What is the fundamental ripple frequency of the output?
+      </div>
+      <div class="q-options">
+        <div><b>(A)</b> $25\text{ Hz}$</div>
+        <div><b>(B)</b> $50\text{ Hz}$</div>
+        <div><b>(C)</b> $100\text{ Hz}$</div>
+        <div><b>(D)</b> $200\text{ Hz}$</div>
+      </div>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-5" class="jump-sol-btn">Jump to Solution #5 &darr;</a>
+      </div>
+    </div>
+    <!-- Question 6 -->
+    <div class="question-card" id="q-6">
+      <div class="q-meta">
+        <span class="q-exam">JEE Main 2022</span>
+        <span class="q-arch">Archetype 6: Mass Action Doping Calculation</span>
+      </div>
+      <div class="q-text">
+        Pure Silicon has intrinsic carrier density $n_i = 1.5 \times 10^{16}\text{ m}^{-3}$ at $300\text{ K}$. It is doped with pentavalent donors to a density $N_d = 4.5 \times 10^{22}\text{ m}^{-3}$. Find the hole concentration $n_h$.
+      </div>
+      <div class="q-options">
+        <div><b>(A)</b> $5.0 \times 10^9\text{ m}^{-3}$</div>
+        <div><b>(B)</b> $3.0 \times 10^9\text{ m}^{-3}$</div>
+        <div><b>(C)</b> $2.25 \times 10^{16}\text{ m}^{-3}$</div>
+        <div><b>(D)</b> $1.5 \times 10^{22}\text{ m}^{-3}$</div>
+      </div>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-6" class="jump-sol-btn">Jump to Solution #6 &darr;</a>
+      </div>
+    </div>
+    <!-- Question 7 -->
+    <div class="question-card" id="q-7">
+      <div class="q-meta">
+        <span class="q-exam">JEE Main 2021</span>
+        <span class="q-arch">Archetype 7: Photodiode Threshold Wavelength</span>
+      </div>
+      <div class="q-text">
+        A photodiode is fabricated from a semiconductor with band gap $E_g = 2.0\text{ eV}$. What is the maximum wavelength of light it can detect? (Take $hc \approx 1240\text{ eV}\cdot\text{nm}$).
+      </div>
+      <div class="q-options">
+        <div><b>(A)</b> $480\text{ nm}$</div>
+        <div><b>(B)</b> $540\text{ nm}$</div>
+        <div><b>(C)</b> $620\text{ nm}$</div>
+        <div><b>(D)</b> $700\text{ nm}$</div>
+      </div>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-7" class="jump-sol-btn">Jump to Solution #7 &darr;</a>
+      </div>
+    </div>
+
+    <!-- Section 8: Answers & Solutions Only -->
+    <h2>8. Official Answer Key &amp; Step-by-Step Solutions</h2>
+    <p>
+      Verify your answers against the official NTA answer keys and examine the rigorous textbook derivations below:
+    </p>
+
+    <table class="data-table answer-key-table">
+      <thead>
+        <tr>
+          <th style="width: 10%; text-align: center;">Q#</th>
+          <th>Tested Concept &amp; Exam Shift</th>
+          <th style="width: 20%; text-align: center;">Official Key</th>
+          <th style="width: 20%; text-align: center;">Detailed Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q1</td>
+          <td><b>Multi-Gate Circuit Analysis</b> (JEE Main 2026 (April Shift))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (B)</span></td>
+          <td style="text-align: center;"><a href="#sol-1" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q2</td>
+          <td><b>Non-Ideal Diode with Knee Voltage Drop</b> (JEE Main 2025 (January Shift))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (B)</span></td>
+          <td style="text-align: center;"><a href="#sol-2" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q3</td>
+          <td><b>Zener Voltage Regulation Limits</b> (JEE Main 2024 (April Shift))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (B)</span></td>
+          <td style="text-align: center;"><a href="#sol-3" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q4</td>
+          <td><b>Diode Network Biasing</b> (JEE Main 2024 (January Shift))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (B)</span></td>
+          <td style="text-align: center;"><a href="#sol-4" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q5</td>
+          <td><b>Rectifier Ripple Frequency</b> (JEE Main 2023 (Online Shift))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (C)</span></td>
+          <td style="text-align: center;"><a href="#sol-5" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q6</td>
+          <td><b>Mass Action Doping Calculation</b> (JEE Main 2022)</td>
+          <td style="text-align: center;"><span class="key-pill">Option (A)</span></td>
+          <td style="text-align: center;"><a href="#sol-6" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q7</td>
+          <td><b>Photodiode Threshold Wavelength</b> (JEE Main 2021)</td>
+          <td style="text-align: center;"><span class="key-pill">Option (C)</span></td>
+          <td style="text-align: center;"><a href="#sol-7" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Solution 1 -->
+    <div class="solution-card" id="sol-1">
+      <div class="sol-header">
+        <div class="sol-title">Solution 1: Archetype 1: Multi-Gate Circuit Analysis</div>
+        <a href="#q-1" class="back-q-btn">&uarr; Back to Question 1</a>
+      </div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (B)</span>
+        <span>Output $Y = 0$ for $(0, 1)$ and Output $Y = 1$ for $(1, 1)$.</span>
       </div>
       <div class="q-solution-steps">
         <div class="step-title">Step 1: Write Boolean Output Expression</div>
@@ -927,26 +1190,16 @@
           Y &= \overline{0 \cdot 1} = \overline{0} = 1
         \end{aligned}$$
       </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (B)</span>
-        <span>Output $Y = 0$ for $(0, 1)$ and Output $Y = 1$ for $(1, 1)$.</span>
-      </div>
     </div>
-
-    <!-- PYQ 2 -->
-    <div class="question-card">
-      <div class="q-meta">
-        <span class="q-exam">JEE Main 2025 (January Shift)</span>
-        <span class="q-arch">Archetype 2: Non-Ideal Diode with Knee Voltage Drop</span>
+    <!-- Solution 2 -->
+    <div class="solution-card" id="sol-2">
+      <div class="sol-header">
+        <div class="sol-title">Solution 2: Archetype 2: Non-Ideal Diode with Knee Voltage Drop</div>
+        <a href="#q-2" class="back-q-btn">&uarr; Back to Question 2</a>
       </div>
-      <div class="q-text">
-        A silicon diode with a forward knee barrier voltage drop of $0.7\text{ V}$ is connected in series with a resistor $R = 200\ \Omega$ across a $5.7\text{ V}$ DC supply. Calculate the current flowing in the circuit.
-      </div>
-      <div class="q-options">
-        <div><b>(A)</b> $28.5\text{ mA}$</div>
-        <div><b>(B)</b> $25.0\text{ mA}$</div>
-        <div><b>(C)</b> $21.5\text{ mA}$</div>
-        <div><b>(D)</b> $30.0\text{ mA}$</div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (B)</span>
+        <span>Circuit Current $= 25.0\text{ mA}$.</span>
       </div>
       <div class="q-solution-steps">
         <div class="step-title">Step 1: Determine Effective Resistor Voltage</div>
@@ -956,26 +1209,16 @@
         <div class="step-title">Step 2: Calculate Circuit Current</div>
         $$I = \frac{V_R}{R} = \frac{5.0\text{ V}}{200\ \Omega} = 0.025\text{ A} = 25.0\text{ mA}$$
       </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (B)</span>
-        <span>Circuit Current $= 25.0\text{ mA}$.</span>
-      </div>
     </div>
-
-    <!-- PYQ 3 -->
-    <div class="question-card">
-      <div class="q-meta">
-        <span class="q-exam">JEE Main 2024 (April Shift)</span>
-        <span class="q-arch">Archetype 3: Zener Voltage Regulation Limits</span>
+    <!-- Solution 3 -->
+    <div class="solution-card" id="sol-3">
+      <div class="sol-header">
+        <div class="sol-title">Solution 3: Archetype 3: Zener Voltage Regulation Limits</div>
+        <a href="#q-3" class="back-q-btn">&uarr; Back to Question 3</a>
       </div>
-      <div class="q-text">
-        A $10\text{ V}$ Zener diode with series resistor $R_s = 500\ \Omega$ is connected across an unregulated DC supply that varies between $15\text{ V}$ and $25\text{ V}$. A load resistor $R_L = 1000\ \Omega$ is in parallel with the Zener. Find the minimum and maximum currents through the Zener diode.
-      </div>
-      <div class="q-options">
-        <div><b>(A)</b> $0\text{ mA},\; 10\text{ mA}$</div>
-        <div><b>(B)</b> $0\text{ mA},\; 20\text{ mA}$</div>
-        <div><b>(C)</b> $10\text{ mA},\; 30\text{ mA}$</div>
-        <div><b>(D)</b> $5\text{ mA},\; 25\text{ mA}$</div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (B)</span>
+        <span>Minimum $I_z = 0\text{ mA}$, Maximum $I_z = 20\text{ mA}$.</span>
       </div>
       <div class="q-solution-steps">
         <div class="step-title">Step 1: Compute Constant Load Current</div>
@@ -993,26 +1236,16 @@
           I_{z,\text{max}} &= I_{s,\text{max}} - I_L = 30\text{ mA} - 10\text{ mA} = 20\text{ mA}
         \end{aligned}$$
       </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (B)</span>
-        <span>Minimum $I_z = 0\text{ mA}$, Maximum $I_z = 20\text{ mA}$.</span>
-      </div>
     </div>
-
-    <!-- PYQ 4 -->
-    <div class="question-card">
-      <div class="q-meta">
-        <span class="q-exam">JEE Main 2024 (January Shift)</span>
-        <span class="q-arch">Archetype 4: Diode Network Biasing</span>
+    <!-- Solution 4 -->
+    <div class="solution-card" id="sol-4">
+      <div class="sol-header">
+        <div class="sol-title">Solution 4: Archetype 4: Diode Network Biasing</div>
+        <a href="#q-4" class="back-q-btn">&uarr; Back to Question 4</a>
       </div>
-      <div class="q-text">
-        Two ideal diodes $D_1$ and $D_2$ are connected in parallel branches with resistors $R_1 = 100\ \Omega$ and $R_2 = 200\ \Omega$ across a $12\text{ V}$ battery. $D_1$ is forward-biased and $D_2$ is reverse-biased. Find the total current drawn from the battery.
-      </div>
-      <div class="q-options">
-        <div><b>(A)</b> $60\text{ mA}$</div>
-        <div><b>(B)</b> $120\text{ mA}$</div>
-        <div><b>(C)</b> $180\text{ mA}$</div>
-        <div><b>(D)</b> $40\text{ mA}$</div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (B)</span>
+        <span>Total Battery Current $= 120\text{ mA}$.</span>
       </div>
       <div class="q-solution-steps">
         <div class="step-title">Step 1: Analyze Branch Conductivity</div>
@@ -1023,26 +1256,16 @@
         $$I_1 = \frac{V}{R_1} = \frac{12\text{ V}}{100\ \Omega} = 0.12\text{ A} = 120\text{ mA}$$
         $$I_{\text{total}} = I_1 + I_2 = 120\text{ mA} + 0 = 120\text{ mA}$$
       </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (B)</span>
-        <span>Total Battery Current $= 120\text{ mA}$.</span>
-      </div>
     </div>
-
-    <!-- PYQ 5 -->
-    <div class="question-card">
-      <div class="q-meta">
-        <span class="q-exam">JEE Main 2023 (Online Shift)</span>
-        <span class="q-arch">Archetype 5: Rectifier Ripple Frequency</span>
+    <!-- Solution 5 -->
+    <div class="solution-card" id="sol-5">
+      <div class="sol-header">
+        <div class="sol-title">Solution 5: Archetype 5: Rectifier Ripple Frequency</div>
+        <a href="#q-5" class="back-q-btn">&uarr; Back to Question 5</a>
       </div>
-      <div class="q-text">
-        A $50\text{ Hz}$ sinusoidal AC input is fed to a full-wave center-tapped rectifier. What is the fundamental ripple frequency of the output?
-      </div>
-      <div class="q-options">
-        <div><b>(A)</b> $25\text{ Hz}$</div>
-        <div><b>(B)</b> $50\text{ Hz}$</div>
-        <div><b>(C)</b> $100\text{ Hz}$</div>
-        <div><b>(D)</b> $200\text{ Hz}$</div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (C)</span>
+        <span>Full-wave Ripple Frequency $= 100\text{ Hz}$.</span>
       </div>
       <div class="q-solution-steps">
         <div class="step-title">Step 1: Waveform Periodicity</div>
@@ -1052,26 +1275,16 @@
         <div class="step-title">Step 2: Frequency Scaling</div>
         $$f_{\text{ripple}} = \frac{1}{T'} = \frac{2}{T} = 2 \cdot f_{\text{in}} = 2 \times 50\text{ Hz} = 100\text{ Hz}$$
       </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (C)</span>
-        <span>Full-wave Ripple Frequency $= 100\text{ Hz}$.</span>
-      </div>
     </div>
-
-    <!-- PYQ 6 -->
-    <div class="question-card">
-      <div class="q-meta">
-        <span class="q-exam">JEE Main 2022</span>
-        <span class="q-arch">Archetype 6: Mass Action Doping Calculation</span>
+    <!-- Solution 6 -->
+    <div class="solution-card" id="sol-6">
+      <div class="sol-header">
+        <div class="sol-title">Solution 6: Archetype 6: Mass Action Doping Calculation</div>
+        <a href="#q-6" class="back-q-btn">&uarr; Back to Question 6</a>
       </div>
-      <div class="q-text">
-        Pure Silicon has intrinsic carrier density $n_i = 1.5 \times 10^{16}\text{ m}^{-3}$ at $300\text{ K}$. It is doped with pentavalent donors to a density $N_d = 4.5 \times 10^{22}\text{ m}^{-3}$. Find the hole concentration $n_h$.
-      </div>
-      <div class="q-options">
-        <div><b>(A)</b> $5.0 \times 10^9\text{ m}^{-3}$</div>
-        <div><b>(B)</b> $3.0 \times 10^9\text{ m}^{-3}$</div>
-        <div><b>(C)</b> $2.25 \times 10^{16}\text{ m}^{-3}$</div>
-        <div><b>(D)</b> $1.5 \times 10^{22}\text{ m}^{-3}$</div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (A)</span>
+        <span>Hole Concentration $n_h = 5.0 \times 10^9\text{ m}^{-3}$.</span>
       </div>
       <div class="q-solution-steps">
         <div class="step-title">Step 1: Majority Carrier Concentration</div>
@@ -1084,26 +1297,16 @@
           n_h &= \frac{n_i^2}{n_e} = \frac{(1.5 \times 10^{16})^2}{4.5 \times 10^{22}} = \frac{2.25 \times 10^{32}}{4.5 \times 10^{22}} = 5.0 \times 10^9\text{ m}^{-3}
         \end{aligned}$$
       </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (A)</span>
-        <span>Hole Concentration $n_h = 5.0 \times 10^9\text{ m}^{-3}$.</span>
-      </div>
     </div>
-
-    <!-- PYQ 7 -->
-    <div class="question-card">
-      <div class="q-meta">
-        <span class="q-exam">JEE Main 2021</span>
-        <span class="q-arch">Archetype 7: Photodiode Threshold Wavelength</span>
+    <!-- Solution 7 -->
+    <div class="solution-card" id="sol-7">
+      <div class="sol-header">
+        <div class="sol-title">Solution 7: Archetype 7: Photodiode Threshold Wavelength</div>
+        <a href="#q-7" class="back-q-btn">&uarr; Back to Question 7</a>
       </div>
-      <div class="q-text">
-        A photodiode is fabricated from a semiconductor with band gap $E_g = 2.0\text{ eV}$. What is the maximum wavelength of light it can detect? (Take $hc \approx 1240\text{ eV}\cdot\text{nm}$).
-      </div>
-      <div class="q-options">
-        <div><b>(A)</b> $480\text{ nm}$</div>
-        <div><b>(B)</b> $540\text{ nm}$</div>
-        <div><b>(C)</b> $620\text{ nm}$</div>
-        <div><b>(D)</b> $700\text{ nm}$</div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (C)</span>
+        <span>Maximum Detectable Wavelength $= 620\text{ nm}$.</span>
       </div>
       <div class="q-solution-steps">
         <div class="step-title">Step 1: Threshold Condition</div>
@@ -1113,14 +1316,9 @@
         <div class="step-title">Step 2: Numerical Calculation</div>
         $$\lambda_{\text{max}} = \frac{1240\text{ eV}\cdot\text{nm}}{2.0\text{ eV}} = 620\text{ nm}$$
       </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (C)</span>
-        <span>Maximum Detectable Wavelength $= 620\text{ nm}$.</span>
-      </div>
     </div>
 
-    <!-- Section 8 -->
-    <h2>8. Key Traps in Semiconductor Questions</h2>
+<h2>9. Key Traps in Semiconductor Questions</h2>
 
     <div class="takeaway-box" style="border-left-color: #B91C1C;">
       <div class="takeaway-title" style="color: #B91C1C;">1. The Dropped Transistor Syllabus</div>

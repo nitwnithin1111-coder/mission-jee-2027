@@ -377,6 +377,78 @@
       background: #FAF7F0;
       display: block;
     }
+  
+    /* Solutions & Answer Key Styling */
+    .jump-sol-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0284C7;
+      text-decoration: none;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: rgba(2, 132, 199, 0.08);
+      border: 1px solid rgba(2, 132, 199, 0.25);
+      transition: all 0.15s;
+    }
+    .jump-sol-btn:hover {
+      background: #0284C7;
+      color: #FFFFFF !important;
+    }
+    .back-q-btn {
+      font-size: 11px;
+      font-weight: 600;
+      color: #64748B;
+      text-decoration: none;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: #F1F5F9;
+      border: 1px solid #CBD5E1;
+      transition: all 0.15s;
+    }
+    .back-q-btn:hover {
+      color: #0F172A;
+      background: #E2E8F0;
+    }
+    .solution-card {
+      background: #FAF7F0;
+      border: 1px solid var(--border-soft);
+      border-left: 4px solid #0284C7;
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin-bottom: 22px;
+      page-break-inside: avoid;
+    }
+    .sol-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border-soft);
+      padding-bottom: 8px;
+    }
+    .sol-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #1E293B;
+    }
+    .key-pill {
+      background: #0284C7;
+      color: #FFFFFF;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      display: inline-block;
+    }
+    .answer-key-table {
+      width: 100%;
+      margin: 16px 0 24px 0;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
   </style>
   <!-- OneSignal Web Push SDK -->
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
@@ -814,13 +886,14 @@
     </div>
 
     <!-- SECTION 5 -->
-    <h2>5. Verified JEE Main PYQs (2020–2024)</h2>
-    <p>
-      Master these 7 verified archetypes that account for over 85% of all Gravitation questions across past JEE Main exams.
-    </p>
+        <!-- Section 5: Questions Only -->
+    <h2>5. Verified JEE Main PYQ Practice Bank (2018–2026)</h2>
+    <div class="exam-notice-box" style="background: #F0FDF4; border: 1px solid #BBF7D0; border-left: 4px solid #16A34A; border-radius: 6px; padding: 12px 16px; margin-bottom: 18px; font-size: 13px; color: #166534;">
+      <strong>🎯 Exam Practice Mode:</strong> Attempt all 7 questions below without checking the solutions first. All answers and detailed derivations are grouped separately in <strong>Section 6</strong> below.
+    </div>
 
     <!-- Question 1 -->
-    <div class="question-card">
+    <div class="question-card" id="q-1">
       <div class="q-meta">
         <span class="q-exam">JEE Main 2020 (8 Jan Shift 2)</span>
         <span class="q-arch">Archetype 1: Weight Variation with Height</span>
@@ -834,25 +907,12 @@
         <div><b>(C)</b> $36\text{ N}$</div>
         <div><b>(D)</b> $24\text{ N}$</div>
       </div>
-      <div class="q-solution-steps">
-        <div class="step-title">Step 1: State the Exact Height Scaling Relation</div>
-        Because $h = \frac{R}{2}$ is large compared to $R$ ($50\%$ of radius), the small-height approximation cannot be used. We must apply the exact relation:
-        $$W_h = W \cdot \left(\frac{R}{R + h}\right)^2$$
-
-        <div class="step-title">Step 2: Substitute Parameters & Calculate</div>
-        $$\begin{aligned}
-          \frac{R}{R + h} &= \frac{R}{R + \frac{R}{2}} = \frac{R}{\frac{3R}{2}} = \frac{2}{3} \\
-          W_h &= 72 \cdot \left(\frac{2}{3}\right)^2 = 72 \cdot \frac{4}{9} = 32\text{ N}
-        \end{aligned}$$
-      </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (A)</span>
-        <span>Weight at $h = \frac{R}{2}$ is $32\text{ N}$.</span>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-1" class="jump-sol-btn">Jump to Solution #1 &darr;</a>
       </div>
     </div>
-
     <!-- Question 2 -->
-    <div class="question-card">
+    <div class="question-card" id="q-2">
       <div class="q-meta">
         <span class="q-exam">JEE Main 2021 (26 Aug Shift 1)</span>
         <span class="q-arch">Archetype 2: Equating Height & Depth Gravity</span>
@@ -866,24 +926,12 @@
         <div><b>(C)</b> $\frac{5}{9}$</div>
         <div><b>(D)</b> $\frac{1}{3}$</div>
       </div>
-      <div class="q-solution-steps">
-        <div class="step-title">Step 1: Compute Exact Gravity at Height $h = \frac{R}{2}$</div>
-        $$g_h = g \left(\frac{R}{R + \frac{R}{2}}\right)^2 = g \left(\frac{2}{3}\right)^2 = \frac{4}{9} g$$
-
-        <div class="step-title">Step 2: Equate with Gravity at Depth $d$</div>
-        $$\begin{aligned}
-          g_d &= g \left(1 - \frac{d}{R}\right) = \frac{4}{9} g \\
-          1 - \frac{d}{R} &= \frac{4}{9} \implies \frac{d}{R} = 1 - \frac{4}{9} = \frac{5}{9}
-        \end{aligned}$$
-      </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (C)</span>
-        <span>Ratio $\frac{d}{R} = \frac{5}{9}$.</span>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-2" class="jump-sol-btn">Jump to Solution #2 &darr;</a>
       </div>
     </div>
-
     <!-- Question 3 -->
-    <div class="question-card">
+    <div class="question-card" id="q-3">
       <div class="q-meta">
         <span class="q-exam">JEE Main 2022 (29 July Shift 2)</span>
         <span class="q-arch">Archetype 3: Escape Velocity Scaling</span>
@@ -897,24 +945,12 @@
         <div><b>(C)</b> $5.6\text{ km/s}$</div>
         <div><b>(D)</b> $44.8\text{ km/s}$</div>
       </div>
-      <div class="q-solution-steps">
-        <div class="step-title">Step 1: Write Scaling Proportionality</div>
-        $$v_e = \sqrt{\frac{2 G M}{R}} \implies v_e \propto \sqrt{\frac{M}{R}}$$
-
-        <div class="step-title">Step 2: Evaluate Planet Escape Speed</div>
-        $$\begin{aligned}
-          \frac{v_p}{v_e} &= \sqrt{\frac{M_p}{M_e} \cdot \frac{R_e}{R_p}} = \sqrt{2 \cdot \frac{1}{1/2}} = \sqrt{2 \cdot 2} = \sqrt{4} = 2 \\
-          v_p &= 2 \cdot v_e = 2 \times 11.2\text{ km/s} = 22.4\text{ km/s}
-        \end{aligned}$$
-      </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (B)</span>
-        <span>Escape velocity from planet is $22.4\text{ km/s}$.</span>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-3" class="jump-sol-btn">Jump to Solution #3 &darr;</a>
       </div>
     </div>
-
     <!-- Question 4 -->
-    <div class="question-card">
+    <div class="question-card" id="q-4">
       <div class="q-meta">
         <span class="q-exam">JEE Main 2023 (24 Jan Shift 1)</span>
         <span class="q-arch">Archetype 4: Small Height Approximation vs Depth</span>
@@ -928,24 +964,12 @@
         <div><b>(C)</b> $d = 2h$</div>
         <div><b>(D)</b> $d = 4h$</div>
       </div>
-      <div class="q-solution-steps">
-        <div class="step-title">Step 1: Write Small Height and Depth Formulas</div>
-        $$\begin{aligned}
-          g_h &\approx g \left(1 - \frac{2h}{R}\right) \\
-          g_d &= g \left(1 - \frac{d}{R}\right)
-        \end{aligned}$$
-
-        <div class="step-title">Step 2: Equate and Solve for $d$</div>
-        $$1 - \frac{2h}{R} = 1 - \frac{d}{R} \implies \frac{d}{R} = \frac{2h}{R} \implies d = 2h$$
-      </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (C)</span>
-        <span>Relation is $d = 2h$.</span>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-4" class="jump-sol-btn">Jump to Solution #4 &darr;</a>
       </div>
     </div>
-
     <!-- Question 5 -->
-    <div class="question-card">
+    <div class="question-card" id="q-5">
       <div class="q-meta">
         <span class="q-exam">JEE Main 2024 (27 Jan Shift 1)</span>
         <span class="q-arch">Archetype 5: Orbital Speed Scaling</span>
@@ -959,21 +983,12 @@
         <div><b>(C)</b> $4 : 1$</div>
         <div><b>(D)</b> $1 : 4$</div>
       </div>
-      <div class="q-solution-steps">
-        <div class="step-title">Step 1: Write Orbital Speed Relation</div>
-        $$v_o = \sqrt{\frac{G M}{r}} \implies v_o \propto \frac{1}{\sqrt{r}}$$
-
-        <div class="step-title">Step 2: Compute Velocity Ratio</div>
-        $$\frac{v_A}{v_B} = \sqrt{\frac{r_B}{r_A}} = \sqrt{\frac{4R}{R}} = \sqrt{4} = 2 \implies \frac{v_A}{v_B} = 2 : 1$$
-      </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (B)</span>
-        <span>Ratio of orbital speeds is $2 : 1$.</span>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-5" class="jump-sol-btn">Jump to Solution #5 &darr;</a>
       </div>
     </div>
-
     <!-- Question 6 -->
-    <div class="question-card">
+    <div class="question-card" id="q-6">
       <div class="q-meta">
         <span class="q-exam">JEE Main 2023 (1 Feb Shift 1)</span>
         <span class="q-arch">Archetype 6: Gravitational Potential at Null Point</span>
@@ -986,6 +1001,204 @@
         <div><b>(B)</b> $- \frac{4 G m}{r}$</div>
         <div><b>(C)</b> $- \frac{6 G m}{r}$</div>
         <div><b>(D)</b> $- \frac{3 G m}{r}$</div>
+      </div>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-6" class="jump-sol-btn">Jump to Solution #6 &darr;</a>
+      </div>
+    </div>
+    <!-- Question 7 -->
+    <div class="question-card" id="q-7">
+      <div class="q-meta">
+        <span class="q-exam">JEE Main 2024 (29 Jan Shift 2)</span>
+        <span class="q-arch">Archetype 7: Percentage Change & Error Analysis</span>
+      </div>
+      <div class="q-text">
+        If the radius of the Earth shrinks by $1\%$ while its mass remains constant, the percentage change in the acceleration due to gravity on its surface will be:
+      </div>
+      <div class="q-options">
+        <div><b>(A)</b> Increases by $2\%$</div>
+        <div><b>(B)</b> Decreases by $2\%$</div>
+        <div><b>(C)</b> Increases by $1\%$</div>
+        <div><b>(D)</b> Decreases by $1\%$</div>
+      </div>
+      <div style="margin-top: 12px; display: flex; justify-content: flex-end;">
+        <a href="#sol-7" class="jump-sol-btn">Jump to Solution #7 &darr;</a>
+      </div>
+    </div>
+
+    <!-- Section 6: Answers & Solutions Only -->
+    <h2>6. Official Answer Key &amp; Step-by-Step Solutions</h2>
+    <p>
+      Verify your answers against the official NTA answer keys and examine the rigorous textbook derivations below:
+    </p>
+
+    <table class="data-table answer-key-table">
+      <thead>
+        <tr>
+          <th style="width: 10%; text-align: center;">Q#</th>
+          <th>Tested Concept &amp; Exam Shift</th>
+          <th style="width: 20%; text-align: center;">Official Key</th>
+          <th style="width: 20%; text-align: center;">Detailed Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q1</td>
+          <td><b>Weight Variation with Height</b> (JEE Main 2020 (8 Jan Shift 2))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (A)</span></td>
+          <td style="text-align: center;"><a href="#sol-1" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q2</td>
+          <td><b>Equating Height & Depth Gravity</b> (JEE Main 2021 (26 Aug Shift 1))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (C)</span></td>
+          <td style="text-align: center;"><a href="#sol-2" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q3</td>
+          <td><b>Escape Velocity Scaling</b> (JEE Main 2022 (29 July Shift 2))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (B)</span></td>
+          <td style="text-align: center;"><a href="#sol-3" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q4</td>
+          <td><b>Small Height Approximation vs Depth</b> (JEE Main 2023 (24 Jan Shift 1))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (C)</span></td>
+          <td style="text-align: center;"><a href="#sol-4" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q5</td>
+          <td><b>Orbital Speed Scaling</b> (JEE Main 2024 (27 Jan Shift 1))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (B)</span></td>
+          <td style="text-align: center;"><a href="#sol-5" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q6</td>
+          <td><b>Gravitational Potential at Null Point</b> (JEE Main 2023 (1 Feb Shift 1))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (A)</span></td>
+          <td style="text-align: center;"><a href="#sol-6" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+        <tr>
+          <td style="text-align: center; font-weight: 700;">Q7</td>
+          <td><b>Percentage Change & Error Analysis</b> (JEE Main 2024 (29 Jan Shift 2))</td>
+          <td style="text-align: center;"><span class="key-pill">Option (A)</span></td>
+          <td style="text-align: center;"><a href="#sol-7" class="jump-sol-btn" style="margin-top: 0;">View Steps &darr;</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Solution 1 -->
+    <div class="solution-card" id="sol-1">
+      <div class="sol-header">
+        <div class="sol-title">Solution 1: Archetype 1: Weight Variation with Height</div>
+        <a href="#q-1" class="back-q-btn">&uarr; Back to Question 1</a>
+      </div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (A)</span>
+        <span>Weight at $h = \frac{R}{2}$ is $32\text{ N}$.</span>
+      </div>
+      <div class="q-solution-steps">
+        <div class="step-title">Step 1: State the Exact Height Scaling Relation</div>
+        Because $h = \frac{R}{2}$ is large compared to $R$ ($50\%$ of radius), the small-height approximation cannot be used. We must apply the exact relation:
+        $$W_h = W \cdot \left(\frac{R}{R + h}\right)^2$$
+
+        <div class="step-title">Step 2: Substitute Parameters & Calculate</div>
+        $$\begin{aligned}
+          \frac{R}{R + h} &= \frac{R}{R + \frac{R}{2}} = \frac{R}{\frac{3R}{2}} = \frac{2}{3} \\
+          W_h &= 72 \cdot \left(\frac{2}{3}\right)^2 = 72 \cdot \frac{4}{9} = 32\text{ N}
+        \end{aligned}$$
+      </div>
+    </div>
+    <!-- Solution 2 -->
+    <div class="solution-card" id="sol-2">
+      <div class="sol-header">
+        <div class="sol-title">Solution 2: Archetype 2: Equating Height & Depth Gravity</div>
+        <a href="#q-2" class="back-q-btn">&uarr; Back to Question 2</a>
+      </div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (C)</span>
+        <span>Ratio $\frac{d}{R} = \frac{5}{9}$.</span>
+      </div>
+      <div class="q-solution-steps">
+        <div class="step-title">Step 1: Compute Exact Gravity at Height $h = \frac{R}{2}$</div>
+        $$g_h = g \left(\frac{R}{R + \frac{R}{2}}\right)^2 = g \left(\frac{2}{3}\right)^2 = \frac{4}{9} g$$
+
+        <div class="step-title">Step 2: Equate with Gravity at Depth $d$</div>
+        $$\begin{aligned}
+          g_d &= g \left(1 - \frac{d}{R}\right) = \frac{4}{9} g \\
+          1 - \frac{d}{R} &= \frac{4}{9} \implies \frac{d}{R} = 1 - \frac{4}{9} = \frac{5}{9}
+        \end{aligned}$$
+      </div>
+    </div>
+    <!-- Solution 3 -->
+    <div class="solution-card" id="sol-3">
+      <div class="sol-header">
+        <div class="sol-title">Solution 3: Archetype 3: Escape Velocity Scaling</div>
+        <a href="#q-3" class="back-q-btn">&uarr; Back to Question 3</a>
+      </div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (B)</span>
+        <span>Escape velocity from planet is $22.4\text{ km/s}$.</span>
+      </div>
+      <div class="q-solution-steps">
+        <div class="step-title">Step 1: Write Scaling Proportionality</div>
+        $$v_e = \sqrt{\frac{2 G M}{R}} \implies v_e \propto \sqrt{\frac{M}{R}}$$
+
+        <div class="step-title">Step 2: Evaluate Planet Escape Speed</div>
+        $$\begin{aligned}
+          \frac{v_p}{v_e} &= \sqrt{\frac{M_p}{M_e} \cdot \frac{R_e}{R_p}} = \sqrt{2 \cdot \frac{1}{1/2}} = \sqrt{2 \cdot 2} = \sqrt{4} = 2 \\
+          v_p &= 2 \cdot v_e = 2 \times 11.2\text{ km/s} = 22.4\text{ km/s}
+        \end{aligned}$$
+      </div>
+    </div>
+    <!-- Solution 4 -->
+    <div class="solution-card" id="sol-4">
+      <div class="sol-header">
+        <div class="sol-title">Solution 4: Archetype 4: Small Height Approximation vs Depth</div>
+        <a href="#q-4" class="back-q-btn">&uarr; Back to Question 4</a>
+      </div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (C)</span>
+        <span>Relation is $d = 2h$.</span>
+      </div>
+      <div class="q-solution-steps">
+        <div class="step-title">Step 1: Write Small Height and Depth Formulas</div>
+        $$\begin{aligned}
+          g_h &\approx g \left(1 - \frac{2h}{R}\right) \\
+          g_d &= g \left(1 - \frac{d}{R}\right)
+        \end{aligned}$$
+
+        <div class="step-title">Step 2: Equate and Solve for $d$</div>
+        $$1 - \frac{2h}{R} = 1 - \frac{d}{R} \implies \frac{d}{R} = \frac{2h}{R} \implies d = 2h$$
+      </div>
+    </div>
+    <!-- Solution 5 -->
+    <div class="solution-card" id="sol-5">
+      <div class="sol-header">
+        <div class="sol-title">Solution 5: Archetype 5: Orbital Speed Scaling</div>
+        <a href="#q-5" class="back-q-btn">&uarr; Back to Question 5</a>
+      </div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (B)</span>
+        <span>Ratio of orbital speeds is $2 : 1$.</span>
+      </div>
+      <div class="q-solution-steps">
+        <div class="step-title">Step 1: Write Orbital Speed Relation</div>
+        $$v_o = \sqrt{\frac{G M}{r}} \implies v_o \propto \frac{1}{\sqrt{r}}$$
+
+        <div class="step-title">Step 2: Compute Velocity Ratio</div>
+        $$\frac{v_A}{v_B} = \sqrt{\frac{r_B}{r_A}} = \sqrt{\frac{4R}{R}} = \sqrt{4} = 2 \implies \frac{v_A}{v_B} = 2 : 1$$
+      </div>
+    </div>
+    <!-- Solution 6 -->
+    <div class="solution-card" id="sol-6">
+      <div class="sol-header">
+        <div class="sol-title">Solution 6: Archetype 6: Gravitational Potential at Null Point</div>
+        <a href="#q-6" class="back-q-btn">&uarr; Back to Question 6</a>
+      </div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (A)</span>
+        <span>Null point potential is $- \frac{9 G m}{r}$.</span>
       </div>
       <div class="q-solution-steps">
         <div class="step-title">Step 1: Locate the Null Field Position</div>
@@ -1001,26 +1214,16 @@
           &= - \frac{G m}{r / 3} - \frac{4 G m}{2r / 3} = - \frac{3 G m}{r} - \frac{6 G m}{r} = - \frac{9 G m}{r}
         \end{aligned}$$
       </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (A)</span>
-        <span>Null point potential is $- \frac{9 G m}{r}$.</span>
-      </div>
     </div>
-
-    <!-- Question 7 -->
-    <div class="question-card">
-      <div class="q-meta">
-        <span class="q-exam">JEE Main 2024 (29 Jan Shift 2)</span>
-        <span class="q-arch">Archetype 7: Percentage Change & Error Analysis</span>
+    <!-- Solution 7 -->
+    <div class="solution-card" id="sol-7">
+      <div class="sol-header">
+        <div class="sol-title">Solution 7: Archetype 7: Percentage Change & Error Analysis</div>
+        <a href="#q-7" class="back-q-btn">&uarr; Back to Question 7</a>
       </div>
-      <div class="q-text">
-        If the radius of the Earth shrinks by $1\%$ while its mass remains constant, the percentage change in the acceleration due to gravity on its surface will be:
-      </div>
-      <div class="q-options">
-        <div><b>(A)</b> Increases by $2\%$</div>
-        <div><b>(B)</b> Decreases by $2\%$</div>
-        <div><b>(C)</b> Increases by $1\%$</div>
-        <div><b>(D)</b> Decreases by $1\%$</div>
+      <div class="q-answer-box" style="margin-bottom: 14px;">
+        <span class="q-ans-badge">Correct Answer: Option (A)</span>
+        <span>Surface gravity increases by $2\%$.</span>
       </div>
       <div class="q-solution-steps">
         <div class="step-title">Step 1: Write Logarithmic Differential of Gravity</div>
@@ -1032,14 +1235,9 @@
         $$\frac{\Delta g}{g} \times 100\% = - 2 \left(- 1\%\right) = + 2\%$$
         Because $\Delta g > 0$, surface gravity increases by $2\%$.
       </div>
-      <div class="q-answer-box">
-        <span class="q-ans-badge">Correct Answer: Option (A)</span>
-        <span>Surface gravity increases by $2\%$.</span>
-      </div>
     </div>
 
-    <!-- SECTION 6 -->
-    <h2>6. Key Traps in Gravitation Questions</h2>
+<h2>6. Key Traps in Gravitation Questions</h2>
 
     <div class="takeaway-box" style="border-left-color: #B91C1C;">
       <div class="takeaway-title" style="color: #B91C1C;">1. Using Small Height Formula When $h$ is Large</div>
