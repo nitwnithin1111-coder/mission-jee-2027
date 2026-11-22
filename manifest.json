@@ -2,11 +2,14 @@
   "name": "Mission JEE 2027",
   "short_name": "Mission JEE",
   "description": "High-Yield JEE Main Chapter Master Guides & Verified PYQ Archetypes",
-  "start_url": "/index.html",
+  "id": "/",
+  "scope": "/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#0b0f19",
   "theme_color": "#0284c7",
-  "orientation": "portrait",
+  "orientation": "portrait-primary",
+  "categories": ["education", "books", "productivity"],
   "icons": [
     {
       "src": "/icon-192.png",

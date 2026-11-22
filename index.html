@@ -863,6 +863,711 @@
         grid-template-columns: 1fr;
       }
     }
+  
+    /* --- MINIMALIST ZERO-PRESSURE STUDY DESK STYLES --- */
+    .app-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 16px 16px 80px 16px;
+    }
+
+    /* Minimalist Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      margin-bottom: 20px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #ffffff;
+    }
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .brand-text h1 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      margin: 0;
+      color: #f8fafc;
+    }
+    .brand-text p {
+      margin: 0;
+      font-size: 11px;
+      color: #64748b;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .header-pill-btn {
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      color: #cbd5e1;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .header-pill-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+    .header-pill-btn.quiz {
+      background: rgba(16, 185, 129, 0.12);
+      border-color: rgba(16, 185, 129, 0.35);
+      color: #34d399;
+    }
+    .header-pill-btn.pwa {
+      background: rgba(59, 130, 246, 0.12);
+      border-color: rgba(59, 130, 246, 0.35);
+      color: #60a5fa;
+    }
+
+    /* Minimalist Calm Hero */
+    .calm-hero {
+      text-align: center;
+      padding: 10px 0 20px 0;
+    }
+    .calm-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin: 0 0 6px 0;
+    }
+    .calm-subtitle {
+      font-size: 13.5px;
+      color: #94a3b8;
+      max-width: 520px;
+      margin: 0 auto 16px auto;
+      line-height: 1.5;
+    }
+
+    /* Minimal Search Bar */
+    .search-container {
+      max-width: 560px;
+      margin: 0 auto 20px auto;
+    }
+    .search-box {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s;
+    }
+    .search-box:focus-within {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+    }
+    #global-search {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #ffffff;
+      font-size: 13.5px;
+      font-family: inherit;
+    }
+    #global-search::placeholder {
+      color: #64748b;
+    }
+    #search-clear {
+      background: transparent;
+      border: none;
+      color: #64748b;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* Optional Gentle 1-Question Drill */
+    .optional-drill-wrap {
+      max-width: 560px;
+      margin: 0 auto 24px auto;
+    }
+    .optional-drill-trigger {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 9px 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .optional-drill-trigger:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+    .drill-left-text {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+    .drill-badge {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .drill-toggle-arrow {
+      font-size: 11.5px;
+      color: #94a3b8;
+    }
+    #daily-pyq-expandable {
+      display: none;
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: none;
+      border-radius: 0 0 10px 10px;
+      padding: 14px;
+      margin-top: -2px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    }
+
+    /* Subject Selector Tabs */
+    .subject-selector {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .subject-btn {
+      flex: 1;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      font-weight: 700;
+      border-radius: 7px;
+      background: transparent;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .subject-btn.active {
+      background: #0284c7;
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+    }
+
+    /* Chapter Cards Enhancement */
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .chapter-card {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .chapter-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .card-desc {
+      font-size: 12px;
+      line-height: 1.45;
+      color: #94a3b8;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 12px;
+      font-size: 11.5px;
+      color: #64748b;
+    }
+    .card-btn-row {
+      display: flex;
+      gap: 6px;
+    }
+    .card-btn {
+      padding: 5px 11px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+    }
+    .card-btn.pdf {
+      background: rgba(37, 99, 235, 0.2);
+      color: #60a5fa;
+      border: 1px solid rgba(37, 99, 235, 0.4);
+    }
+    .card-btn.pdf:hover {
+      background: rgba(37, 99, 235, 0.35);
+    }
+    .card-btn.view {
+      background: rgba(255, 255, 255, 0.06);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .card-btn.view:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Side Toggle Tab */
+    #side-quiz-toggle-tab {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 994;
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-right: none;
+      border-radius: 20px 0 0 20px;
+      padding: 10px 14px 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: -4px 6px 20px rgba(2, 132, 199, 0.45);
+      transition: all 0.25s;
+      font-family: inherit;
+      font-size: 11.5px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    #side-quiz-toggle-tab:hover {
+      padding-left: 18px;
+    }
+    .quiz-pulse-dot {
+      width: 7px;
+      height: 7px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 0 rgba(34, 197, 94, 0.7);
+      animation: pulse-quiz 2s infinite;
+    }
+    @keyframes pulse-quiz {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    /* Floating Support FAB */
+    #floating-support-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      text-decoration: none;
+      z-index: 993;
+      transition: all 0.2s;
+    }
+    #floating-support-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.7);
+    }
+
+    /* Mobile Overrides */
+    @media (max-width: 640px) {
+      .app-container {
+        padding: 10px 12px 60px 12px;
+      }
+      .calm-title {
+        font-size: 21px;
+        letter-spacing: -0.3px;
+        margin-bottom: 4px;
+      }
+      .calm-subtitle {
+        font-size: 12.5px;
+        margin-bottom: 12px;
+      }
+      .search-container {
+        margin-bottom: 12px;
+      }
+      .search-box {
+        padding: 6px 12px;
+      }
+      #global-search {
+        font-size: 13px;
+      }
+      .optional-drill-wrap {
+        margin-bottom: 16px;
+      }
+      .chapter-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .chapter-card {
+        padding: 14px;
+      }
+      #side-quiz-toggle-tab {
+        top: auto;
+        bottom: 74px;
+        transform: none;
+        padding: 7px 10px 7px 8px;
+        font-size: 10.5px;
+        border-radius: 14px 0 0 14px;
+      }
+      #floating-support-btn {
+        bottom: 16px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+      }
+    }
+
+    /* Quiz Drawer CSS */
+    .quiz-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 9, 20, 0.75);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .quiz-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .quiz-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 460px;
+      max-width: 95vw;
+      height: 100vh;
+      height: 100dvh;
+      background: #0b1120;
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.75);
+      color: #f1f5f9;
+    }
+    .quiz-drawer.active {
+      transform: translateX(0);
+    }
+    .quiz-drawer-header {
+      padding: 16px 20px 14px 20px;
+      background: #0f172a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .quiz-brand-pill {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 2px 7px;
+      border-radius: 12px;
+      margin-bottom: 4px;
+    }
+    .quiz-title {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 0;
+      color: #ffffff;
+    }
+    .quiz-close-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #94a3b8;
+      font-size: 18px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quiz-close-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+    }
+    .quiz-sub-bar {
+      padding: 10px 16px;
+      background: #0b1329;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      flex-shrink: 0;
+    }
+    .quiz-tabs-row {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+    .q-tab-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 14px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .q-tab-btn.active {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #38bdf8;
+    }
+    .quiz-stats-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 11.5px;
+    }
+    .quiz-stat-pill {
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+    .quiz-stat-pill.timer {
+      background: rgba(234, 179, 8, 0.12);
+      color: #facc15;
+      border: 1px solid rgba(234, 179, 8, 0.3);
+      font-family: monospace;
+    }
+    .quiz-stat-pill.score {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+    .quiz-stat-pill.counter {
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+    }
+    .quiz-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+    }
+    .quiz-active-card {
+      background: #111a30;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .quiz-q-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .quiz-q-exam {
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 2px 7px;
+      border-radius: 6px;
+    }
+    .quiz-q-arch {
+      font-size: 10.5px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .quiz-q-text {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #f8fafc;
+      margin-bottom: 14px;
+    }
+    .quiz-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 11px 13px;
+      font-size: 12.5px;
+      line-height: 1.4;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      color: #e2e8f0;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: inherit;
+    }
+    .quiz-opt-btn:hover:not(:disabled) {
+      background: rgba(2, 132, 199, 0.15);
+      border-color: #0284c7;
+      color: #ffffff;
+    }
+    .quiz-opt-btn.correct {
+      background: rgba(34, 197, 94, 0.18) !important;
+      border-color: #22c55e !important;
+      color: #4ade80 !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong {
+      background: rgba(239, 68, 68, 0.18) !important;
+      border-color: #ef4444 !important;
+      color: #f87171 !important;
+    }
+    .quiz-derivation-box {
+      display: none;
+      background: #080d1a;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-left: 3px solid #0284c7;
+      border-radius: 8px;
+      padding: 11px 13px;
+      margin-top: 12px;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #cbd5e1;
+    }
+    .quiz-derivation-box.visible {
+      display: block;
+    }
+    .quiz-derivation-header {
+      font-size: 11.5px;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 5px;
+    }
+    .quiz-actions-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .quiz-next-btn {
+      flex: 1;
+      padding: 10px 14px;
+      background: #0284c7;
+      border: 1px solid #38bdf8;
+      border-radius: 8px;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 12.5px;
+      cursor: pointer;
+    }
+    .quiz-shuffle-btn {
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      color: #cbd5e1;
+      cursor: pointer;
+    }
+    .quiz-summary-card {
+      text-align: center;
+      padding: 24px 16px;
+      background: #111a30;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .quiz-drawer-footer {
+      padding: 12px 16px;
+      background: #0f172a;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
+    }
+    .pwa-quick-btn {
+      width: 100%;
+      padding: 9px 12px;
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(37, 99, 235, 0.35);
+      border-radius: 8px;
+      color: #60a5fa;
+      font-size: 11.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
   </style>
 
   <!-- External Data File -->
@@ -931,100 +1636,62 @@
 
   <div class="app-container">
     
-    <!-- Top Announcement Strip for Instagram -->
-    <div class="top-announcement">
-      <div class="ig-badge-left">
-        <span>📸</span>
-        <span>Follow our page on Instagram for daily notes &amp; chapter drops:</span>
-      </div>
-      <a href="https://instagram.com/nithlabs" target="_blank" rel="noopener noreferrer" class="ig-follow-btn" onclick="Analytics.track('ig_click', 'Top Banner')">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-        <span>Follow @nithlabs</span>
-      </a>
-    </div>
-
-    <!-- Top Header -->
+    <!-- Minimalist Quiet Header -->
     <header>
       <a href="#" class="brand-logo">
         <div class="logo-badge">⚡</div>
         <div class="brand-text">
-          <div style="display: flex; align-items: center; gap: 8px;">
-            <h1>MISSION JEE 2027</h1>
-            <span class="beta-pill">BETA</span>
-          </div>
-          <p>Built to help JEE aspirants with quick PDFs</p>
+          <h1>MISSION JEE</h1>
+          <p>Quiet, High-Yield Revision</p>
         </div>
       </a>
-      <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-        <div class="header-tag" style="background: rgba(245, 158, 11, 0.15); border-color: rgba(245, 158, 11, 0.35); color: #fbbf24;">🚀 EARLY ACCESS</div>
-        <button class="chai-btn" onclick="subscribePushNotification()" id="notif-bell-btn" style="background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8 !important;">
-          <span>🔔</span>
-          <span>Get Alerts</span>
+      <div class="header-actions">
+        <button class="header-pill-btn quiz" onclick="QuizMode.open()" title="Practice JEE Main PYQs">
+          <span>🎯</span>
+          <span>Quiz</span>
         </button>
-        <button class="chai-btn" onclick="openChaiModal()">
+        <button class="header-pill-btn pwa" onclick="PWAInstaller.prompt()" id="header-pwa-btn" style="display: none;" title="Install Offline App">
+          <span>📲</span>
+          <span>Install</span>
+        </button>
+        <button class="header-pill-btn" onclick="openChaiModal()" title="Support the Creator">
           <span>☕</span>
-          <span>Buy Me a Chai</span>
         </button>
-        <div class="header-tag">JEE MAIN 2027</div>
-        <a href="https://instagram.com/nithlabs" target="_blank" rel="noopener noreferrer" class="ig-follow-btn" style="padding: 4px 10px; font-size: 10.5px;" onclick="Analytics.track('ig_click', 'Header')">
-          <span>@nithlabs</span>
-        </a>
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero-badge">🚀 Early Access Beta • High-Yield Master PDFs</div>
-      <h2>High-Yield Chapter Master PDFs</h2>
-      <p>Clean, story-powered conceptual summaries designed to help JEE aspirants revise chapters rapidly with zero fluff and verified past year questions.</p>
+    <!-- Calm Hero Greeting -->
+    <section class="calm-hero" style="padding: 4px 0 14px 0;">
+      <p class="calm-subtitle" style="font-size: 13.5px; font-weight: 600; color: #94a3b8; margin: 0 auto 12px auto; max-width: 540px;">High-yield visual concept notes &amp; verified JEE Main past year questions.</p>
       
-      <div style="margin-top: 16px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-        <button class="share-wa-btn" onclick="shareWebsite()" style="padding: 8px 16px; font-size: 12.5px;">
-          <span>📲</span>
-          <span>Share with Your Friends (WhatsApp)</span>
-        </button>
-        <button class="ig-follow-btn" onclick="copyWebsiteLink()" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); box-shadow: none; padding: 8px 14px; font-size: 12px;" id="copy-link-btn">
-          <span>🔗</span>
-          <span id="copy-link-text">Copy Link</span>
-        </button>
-        <!-- Request a Topic Button -->
-        <a href="https://ig.me/m/nithlabs" target="_blank" rel="noopener noreferrer" class="request-topic-btn" id="hero-request-topic-btn" onclick="Analytics.track('request_topic', 'Hero Button')">
-          <span>📬</span>
-          <span>Request a Topic (Instagram DM)</span>
-        </a>
+      <!-- Minimal Client-Side Search Bar -->
+      <div class="search-container">
+        <div class="search-box">
+          <span style="font-size: 14px; opacity: 0.7;">🔍</span>
+          <input type="text" id="global-search" placeholder="Search a chapter, formula, or concept (e.g. Zener, Orbits, Logic Gates)..." oninput="handleSearch(this.value)" autocomplete="off">
+          <button id="search-clear" onclick="clearSearch()" style="display: none;" title="Clear search">✕</button>
+        </div>
+      </div>
+
+      <!-- Optional Gentle 1-Question Drill (Collapsed by default - 0 Pressure!) -->
+      <div class="optional-drill-wrap" id="daily-pyq-box">
+        <div class="optional-drill-trigger" onclick="toggleDailyExpand()">
+          <div class="drill-left-text">
+            <span>☕</span>
+            <span>Today's 1-Question Drill</span>
+            <span class="drill-badge">Optional</span>
+          </div>
+          <span class="drill-toggle-arrow" id="drill-toggle-label">Tap to try &darr;</span>
+        </div>
+        <div id="daily-pyq-expandable">
+          <div id="daily-pyq-body">
+            <div style="font-size: 12px; color: #94a3b8;">Loading today's question...</div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Global Client-Side Search Bar -->
-    <div class="search-container">
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="global-search" placeholder="Search chapters, formulas, PDFs, or exam traps (e.g. Zener, Kepler, De Morgan)..." oninput="handleSearch(this.value)" autocomplete="off">
-        <button id="search-clear" onclick="clearSearch()" style="display: none;" title="Clear search">✕</button>
-      </div>
-    </div>
-
-    <!-- Today's Question Challenge -->
-    <div class="daily-pyq-card" id="daily-pyq-box">
-      <div class="daily-pyq-header">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="font-size: 18px;">🎯</span>
-          <span style="font-size: 13px; font-weight: 800; color: #f1f5f9; text-transform: uppercase; letter-spacing: 0.04em;">Today's JEE PYQ Challenge</span>
-        </div>
-        <div class="streak-badge" id="daily-streak-badge">
-          <span>🔥</span>
-          <span id="streak-count">0</span>
-          <span>Day Streak</span>
-        </div>
-      </div>
-      <div id="daily-pyq-body">
-        <div style="font-size: 12.5px; color: #94a3b8;">Loading today's question...</div>
-      </div>
-    </div>
-
-    <!-- 3 Subject Selector Tabs -->
+    <!-- Subject Selector Tabs -->
     <div class="subject-selector">
       <button class="subject-btn active physics" onclick="selectSubject('physics')">
         <span>⚛️</span>
@@ -1040,18 +1707,11 @@
       </button>
     </div>
 
-    <!-- Active Loading Notice Banner with Request Topic Link -->
-    <div class="loading-strip">
-      <span>⚡</span>
-      <span><strong>More chapters loading soon!</strong> We are actively compiling and verifying new high-yield master guides daily.</span>
-      <a href="https://ig.me/m/nithlabs" target="_blank" rel="noopener noreferrer" class="request-topic-btn-sm" onclick="Analytics.track('request_topic', 'Loading Strip')">Request a Topic &rarr;</a>
-    </div>
-
-    <!-- Chapter Section -->
-    <div class="list-header">
-      <div class="list-title">
+    <!-- Chapter Section (Immediately Visible!) -->
+    <div class="list-header" style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+      <div class="list-title" style="font-size: 13.5px; font-weight: 800; color: #e2e8f0; display: flex; align-items: center; gap: 8px;">
         <span id="subject-title">Physics Chapters</span>
-        <span class="count-badge" id="chapter-count">2 Ready • 5 Total</span>
+        <span class="count-badge" id="chapter-count" style="font-size: 11px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25); padding: 1px 7px; border-radius: 10px;">2 Ready</span>
       </div>
     </div>
 
@@ -1060,26 +1720,26 @@
       <!-- Populated via JS -->
     </div>
 
-    <!-- Footer with Legal & Support Links -->
-    <footer style="margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e293b; text-align: center;">
-      <p><strong>Mission JEE 2027</strong> • Open Educational Initiative for JEE Main Aspirants • Free &amp; Ad-Free</p>
+    <!-- Footer with Calm & Helpful Links -->
+    <footer style="margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; color: #64748b; font-size: 12px;">
+      <p style="margin-bottom: 10px;"><strong style="color: #cbd5e1;">Mission JEE 2027</strong> • Free, Ad-Free Educational Initiative for JEE Main Aspirants</p>
       
-      <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 10px; font-size: 12.5px;">
-        <a href="https://ig.me/m/nithlabs" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; text-decoration: none; font-weight: 700;">📬 Request a Topic (Instagram DM)</a>
-        <span style="color: #475569;">•</span>
-        <a href="/support.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">Raise a Request or Complaint</a>
-        <span style="color: #475569;">•</span>
-        <a href="/privacy.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">Privacy Policy</a>
-        <span style="color: #475569;">•</span>
-        <a href="/terms.html" style="color: #94a3b8; text-decoration: none; font-weight: 500;">Terms &amp; Conditions</a>
+      <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 12px;">
+        <a href="/support.html?category=Chapter+Request" style="color: #38bdf8; text-decoration: none; font-weight: 700;">📬 Request a Topic</a>
+        <span style="color: #334155;">•</span>
+        <a href="/support.html" style="color: #94a3b8; text-decoration: none;">Report Error / Help</a>
+        <span style="color: #334155;">•</span>
+        <a href="https://instagram.com/nithlabs" target="_blank" rel="noopener noreferrer" style="color: #94a3b8; text-decoration: none;">Instagram (@nithlabs)</a>
+        <span style="color: #334155;">•</span>
+        <a href="/privacy.html" style="color: #64748b; text-decoration: none;">Privacy</a>
       </div>
 
-      <p style="font-size: 11px; margin-top: 10px; color: #475569;">Questions referenced from past NTA exams under educational fair use. Zero student data tracking.</p>
+      <p style="font-size: 11px; color: #475569;">Past year questions from official NTA shifts cited under educational fair use. Zero tracking.</p>
     </footer>
 
   </div>
 
-  <!-- Chapter Action Modal -->
+
   <div class="modal-overlay" id="chapter-modal" onclick="closeModalOnOverlay(event)">
     <div class="modal-box">
       <div class="modal-header">
@@ -1478,9 +2138,14 @@
           </div>
           <div class="card-footer">
             <span>${ch.metaInfo}</span>
-            <span class="card-action-btn">
-              ${ch.status === 'ready' ? '⚡ Open PDF' : '⏳ Soon'}
-            </span>
+            <div class="card-btn-row">
+              ${ch.status === 'ready' ? `
+                <a href="${ch.pdfUrl}" download class="card-btn pdf" onclick="event.stopPropagation(); Analytics.track('download', '${ch.title}')">📥 PDF</a>
+                <span class="card-btn view">📖 View</span>
+              ` : `
+                <span class="card-btn view" style="opacity: 0.5;">⏳ Soon</span>
+              `}
+            </div>
           </div>
         </div>
       `).join('');
@@ -1535,9 +2200,14 @@
           </div>
           <div class="card-footer">
             <span>${ch.metaInfo}</span>
-            <span class="card-action-btn">
-              ${ch.status === 'ready' ? '⚡ Open PDF' : '⏳ Soon'}
-            </span>
+            <div class="card-btn-row">
+              ${ch.status === 'ready' ? `
+                <a href="${ch.pdfUrl}" download class="card-btn pdf" onclick="event.stopPropagation(); Analytics.track('download', '${ch.title}')">📥 PDF</a>
+                <span class="card-btn view">📖 View</span>
+              ` : `
+                <span class="card-btn view" style="opacity: 0.5;">⏳ Soon</span>
+              `}
+            </div>
           </div>
         </div>
       `).join('') + `
@@ -1847,5 +2517,409 @@
       });
     }
   </script>
+
+  <!-- Floating Side Toggle Tab for Quiz Mode -->
+  <button id="side-quiz-toggle-tab" onclick="QuizMode.open()" aria-label="Open JEE Mains Quiz Mode">
+    <span class="quiz-pulse-dot"></span>
+    <span>🎯 QUIZ</span>
+  </button>
+
+  <!-- Floating Support FAB -->
+  <a href="/support.html" id="floating-support-btn" title="Request Topic / Report Mistake">
+    <span>📬</span>
+  </a>
+
+  <!-- Quiz Backdrop -->
+  <div id="quiz-backdrop" class="quiz-backdrop" onclick="QuizMode.close()"></div>
+
+  <!-- Quiz Side Drawer Panel -->
+  <aside id="quiz-drawer" class="quiz-drawer" aria-label="JEE Mains Quiz Drawer">
+    <div class="quiz-drawer-header">
+      <div>
+        <div class="quiz-brand-pill">⚡ JEE MAIN DRILL • +4 / -1</div>
+        <h3 class="quiz-title">🎯 Rapid PYQ Practice</h3>
+      </div>
+      <button class="quiz-close-btn" onclick="QuizMode.close()" aria-label="Close Quiz">&times;</button>
+    </div>
+
+    <!-- Category Tabs & Stats -->
+    <div class="quiz-sub-bar">
+      <div class="quiz-tabs-row" id="quiz-category-tabs">
+        <button class="q-tab-btn active" onclick="QuizMode.setFilter('All')">All (19)</button>
+        <button class="q-tab-btn" onclick="QuizMode.setFilter('Semiconductor Electronics')">Semiconductors (7)</button>
+        <button class="q-tab-btn" onclick="QuizMode.setFilter('Gravitation')">Gravitation (7)</button>
+        <button class="q-tab-btn" onclick="QuizMode.setFilter('Core')">Modern & Core (5)</button>
+      </div>
+      <div class="quiz-stats-strip">
+        <div class="quiz-stat-pill timer" id="quiz-timer-display">⏱️ 02:00</div>
+        <div class="quiz-stat-pill score" id="quiz-score-display">🏆 Score: 0</div>
+        <div class="quiz-stat-pill counter" id="quiz-counter-display">Q 1/19</div>
+      </div>
+    </div>
+
+    <!-- Active Quiz Body -->
+    <div class="quiz-body" id="quiz-body">
+      <!-- Injected by QuizMode.renderQuestion() -->
+    </div>
+
+    <!-- Drawer Footer with PWA Installer -->
+    <div class="quiz-drawer-footer">
+      <button class="pwa-quick-btn" onclick="PWAInstaller.prompt()">
+        <span>📲</span>
+        <span>Install Mission JEE App (Works 100% Offline)</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- PWA & Quiz Mode Controller Script -->
+  <script>
+    // Toggle Optional Daily Drill Accordion
+    function toggleDailyExpand() {
+      const exp = document.getElementById('daily-pyq-expandable');
+      const label = document.getElementById('drill-toggle-label');
+      if (!exp) return;
+      const isClosed = exp.style.display === 'none' || !exp.style.display;
+      exp.style.display = isClosed ? 'block' : 'none';
+      if (label) label.innerHTML = isClosed ? 'Hide &uarr;' : 'Tap to try &darr;';
+    }
+
+    // --- PWA INSTALLATION MANAGER ---
+    let deferredPWAEvent = null;
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPWAEvent = e;
+      const headerInstall = document.getElementById('header-pwa-btn');
+      if (headerInstall) headerInstall.style.display = 'inline-flex';
+    });
+
+    window.addEventListener('appinstalled', () => {
+      deferredPWAEvent = null;
+      console.log('[PWA] Installed successfully.');
+    });
+
+    window.PWAInstaller = {
+      prompt: async function() {
+        Analytics.track('pwa_install_click', 'User initiated PWA install');
+        if (deferredPWAEvent) {
+          deferredPWAEvent.prompt();
+          const { outcome } = await deferredPWAEvent.userChoice;
+          console.log('[PWA] Outcome:', outcome);
+          deferredPWAEvent = null;
+        } else {
+          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+          if (isIOS) {
+            alert('📲 To install Mission JEE on iOS:\n\n1. Tap the Share button [ ⎋ ] in Safari.\n2. Scroll down and tap "Add to Home Screen" [ ⊞ ].\n\nYou can then access all chapter notes 100% offline!');
+          } else {
+            alert('⚡ Mission JEE PWA:\n\nThe app is already installed or accessible offline on your browser!');
+          }
+        }
+      }
+    };
+
+    // --- QUIZ MODE ENGINE ---
+    window.QuizMode = (function() {
+      let questions = [];
+      let filteredQuestions = [];
+      let currentIndex = 0;
+      let score = 0;
+      let correctCount = 0;
+      let wrongCount = 0;
+      let activeFilter = 'All';
+      let timerInterval = null;
+      let timeLeft = 120;
+      let isOpen = false;
+
+      async function loadQuestions() {
+        if (questions.length > 0) return;
+        try {
+          const res = await fetch('/questions.json');
+          questions = await res.json();
+          applyFilter(activeFilter);
+        } catch (e) {
+          console.error('[Quiz] Failed to load questions:', e);
+        }
+      }
+
+      function applyFilter(filter) {
+        activeFilter = filter;
+        if (filter === 'All') {
+          filteredQuestions = [...questions];
+        } else if (filter === 'Core') {
+          filteredQuestions = questions.filter(q => q.chapter !== 'Semiconductor Electronics' && q.chapter !== 'Gravitation');
+        } else {
+          filteredQuestions = questions.filter(q => q.chapter === filter);
+        }
+        currentIndex = 0;
+        score = 0;
+        correctCount = 0;
+        wrongCount = 0;
+        updateStats();
+        renderQuestion();
+      }
+
+      function open() {
+        isOpen = true;
+        Analytics.track('quiz_open', 'Side Toggle Opened');
+        document.getElementById('quiz-backdrop').classList.add('active');
+        document.getElementById('quiz-drawer').classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        if (questions.length === 0) {
+          loadQuestions();
+        } else {
+          renderQuestion();
+          startTimer();
+        }
+      }
+
+      function close() {
+        isOpen = false;
+        clearInterval(timerInterval);
+        document.getElementById('quiz-backdrop').classList.remove('active');
+        document.getElementById('quiz-drawer').classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function startTimer() {
+        clearInterval(timerInterval);
+        timeLeft = 120;
+        updateTimerDisplay();
+
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          updateTimerDisplay();
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            handleTimeUp();
+          }
+        }, 1000);
+      }
+
+      function updateTimerDisplay() {
+        const timerEl = document.getElementById('quiz-timer-display');
+        if (!timerEl) return;
+        const mins = Math.floor(timeLeft / 60);
+        const secs = timeLeft % 60;
+        timerEl.innerText = `⏱️ ${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        
+        if (timeLeft <= 20) {
+          timerEl.style.borderColor = '#ef4444';
+          timerEl.style.color = '#ef4444';
+        } else if (timeLeft <= 45) {
+          timerEl.style.borderColor = '#f59e0b';
+          timerEl.style.color = '#facc15';
+        } else {
+          timerEl.style.borderColor = 'rgba(234, 179, 8, 0.3)';
+          timerEl.style.color = '#facc15';
+        }
+      }
+
+      function updateStats() {
+        const scoreEl = document.getElementById('quiz-score-display');
+        const counterEl = document.getElementById('quiz-counter-display');
+        if (scoreEl) scoreEl.innerText = `🏆 Score: ${score > 0 ? '+' + score : score}`;
+        if (counterEl) counterEl.innerText = `Q ${filteredQuestions.length ? currentIndex + 1 : 0}/${filteredQuestions.length}`;
+      }
+
+      function renderQuestion() {
+        const body = document.getElementById('quiz-body');
+        if (!body) return;
+
+        if (filteredQuestions.length === 0) {
+          body.innerHTML = `
+            <div style="text-align: center; padding: 40px 10px; color: #94a3b8;">
+              <div style="font-size: 32px; margin-bottom: 10px;">⏳</div>
+              <p>Loading authentic JEE Main questions...</p>
+            </div>
+          `;
+          return;
+        }
+
+        const q = filteredQuestions[currentIndex];
+        startTimer();
+        updateStats();
+
+        body.innerHTML = `
+          <div class="quiz-active-card">
+            <div class="quiz-q-meta">
+              <span class="quiz-q-exam">${q.examTag}</span>
+              <span class="quiz-q-arch">${q.chapter} • ${q.archetype}</span>
+            </div>
+            <div class="quiz-q-text">${q.question}</div>
+            <div class="quiz-options-list">
+              ${q.options.map((opt, i) => `
+                <button class="quiz-opt-btn" onclick="QuizMode.chooseOption(${i})">
+                  <span>${opt}</span>
+                  <span id="opt-badge-${i}"></span>
+                </button>
+              `).join('')}
+            </div>
+
+            <div class="quiz-derivation-box" id="quiz-derivation">
+              <div class="quiz-derivation-header">
+                <span>💡 Official JEE Main Derivation:</span>
+              </div>
+              <div>${q.explanation}</div>
+            </div>
+
+            <div class="quiz-actions-row" id="quiz-action-bar" style="display: none;">
+              <button class="quiz-next-btn" onclick="QuizMode.next()">
+                <span>${currentIndex + 1 < filteredQuestions.length ? 'Next Question ➔' : 'Finish & View Scorecard 🏆'}</span>
+              </button>
+              <button class="quiz-shuffle-btn" onclick="QuizMode.shuffle()" title="Shuffle questions">🔀</button>
+            </div>
+          </div>
+        `;
+      }
+
+      function chooseOption(chosenIdx) {
+        clearInterval(timerInterval);
+        const q = filteredQuestions[currentIndex];
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+
+        buttons.forEach((btn, i) => {
+          btn.disabled = true;
+          if (i === q.correctIndex) {
+            btn.classList.add('correct');
+            const badge = document.getElementById(`opt-badge-${i}`);
+            if (badge) badge.innerText = '✓ +4';
+          } else if (i === chosenIdx) {
+            btn.classList.add('wrong');
+            const badge = document.getElementById(`opt-badge-${i}`);
+            if (badge) badge.innerText = '✗ -1';
+          }
+        });
+
+        if (chosenIdx === q.correctIndex) {
+          score += 4;
+          correctCount++;
+          if (navigator.vibrate) navigator.vibrate(40);
+        } else {
+          score -= 1;
+          wrongCount++;
+          if (navigator.vibrate) navigator.vibrate([60, 40, 60]);
+        }
+
+        updateStats();
+
+        const derivBox = document.getElementById('quiz-derivation');
+        if (derivBox) derivBox.classList.add('visible');
+
+        const actionBar = document.getElementById('quiz-action-bar');
+        if (actionBar) actionBar.style.display = 'flex';
+
+        Analytics.track('quiz_answer', `Q${currentIndex + 1}: ${chosenIdx === q.correctIndex ? 'Correct' : 'Wrong'}`);
+      }
+
+      function handleTimeUp() {
+        const q = filteredQuestions[currentIndex];
+        const buttons = document.querySelectorAll('.quiz-opt-btn');
+        buttons.forEach((btn, i) => {
+          btn.disabled = true;
+          if (i === q.correctIndex) {
+            btn.classList.add('correct');
+            const badge = document.getElementById(`opt-badge-${i}`);
+            if (badge) badge.innerText = '⏱️ Time Up';
+          }
+        });
+
+        score -= 1;
+        wrongCount++;
+        updateStats();
+
+        const derivBox = document.getElementById('quiz-derivation');
+        if (derivBox) derivBox.classList.add('visible');
+
+        const actionBar = document.getElementById('quiz-action-bar');
+        if (actionBar) actionBar.style.display = 'flex';
+      }
+
+      function next() {
+        if (currentIndex + 1 < filteredQuestions.length) {
+          currentIndex++;
+          renderQuestion();
+        } else {
+          renderSummary();
+        }
+      }
+
+      function shuffle() {
+        filteredQuestions.sort(() => Math.random() - 0.5);
+        currentIndex = 0;
+        score = 0;
+        correctCount = 0;
+        wrongCount = 0;
+        renderQuestion();
+      }
+
+      function renderSummary() {
+        clearInterval(timerInterval);
+        const body = document.getElementById('quiz-body');
+        if (!body) return;
+
+        const totalAttempted = correctCount + wrongCount;
+        const totalPossible = totalAttempted * 4;
+        const accuracy = totalAttempted > 0 ? Math.round((correctCount / totalAttempted) * 100) : 0;
+        
+        let verdict = "Keep practicing! High-yield archetypes make all the difference.";
+        if (accuracy >= 80) verdict = "🔥 99+ Percentile Pace! Outstanding conceptual accuracy.";
+        else if (accuracy >= 60) verdict = "⚡ Strong foundation! Revise negative-marking traps.";
+
+        body.innerHTML = `
+          <div class="quiz-summary-card">
+            <div style="font-size: 38px; margin-bottom: 8px;">🏆</div>
+            <div style="font-size: 28px; font-weight: 800; color: #22c55e; margin-bottom: 4px;">${score > 0 ? '+' + score : score} / ${totalPossible}</div>
+            <div style="font-size: 13px; color: #38bdf8; margin-bottom: 16px; font-weight: 700;">${verdict}</div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 18px;">
+              <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 8px;">
+                <div style="font-size: 15px; font-weight: 800; color: #4ade80;">${correctCount}</div>
+                <div style="font-size: 10.5px; color: #94a3b8;">Correct (+4)</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 8px;">
+                <div style="font-size: 15px; font-weight: 800; color: #f87171;">${wrongCount}</div>
+                <div style="font-size: 10.5px; color: #94a3b8;">Wrong (-1)</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.04); padding: 8px; border-radius: 8px;">
+                <div style="font-size: 15px; font-weight: 800; color: #38bdf8;">${accuracy}%</div>
+                <div style="font-size: 10.5px; color: #94a3b8;">Accuracy</div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <button class="quiz-next-btn" onclick="QuizMode.shuffle()">
+                <span>🔄 Retake Shuffled Drill</span>
+              </button>
+              <button class="quiz-shuffle-btn" onclick="QuizMode.close()">
+                <span>📖 Back to Notes</span>
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      function setFilter(filter) {
+        document.querySelectorAll('.q-tab-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.innerText.includes(filter) || (filter === 'All' && btn.innerText.includes('All')));
+        });
+        applyFilter(filter);
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isOpen) close();
+      });
+
+      return {
+        open,
+        close,
+        setFilter,
+        chooseOption,
+        next,
+        shuffle
+      };
+    })();
+  </script>
+
 </body>
 </html>

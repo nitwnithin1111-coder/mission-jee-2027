@@ -1,25 +1,40 @@
 [
   {
-    "id": "q1",
-    "chapter": "Gravitation",
-    "examTag": "JEE Main 2024 (27 Jan Shift 1)",
-    "archetype": "Orbital Speed Scaling",
-    "question": "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
+    "id": "semi_1",
+    "chapter": "Semiconductor Electronics",
+    "examTag": "JEE Main 2026 (April Shift)",
+    "archetype": "Multi-Gate Circuit Analysis",
+    "question": "In a digital circuit, inputs A and B are connected such that input A is inverted by a NOT gate producing NOT(A). Signals NOT(A) and B then feed into a NAND gate. What is the output Y for input combinations (A=0, B=1) and (A=1, B=1)?",
     "options": [
-      "(A) 1 : 2",
-      "(B) 2 : 1",
-      "(C) 4 : 1",
-      "(D) 1 : 4"
+      "(A) Y = 1, Y = 0",
+      "(B) Y = 0, Y = 1",
+      "(C) Y = 0, Y = 0",
+      "(D) Y = 1, Y = 1"
     ],
     "correctIndex": 1,
-    "explanation": "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore, (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. Ratio is 2 : 1."
+    "explanation": "Boolean expression: Y = NOT(NOT(A) · B). For (A=0, B=1): NOT(0) = 1, NAND(1, 1) = 0. For (A=1, B=1): NOT(1) = 0, NAND(0, 1) = 1. Therefore Y = 0 for case 1, and Y = 1 for case 2."
   },
   {
-    "id": "q2",
+    "id": "semi_2",
+    "chapter": "Semiconductor Electronics",
+    "examTag": "JEE Main 2025 (January Shift)",
+    "archetype": "Non-Ideal Diode with Knee Voltage Drop",
+    "question": "A silicon diode with a forward knee barrier voltage drop of 0.7 V is connected in series with a resistor R = 200 Ω across a 5.7 V DC supply. What is the current flowing in the circuit?",
+    "options": [
+      "(A) 28.5 mA",
+      "(B) 25.0 mA",
+      "(C) 3.5 mA",
+      "(D) 50.0 mA"
+    ],
+    "correctIndex": 1,
+    "explanation": "Net voltage across resistor R is V_R = V_supply - V_knee = 5.7 V - 0.7 V = 5.0 V. By Ohm's law: I = V_R / R = 5.0 V / 200 Ω = 0.025 A = 25 mA."
+  },
+  {
+    "id": "semi_3",
     "chapter": "Semiconductor Electronics",
     "examTag": "JEE Main 2024 (30 Jan Shift 1)",
-    "archetype": "Zener Diode Regulation",
-    "question": "A 10 V Zener diode is connected across an unregulated supply of 15 V with a series resistor R_s = 500 Ω. What is the series current I_s flowing through R_s?",
+    "archetype": "Zener Diode Voltage Regulation",
+    "question": "A 10 V Zener diode is connected across an unregulated supply of 15 V with a series resistor R_s = 500 Ω and a load resistor R_L = 2 kΩ. What is the series current I_s flowing through R_s?",
     "options": [
       "(A) 5 mA",
       "(B) 10 mA",
@@ -27,13 +42,88 @@
       "(D) 20 mA"
     ],
     "correctIndex": 1,
-    "explanation": "Voltage drop across series resistor is V_s = V_in - V_z = 15 V - 10 V = 5 V. Current I_s = V_s / R_s = 5 V / 500 Ω = 0.010 A = 10 mA."
+    "explanation": "Voltage across series resistor is V_s = V_in - V_z = 15 V - 10 V = 5 V. Series current I_s = V_s / R_s = 5 V / 500 Ω = 0.010 A = 10 mA."
   },
   {
-    "id": "q3",
+    "id": "semi_4",
+    "chapter": "Semiconductor Electronics",
+    "examTag": "JEE Main 2023 (Online Shift)",
+    "archetype": "Rectifier Ripple Frequency",
+    "question": "A 50 Hz sinusoidal AC input is fed into a full-wave center-tapped rectifier. What is the fundamental ripple frequency of the output rectified DC voltage?",
+    "options": [
+      "(A) 25 Hz",
+      "(B) 50 Hz",
+      "(C) 100 Hz",
+      "(D) 200 Hz"
+    ],
+    "correctIndex": 2,
+    "explanation": "In a full-wave rectifier, both positive and negative half-cycles are converted to positive output pulses. The output repeats every T/2, giving ripple frequency f_ripple = 2f_in = 2 × 50 Hz = 100 Hz."
+  },
+  {
+    "id": "semi_5",
+    "chapter": "Semiconductor Electronics",
+    "examTag": "JEE Main 2022 (June Shift)",
+    "archetype": "Mass Action Law & Carrier Concentration",
+    "question": "An intrinsic semiconductor at 300 K has intrinsic carrier concentration n_i = 1.5 × 10¹⁶ m⁻³. On doping with donor impurities, the electron density becomes n_e = 4.5 × 10²² m⁻³. What is the hole density n_h?",
+    "options": [
+      "(A) 5.0 × 10⁹ m⁻³",
+      "(B) 3.0 × 10¹⁰ m⁻³",
+      "(C) 5.0 × 10¹⁰ m⁻³",
+      "(D) 2.5 × 10¹¹ m⁻³"
+    ],
+    "correctIndex": 0,
+    "explanation": "By the Law of Mass Action: n_e · n_h = n_i². Thus n_h = n_i² / n_e = (1.5 × 10¹⁶)² / (4.5 × 10²²) = (2.25 × 10³²) / (4.5 × 10²²) = 0.5 × 10¹⁰ = 5.0 × 10⁹ m⁻³."
+  },
+  {
+    "id": "semi_6",
+    "chapter": "Semiconductor Electronics",
+    "examTag": "JEE Main 2021 (March Shift)",
+    "archetype": "Photodiode Reverse Bias Detection",
+    "question": "Why is a photodiode operated under reverse bias to detect optical signals rather than under forward bias?",
+    "options": [
+      "(A) Reverse bias decreases the depletion width",
+      "(B) Fractional change in minority carrier current is much larger and easier to measure",
+      "(C) Forward current has lower thermal noise",
+      "(D) Reverse bias emits photons upon absorption"
+    ],
+    "correctIndex": 1,
+    "explanation": "Under reverse bias, dark current is due to minority carriers (very small). Light creates electron-hole pairs (Δn = Δp). The fractional change (ΔI / I) for minority carriers is orders of magnitude larger than for majority carriers under forward bias, making detection vastly more sensitive."
+  },
+  {
+    "id": "semi_7",
+    "chapter": "Semiconductor Electronics",
+    "examTag": "JEE Main 2020 (September Shift)",
+    "archetype": "LED Band Gap Threshold",
+    "question": "An LED emits light with a wavelength λ = 620 nm. Taking hc ≈ 1240 eV·nm, what is the minimum band gap energy E_g of the semiconductor material?",
+    "options": [
+      "(A) 1.5 eV",
+      "(B) 2.0 eV",
+      "(C) 2.5 eV",
+      "(D) 3.0 eV"
+    ],
+    "correctIndex": 1,
+    "explanation": "Emitted photon energy corresponds to the bandgap: E_g = hc / λ = (1240 eV·nm) / (620 nm) = 2.0 eV."
+  },
+  {
+    "id": "grav_1",
+    "chapter": "Gravitation",
+    "examTag": "JEE Main 2020 (8 Jan Shift 2)",
+    "archetype": "Weight Variation with Height",
+    "question": "A body weighs 72 N on the surface of the Earth. What is its weight at a height h = R/2 above the surface (where R is the radius of the Earth)?",
+    "options": [
+      "(A) 32 N",
+      "(B) 48 N",
+      "(C) 36 N",
+      "(D) 24 N"
+    ],
+    "correctIndex": 0,
+    "explanation": "Exact height formula: W_h = W · (R / (R + h))² = 72 · (R / (1.5R))² = 72 · (2/3)² = 72 · (4/9) = 32 N. (The linear approximation cannot be used because h = R/2 is large)."
+  },
+  {
+    "id": "grav_2",
     "chapter": "Gravitation",
     "examTag": "JEE Main 2023 (24 Jan Shift 1)",
-    "archetype": "Height vs Depth Equivalence",
+    "archetype": "Height vs Depth Gravity Equivalence",
     "question": "The acceleration due to gravity at a small height h (h << R) above Earth's surface equals the gravity at depth d inside Earth. What is the relation between h and d?",
     "options": [
       "(A) d = h",
@@ -42,25 +132,10 @@
       "(D) d = 4h"
     ],
     "correctIndex": 2,
-    "explanation": "For h << R, g_h ≈ g(1 - 2h/R). Inside Earth, g_d = g(1 - d/R). Equating gives 1 - 2h/R = 1 - d/R ⟹ d = 2h."
+    "explanation": "For h << R, g_h ≈ g(1 - 2h/R). Inside Earth, g_d = g(1 - d/R). Equating g_h = g_d gives 1 - 2h/R = 1 - d/R ⟹ d = 2h."
   },
   {
-    "id": "q4",
-    "chapter": "Semiconductor Electronics",
-    "examTag": "JEE Main 2023 (Online Shift)",
-    "archetype": "Rectifier Ripple Frequency",
-    "question": "A 50 Hz sinusoidal AC input is fed to a full-wave center-tapped rectifier. What is the fundamental ripple frequency of the output DC voltage?",
-    "options": [
-      "(A) 25 Hz",
-      "(B) 50 Hz",
-      "(C) 100 Hz",
-      "(D) 200 Hz"
-    ],
-    "correctIndex": 2,
-    "explanation": "In a full-wave rectifier, both positive and negative input half-cycles generate positive pulses. The output repeats every half-period (T' = T/2), so ripple frequency is 2f = 2 × 50 Hz = 100 Hz."
-  },
-  {
-    "id": "q5",
+    "id": "grav_3",
     "chapter": "Gravitation",
     "examTag": "JEE Main 2022 (29 July Shift 2)",
     "archetype": "Escape Velocity Scaling",
@@ -72,36 +147,141 @@
       "(D) 44.8 km/s"
     ],
     "correctIndex": 1,
-    "explanation": "v_e = √(2GM/R) ∝ √(M/R). Ratio v_p / v_e = √( (2M / (R/2)) / (M/R) ) = √4 = 2. Therefore, v_p = 2 × 11.2 km/s = 22.4 km/s."
+    "explanation": "Escape velocity formula: v_e = √(2GM/R) ∝ √(M/R). Ratio v_p / v_e = √( (2M / (R/2)) / (M/R) ) = √4 = 2. Therefore v_p = 2 × 11.2 km/s = 22.4 km/s."
   },
   {
-    "id": "q6",
-    "chapter": "Semiconductor Electronics",
-    "examTag": "JEE Main 2026 (April Shift)",
-    "archetype": "Logic Gates Inverter",
-    "question": "Input A is inverted by a NOT gate producing NOT(A). This output and input B feed into a NAND gate. If A = 0 and B = 1, what is output Y?",
-    "options": [
-      "(A) Y = 0",
-      "(B) Y = 1",
-      "(C) Oscillating",
-      "(D) Undefined"
-    ],
-    "correctIndex": 0,
-    "explanation": "NOT(A) = NOT(0) = 1. NAND input is (1, 1). Y = NOT(1 · 1) = NOT(1) = 0."
-  },
-  {
-    "id": "q7",
+    "id": "grav_4",
     "chapter": "Gravitation",
-    "examTag": "JEE Main 2020 (8 Jan Shift 2)",
-    "archetype": "Weight Variation at Altitude",
-    "question": "A body weighs 72 N on the surface of the Earth. What is its weight at a height h = R/2 above the surface?",
+    "examTag": "JEE Main 2024 (27 Jan Shift 1)",
+    "archetype": "Orbital Speed Scaling",
+    "question": "Two satellites A and B revolve in circular orbits of orbital radii r_A = R and r_B = 4R around Earth. What is the ratio of their orbital speeds (v_A : v_B)?",
     "options": [
-      "(A) 32 N",
-      "(B) 36 N",
-      "(C) 48 N",
-      "(D) 24 N"
+      "(A) 1 : 2",
+      "(B) 2 : 1",
+      "(C) 4 : 1",
+      "(D) 1 : 4"
+    ],
+    "correctIndex": 1,
+    "explanation": "Orbital speed obeys v_o = √(GM/r) ∝ 1/√r. Therefore (v_A / v_B) = √(r_B / r_A) = √(4R / R) = √4 = 2. The ratio is 2 : 1."
+  },
+  {
+    "id": "grav_5",
+    "chapter": "Gravitation",
+    "examTag": "JEE Main 2021 (Feb Shift)",
+    "archetype": "Kepler's 3rd Law Orbital Periods",
+    "question": "A satellite moves in an orbit of radius r with time period T = 8 days. If its orbital radius is increased to 4r, what will be its new orbital time period?",
+    "options": [
+      "(A) 16 days",
+      "(B) 32 days",
+      "(C) 64 days",
+      "(D) 128 days"
+    ],
+    "correctIndex": 2,
+    "explanation": "By Kepler's Third Law: T² ∝ r³, so (T₂ / T₁) = (r₂ / r₁)^(3/2). Here r₂/r₁ = 4. Thus T₂ / 8 = 4^(3/2) = (√4)³ = 2³ = 8. T₂ = 8 × 8 = 64 days."
+  },
+  {
+    "id": "grav_6",
+    "chapter": "Gravitation",
+    "examTag": "JEE Main 2023 (April Shift)",
+    "archetype": "Gravitational Potential Energy Transfer",
+    "question": "What is the minimum work required to launch a satellite of mass m from Earth's surface (radius R, mass M) to an orbit of altitude h = R?",
+    "options": [
+      "(A) mgR / 2",
+      "(B) 3mgR / 4",
+      "(C) mgR",
+      "(D) 2mgR / 3"
+    ],
+    "correctIndex": 1,
+    "explanation": "Initial mechanical energy on surface: E_i = -GMm/R. Orbital radius is r = R + h = 2R. Final total energy in orbit (kinetic + potential): E_f = -GMm / (2r) = -GMm / (4R). Work done W = E_f - E_i = -GMm/(4R) - (-GMm/R) = 3GMm/(4R) = (3/4)mgR."
+  },
+  {
+    "id": "grav_7",
+    "chapter": "Gravitation",
+    "examTag": "JEE Main 2025 (January Shift)",
+    "archetype": "Satellite Binding Energy Relation",
+    "question": "A satellite in a circular orbit of radius r has kinetic energy K, potential energy U, and total mechanical energy E. What is the relation between K, U, and E?",
+    "options": [
+      "(A) E = -K and U = -2K",
+      "(B) E = K and U = -K",
+      "(C) E = -2K and U = -K",
+      "(D) E = -K/2 and U = -K"
     ],
     "correctIndex": 0,
-    "explanation": "Exact height formula: W_h = W · (R / (R + h))² = 72 · (R / (1.5R))² = 72 · (2/3)² = 72 · (4/9) = 32 N."
+    "explanation": "For any bound inverse-square orbit: K = GMm/(2r), U = -GMm/r = -2K, and total energy E = K + U = K - 2K = -K. Therefore E = -K and U = -2K."
+  },
+  {
+    "id": "mod_1",
+    "chapter": "Modern Physics",
+    "examTag": "JEE Main 2024 (April Shift)",
+    "archetype": "Photoelectric Effect Cutoff",
+    "question": "When light of frequency ν = 2ν₀ (where ν₀ is the threshold frequency) is incident on a metal plate, the maximum kinetic energy of photoelectrons is K₁. When frequency is increased to ν = 5ν₀, the maximum kinetic energy becomes K₂. What is the ratio K₁ : K₂?",
+    "options": [
+      "(A) 1 : 4",
+      "(B) 1 : 3",
+      "(C) 2 : 5",
+      "(D) 1 : 5"
+    ],
+    "correctIndex": 0,
+    "explanation": "Einstein's photoelectric equation: K = hν - hν₀. For ν = 2ν₀: K₁ = 2hν₀ - hν₀ = hν₀. For ν = 5ν₀: K₂ = 5hν₀ - hν₀ = 4hν₀. Ratio K₁ : K₂ = hν₀ / (4hν₀) = 1 : 4."
+  },
+  {
+    "id": "mod_2",
+    "chapter": "Modern Physics",
+    "examTag": "JEE Main 2023 (Jan Shift)",
+    "archetype": "De Broglie Wavelength of Electron",
+    "question": "An electron is accelerated through a potential difference of V = 100 V. What is its approximate de Broglie wavelength? (Use λ ≈ 12.27 / √V Å)",
+    "options": [
+      "(A) 1.227 Å",
+      "(B) 0.123 Å",
+      "(C) 12.27 Å",
+      "(D) 0.012 Å"
+    ],
+    "correctIndex": 0,
+    "explanation": "For an electron, de Broglie wavelength is given by λ = 12.27 / √V Å. Substituting V = 100 V: λ = 12.27 / √100 = 12.27 / 10 = 1.227 Å (0.123 nm)."
+  },
+  {
+    "id": "curr_1",
+    "chapter": "Current Electricity",
+    "examTag": "JEE Main 2024 (29 Jan Shift 1)",
+    "archetype": "Meter Bridge Null Point Shift",
+    "question": "In a meter bridge experiment, a null balance point is obtained at l = 40 cm from the left end when unknown resistance R is in the left gap and standard resistance S = 6 Ω is in the right gap. What is the value of R?",
+    "options": [
+      "(A) 4 Ω",
+      "(B) 6 Ω",
+      "(C) 9 Ω",
+      "(D) 2.4 Ω"
+    ],
+    "correctIndex": 0,
+    "explanation": "Meter bridge balance condition: R / S = l / (100 - l). Here l = 40 cm, so (100 - l) = 60 cm. R / 6 = 40 / 60 = 2 / 3. R = 6 × (2/3) = 4 Ω."
+  },
+  {
+    "id": "thermo_1",
+    "chapter": "Thermodynamics",
+    "examTag": "JEE Main 2024 (31 Jan Shift 2)",
+    "archetype": "Carnot Engine Efficiency",
+    "question": "A Carnot reversible heat engine operates between temperatures T_hot = 500 K and T_cold = 300 K. What is the percentage thermal efficiency of this engine?",
+    "options": [
+      "(A) 20%",
+      "(B) 40%",
+      "(C) 60%",
+      "(D) 66.7%"
+    ],
+    "correctIndex": 1,
+    "explanation": "Carnot efficiency formula: η = 1 - (T_cold / T_hot) = 1 - (300 / 500) = 1 - 0.6 = 0.40. In percentage: η = 40%."
+  },
+  {
+    "id": "kin_1",
+    "chapter": "Kinematics & Work Energy",
+    "examTag": "JEE Main 2023 (April Shift)",
+    "archetype": "Stopping Distance Scaling",
+    "question": "A car moving at speed v is brought to rest over a stopping distance s by applying a constant braking force. If the initial speed of the car is tripled to 3v with the same braking force, what will be the new stopping distance?",
+    "options": [
+      "(A) 3s",
+      "(B) 6s",
+      "(C) 9s",
+      "(D) 12s"
+    ],
+    "correctIndex": 2,
+    "explanation": "By the Work-Energy Theorem: Braking Force × distance = (1/2)mv² ⟹ s = mv² / (2F) ∝ v². When speed is multiplied by 3, stopping distance becomes 3²s = 9s."
   }
 ]
