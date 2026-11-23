@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Gravitation — ⚡ Formulas Only (60-Sec Review) | Mission JEE 2027</title>
+  <link rel="canonical" href="https://missionjee2027.vercel.app/gravitation-formulas.html" />
+  <meta name="description" content="All high-yield Gravitation formulas for JEE Main 2027 in one 60-second speedrun cheat sheet. Kepler's laws, escape velocity, and variation of g." />
+
+  <!-- Academic Fonts & KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    :root {
+      --bg-cream: #FBF8F1;
+      --text-charcoal: #2C2C2C;
+      --box-shade: #EFECE4;
+      --border-soft: #D8D3C8;
+      --accent-blue: #0369A1;
+      --accent-green: #15803D;
+      --accent-amber: #B45309;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background-color: var(--bg-cream);
+      color: var(--text-charcoal);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13pt;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 0;
+    }
+
+    /* Screen Toolbar */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #1E293B;
+      color: #F8FAFC;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+    .toolbar-title {
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+    .toolbar-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #F1F5F9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .toolbar-btn:hover { background: rgba(2, 132, 199, 0.2); border-color: #0284c7; color: #38bdf8; }
+    .toolbar-btn.active { background: #0284c7; border-color: #0284c7; color: #fff; }
+
+    .toggle-3line-btn {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      font-size: 16px;
+      font-weight: 900;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Navigation Drawer */
+    .nav-drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+    .nav-drawer-overlay.open { display: flex !important; }
+    .nav-drawer-content {
+      width: min(320px, 85vw);
+      height: 100%;
+      background: #0f172a;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+    .nav-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-drawer-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .nav-drawer-links { display: flex; flex-direction: column; gap: 8px; }
+    .nav-drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #f1f5f9;
+      text-decoration: none;
+    }
+    .nav-drawer-item.active { background: rgba(2, 132, 199, 0.15); border-color: #0284c7; color: #38bdf8; }
+
+    /* Main Container */
+    .doc-container {
+      max-width: 8.5in;
+      margin: 20px auto;
+      padding: 24px 20px 100px 20px;
+      box-sizing: border-box;
+    }
+
+    .header-box {
+      border-bottom: 2px solid var(--text-charcoal);
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+    }
+    .header-box h1 {
+      font-size: 24pt;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+    }
+    .badge-line {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .badge-item {
+      font-size: 9pt;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: var(--box-shade);
+      border: 1px solid var(--border-soft);
+      color: var(--accent-blue);
+      text-transform: uppercase;
+    }
+
+    /* Formula Cards Grid */
+    .formula-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .formula-num {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #0284c7;
+      background: rgba(2, 132, 199, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    .formula-title {
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
+    }
+    .math-display {
+      background: var(--box-shade);
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 8px 0;
+      overflow-x: auto;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+    }
+    .takeaway {
+      font-size: 11pt;
+      color: #475569;
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+    .takeaway strong { color: #0f172a; }
+
+    /* Mobile Floating Reader Toolbar */
+    .mobile-reader-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 12px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+      z-index: 99;
+      gap: 6px;
+    }
+    .m-reader-btn {
+      flex: 1;
+      min-height: 44px;
+      padding: 8px 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .m-reader-btn.highlight {
+      background: rgba(14, 165, 233, 0.15);
+      color: #38bdf8;
+      border-color: rgba(14, 165, 233, 0.4);
+    }
+    .m-reader-btn.cta {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      html, body { font-size: 11.5pt; }
+      .doc-container { padding: 16px 14px 84px 14px; }
+      .header-box h1 { font-size: 19pt; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Toolbar with 3-Line Toggle Menu -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <button class="toggle-3line-btn" onclick="toggleChapterNav()" aria-label="Open Navigation">☰</button>
+      <a href="/index.html" style="color: #38bdf8; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">&larr; Hub</a>
+      <span style="opacity: 0.35;">|</span>
+      <span>Gravitation</span>
+    </div>
+    <div class="toolbar-actions">
+      <a href="gravitation-story-guide.html" class="toolbar-btn">📖 Full Guide</a>
+      <a href="gravitation-formulas.html" class="toolbar-btn active">⚡ Formulas</a>
+      <a href="gravitation-traps.html" class="toolbar-btn" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.4);">⚠️ Traps (2026: 10 Qs)</a>
+      <a href="gravitation-memory.html" class="toolbar-btn" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);">🧠 Memory</a>
+      <a href="/gravitation-story-guide.pdf" download="Gravitation-JEE-2027.pdf" class="toolbar-btn" style="background: #2563eb; color: #fff;">📥 PDF</a>
+    </div>
+  </div>
+
+  <!-- Navigation Drawer (3-Line Toggle Sheet) -->
+  <div id="chapter-nav-drawer" class="nav-drawer-overlay" onclick="toggleChapterNav()">
+    <div class="nav-drawer-content" onclick="event.stopPropagation()">
+      <div class="nav-drawer-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 22px;">🪐</span>
+          <div>
+            <h4 style="margin: 0; font-size: 15px; font-weight: 800; color: #f8fafc;">Gravitation</h4>
+            <p style="margin: 0; font-size: 11px; color: #38bdf8; font-weight: 700;">Class 11 • 10 PYQs in JEE 2026</p>
+          </div>
+        </div>
+        <button class="nav-drawer-close" onclick="toggleChapterNav()">✕</button>
+      </div>
+      <div class="nav-drawer-links">
+        <a href="gravitation-story-guide.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">📖</span>
+          <div>
+            <strong>Master Story Guide</strong>
+            <small>Complete textbook with full derivations</small>
+          </div>
+        </a>
+        <a href="gravitation-formulas.html" class="nav-drawer-item active">
+          <span style="font-size: 18px;">⚡</span>
+          <div>
+            <strong>Formulas Only (Cheat Sheet)</strong>
+            <small>60-second high-yield formula sprint</small>
+          </div>
+        </a>
+        <a href="gravitation-traps.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">⚠️</span>
+          <div>
+            <strong>Examiner Traps (2026 PYQs)</strong>
+            <small>10 Questions in 2026 • Pitfalls &amp; tricks</small>
+          </div>
+        </a>
+        <a href="gravitation-memory.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🧠</span>
+          <div>
+            <strong>Test My Memory</strong>
+            <small>Active recall flashcards • Tap to unblur</small>
+          </div>
+        </a>
+        <a href="/gravitation-story-guide.pdf" download="Gravitation-JEE-2027.pdf" class="nav-drawer-item" style="border-color: rgba(37, 99, 235, 0.4); background: rgba(37, 99, 235, 0.1);">
+          <span style="font-size: 18px;">📥</span>
+          <div>
+            <strong style="color: #60a5fa;">Download Master PDF</strong>
+            <small>High-contrast, 0.5-inch margin print edition</small>
+          </div>
+        </a>
+        <a href="/index.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🏠</span>
+          <div>
+            <strong>Back to Home Hub</strong>
+            <small>All chapters, quizzes &amp; daily streak</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-container">
+
+    <!-- Document Header -->
+    <div class="header-box">
+      <div class="badge-line">
+        <span class="badge-item">Physics Cheat Sheet</span>
+        <span class="badge-item">Class 11 Chapter 8</span>
+        <span class="badge-item">⚡ 60-Second Speedrun Review</span>
+      </div>
+      <h1 style="margin-top: 8px;">Gravitation — Formula Master Sheet</h1>
+      <p style="font-size: 11.5pt; color: #64748B; margin-top: 4px;">Zero fluff. Pure equations, dimensional scaling, and exact limits tested in JEE Main.</p>
+    </div>
+
+    <!-- Formula 1 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 01</span>
+      <div class="formula-title">Newton's Universal Law of Gravitation</div>
+      <div class="math-display">
+        $$F = G \frac{m_1 m_2}{r^2}, \quad \vec{F}_{12} = -G \frac{m_1 m_2}{r^2} \hat{r}_{12}$$
+      </div>
+      <div class="takeaway">
+        • $G = 6.674 \times 10^{-11}\text{ N}\cdot\text{m}^2/\text{kg}^2$ [Dimensions: $[M^{-1} L^3 T^{-2}]$].<br>
+        • Valid strictly for point masses or spherically symmetric mass distributions.
+      </div>
+    </div>
+
+    <!-- Formula 2 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 02</span>
+      <div class="formula-title">Acceleration Due to Gravity ($g$) at Surface</div>
+      <div class="math-display">
+        $$g = \frac{GM}{R^2} = \frac{4}{3} \pi G \rho R$$
+      </div>
+      <div class="takeaway">
+        • At constant density $\rho$: $g \propto R$.<br>
+        • At constant mass $M$: $g \propto 1/R^2$. If Earth shrinks by $x\%$ with mass fixed, $g$ increases by $2x\%$.
+      </div>
+    </div>
+
+    <!-- Formula 3 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 03</span>
+      <div class="formula-title">Variation of $g$ with Height ($h$)</div>
+      <div class="math-display">
+        $$\text{Exact: } g_h = g \left(\frac{R}{R+h}\right)^2 = \frac{g}{\left(1 + \frac{h}{R}\right)^2}$$
+        $$\text{Approx } (h \ll R): g_h \approx g \left(1 - \frac{2h}{R}\right), \quad \frac{\Delta g}{g} \approx -\frac{2h}{R}$$
+      </div>
+      <div class="takeaway">
+        • <strong>JEE Trap Alert:</strong> Use the approximation $g(1 - 2h/R)$ ONLY when $h \le 0.05R$ ($\approx 320\text{ km}$). For $h = R$ or $h = 2R$, you MUST use the exact square law!
+      </div>
+    </div>
+
+    <!-- Formula 4 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 04</span>
+      <div class="formula-title">Variation of $g$ with Depth ($d$)</div>
+      <div class="math-display">
+        $$g_d = g \left(1 - \frac{d}{R}\right), \quad \frac{\Delta g}{g} = -\frac{d}{R}$$
+      </div>
+      <div class="takeaway">
+        • <strong>Strictly Exact Everywhere:</strong> Holds from surface all the way to center ($d = R \implies g_{\text{center}} = 0$).<br>
+        • <strong>Crucial JEE Ratio:</strong> $\Delta g_h = 2 \Delta g_d$ for the same numerical distance ($h = d \ll R$).
+      </div>
+    </div>
+
+    <!-- Formula 5 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 05</span>
+      <div class="formula-title">Variation with Latitude ($\lambda$) Due to Earth's Rotation</div>
+      <div class="math-display">
+        $$g' = g - \omega^2 R \cos^2 \lambda$$
+      </div>
+      <div class="takeaway">
+        • At Equator ($\lambda = 0^\circ$): $g_{\text{eq}} = g - \omega^2 R$ (Minimum gravity).<br>
+        • At Poles ($\lambda = 90^\circ$): $g_{\text{pole}} = g$ (Maximum gravity, zero centrifugal effect).<br>
+        • Weightlessness at equator requires: $\omega = \sqrt{g/R} \approx 17\times$ current Earth spin!
+      </div>
+    </div>
+
+    <!-- Formula 6 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 06</span>
+      <div class="formula-title">Gravitational Potential ($V$) for a Uniform Solid Sphere</div>
+      <div class="math-display">
+        $$\text{Outside } (r \ge R): V_{\text{out}} = -\frac{GM}{r}$$
+        $$\text{Surface } (r = R): V_s = -\frac{GM}{R}$$
+        $$\text{Inside } (r \le R): V_{\text{in}} = -\frac{GM}{2R^3} (3R^2 - r^2)$$
+        $$\text{Center } (r = 0): V_{\text{center}} = -\frac{3}{2} \frac{GM}{R} = 1.5 V_s$$
+      </div>
+      <div class="takeaway">
+        • Potential at center is NEVER zero! It is the deepest gravitational well ($1.5\times$ surface value).
+      </div>
+    </div>
+
+    <!-- Formula 7 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 07</span>
+      <div class="formula-title">Gravitational Potential Energy ($U$) & Elevation Work</div>
+      <div class="math-display">
+        $$U(r) = -\frac{GMm}{r}, \quad \Delta U = U_h - U_{\text{surface}} = \frac{mgh}{1 + \frac{h}{R}}$$
+      </div>
+      <div class="takeaway">
+        • For $h \ll R$: $\Delta U \approx mgh$.<br>
+        • For $h = R$: $\Delta U = \frac{1}{2} mgR$.<br>
+        • For $h = \infty$: $\Delta U = mgR$ (Escape energy required from rest).
+      </div>
+    </div>
+
+    <!-- Formula 8 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 08</span>
+      <div class="formula-title">Orbital Velocity ($v_o$) & Kepler's 3rd Law</div>
+      <div class="math-display">
+        $$v_o = \sqrt{\frac{GM}{r}} = \sqrt{\frac{GM}{R+h}}, \quad T = \frac{2\pi r}{v_o} = 2\pi \sqrt{\frac{r^3}{GM}}$$
+        $$T^2 = \left(\frac{4\pi^2}{GM}\right) r^3 \implies T^2 \propto r^3$$
+      </div>
+      <div class="takeaway">
+        • Near surface orbit ($h \approx 0$): $v_o = \sqrt{gR} \approx 7.92\text{ km/s}$, $T \approx 84.6\text{ minutes}$.<br>
+        • Speed depends ONLY on central mass $M$ and orbit radius $r$, completely independent of satellite mass $m$!
+      </div>
+    </div>
+
+    <!-- Formula 9 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 09</span>
+      <div class="formula-title">Satellite Energy Triad & Binding Energy</div>
+      <div class="math-display">
+        $$K = \frac{GMm}{2r}, \quad U = -\frac{GMm}{r}, \quad E = K + U = -\frac{GMm}{2r}$$
+        $$E = -K = \frac{U}{2}, \quad \text{Binding Energy } B = -E = \frac{GMm}{2r}$$
+      </div>
+      <div class="takeaway">
+        • To eject a satellite from orbit to infinity, supply energy $+K$.<br>
+        • To double the orbit radius ($r \to 2r$), energy needed is $\Delta E = \frac{GMm}{4r}$.
+      </div>
+    </div>
+
+    <!-- Formula 10 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 10</span>
+      <div class="formula-title">Escape Velocity ($v_e$)</div>
+      <div class="math-display">
+        $$v_e = \sqrt{\frac{2GM}{R}} = \sqrt{2gR} = \sqrt{\frac{8}{3} \pi G \rho R^2} = R \sqrt{\frac{8}{3} \pi G \rho}$$
+        $$v_e = \sqrt{2} \cdot v_o \approx 11.2\text{ km/s (for Earth)}$$
+      </div>
+      <div class="takeaway">
+        • Escape speed is strictly INDEPENDENT of projection angle ($\theta$) and projectile mass ($m$).<br>
+        • If projected from height $h$: $v_e = \sqrt{\frac{2GM}{R+h}}$.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Floating Reader Toolbar -->
+  <div class="mobile-reader-bar">
+    <button class="m-reader-btn" onclick="toggleChapterNav()" style="flex: 0 0 44px; font-size: 16px; font-weight: 900;">☰</button>
+    <a href="gravitation-story-guide.html" class="m-reader-btn">📖 Guide</a>
+    <a href="gravitation-traps.html" class="m-reader-btn highlight">⚠️ Traps (2026: 10 Qs)</a>
+    <a href="gravitation-memory.html" class="m-reader-btn" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);">🧠 Memory</a>
+    <a href="/gravitation-story-guide.pdf" download="Gravitation-JEE-2027.pdf" class="m-reader-btn cta">📥 PDF</a>
+  </div>
+
+  <script>
+    function toggleChapterNav() {
+      const drawer = document.getElementById('chapter-nav-drawer');
+      if (drawer) drawer.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

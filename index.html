@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>Mission JEE 2027 — High-Yield Physics Master Guides &amp; Verified PYQs</title>
   <link rel="canonical" href="https://missionjee2027.vercel.app/" />
   <meta name="description" content="Free high-yield visual concept notes and verified JEE Main past year questions for JEE 2027 aspirants. Download story-powered chapter master PDFs." />
@@ -1234,10 +1237,13 @@
       box-shadow: 0 6px 20px rgba(2, 132, 199, 0.7);
     }
 
-    /* Mobile Overrides */
+    /* Mobile-First Touch & Layout Overrides */
     @media (max-width: 640px) {
+      body {
+        -webkit-tap-highlight-color: transparent;
+      }
       .app-container {
-        padding: 10px 12px 60px 12px;
+        padding: 10px 12px 90px 12px;
       }
       .calm-title {
         font-size: 21px;
@@ -1252,34 +1258,112 @@
         margin-bottom: 12px;
       }
       .search-box {
-        padding: 6px 12px;
+        padding: 8px 14px;
+        min-height: 46px;
       }
       #global-search {
+        font-size: 14px;
+      }
+      .subject-selector {
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+      .subject-btn {
+        min-height: 44px;
+        padding: 10px 8px;
         font-size: 13px;
+        font-weight: 700;
+        border-radius: 10px;
+      }
+      .subject-btn:active {
+        transform: scale(0.96);
       }
       .optional-drill-wrap {
         margin-bottom: 16px;
       }
       .chapter-grid {
         grid-template-columns: 1fr;
-        gap: 10px;
+        gap: 12px;
       }
       .chapter-card {
-        padding: 14px;
+        padding: 16px;
+        border-radius: 14px;
+      }
+      .card-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding-top: 10px;
+      }
+      .card-footer > span {
+        font-size: 11.5px;
+        color: #94a3b8;
+      }
+      .card-btn-row {
+        width: 100%;
+        display: flex;
+        gap: 8px;
+      }
+      .card-btn {
+        flex: 1;
+        min-height: 44px;
+        padding: 10px 12px;
+        font-size: 13px;
+        font-weight: 700;
+        justify-content: center;
+        border-radius: 8px;
+      }
+      .card-btn:active {
+        transform: scale(0.97);
       }
       #side-quiz-toggle-tab {
         top: auto;
-        bottom: 74px;
+        bottom: 84px;
+        right: 0;
         transform: none;
-        padding: 7px 10px 7px 8px;
-        font-size: 10.5px;
-        border-radius: 14px 0 0 14px;
+        padding: 10px 14px 10px 12px;
+        font-size: 12px;
+        font-weight: 800;
+        border-radius: 20px 0 0 20px;
+        box-shadow: -3px 4px 16px rgba(2, 132, 199, 0.45);
       }
       #floating-support-btn {
-        bottom: 16px;
+        bottom: 20px;
         right: 16px;
-        width: 42px;
-        height: 42px;
+        width: 48px;
+        height: 48px;
+        font-size: 18px;
+      }
+      .quiz-drawer {
+        width: 100vw;
+        max-width: 100vw;
+        border-left: none;
+      }
+      .pyq-opt-btn {
+        min-height: 48px;
+        padding: 12px 14px;
+        font-size: 14px;
+        border-radius: 10px;
+      }
+      .pyq-opt-btn:active {
+        transform: scale(0.98);
+      }
+      .modal-box {
+        width: calc(100% - 24px);
+        padding: 20px 16px;
+        margin: 12px auto;
+        border-radius: 16px;
+      }
+      .btn-download, .btn-view {
+        width: 100%;
+        min-height: 46px;
+        font-size: 14px;
+        padding: 12px;
+        justify-content: center;
+        border-radius: 10px;
+      }
+      .btn-download:active, .btn-view:active {
+        transform: scale(0.97);
       }
     }
 
@@ -1645,15 +1729,18 @@
 
   <div class="app-container">
     
-    <!-- Minimalist Quiet Header -->
+    <!-- Minimalist Quiet Header with 3-Line Toggle Menu -->
     <header>
-      <a href="#" class="brand-logo">
-        <div class="logo-badge">⚡</div>
-        <div class="brand-text">
-          <h1>MISSION JEE</h1>
-          <p>Quiet, High-Yield Revision</p>
-        </div>
-      </a>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button class="toggle-3line-btn" onclick="toggleGlobalNav()" aria-label="Open Navigation" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #f1f5f9; font-size: 16px; font-weight: 900; width: 36px; height: 36px; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">☰</button>
+        <a href="#" class="brand-logo">
+          <div class="logo-badge">⚡</div>
+          <div class="brand-text">
+            <h1>MISSION JEE</h1>
+            <p>Quiet, High-Yield Revision</p>
+          </div>
+        </a>
+      </div>
       <div class="header-actions">
         <button class="header-pill-btn quiz" onclick="QuizMode.open()" title="Practice JEE Main PYQs">
           <span>🎯</span>
@@ -1670,6 +1757,47 @@
       </div>
     </header>
 
+    <!-- Global Navigation Drawer (3-Line Toggle Sheet) -->
+    <div id="global-nav-drawer" class="nav-drawer-overlay" onclick="toggleGlobalNav()" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.65); backdrop-filter: blur(4px); z-index: 10000;">
+      <div class="nav-drawer-content" onclick="event.stopPropagation()" style="width: min(320px, 85vw); height: 100%; background: #0f172a; border-right: 1px solid rgba(255, 255, 255, 0.12); padding: 20px 16px; display: flex; flex-direction: column; gap: 14px; box-sizing: border-box; overflow-y: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="width: 28px; height: 28px; background: linear-gradient(135deg, #0284c7, #2563eb); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800;">⚡</div>
+            <strong style="color: #f8fafc; font-size: 15px;">MISSION JEE HUB</strong>
+          </div>
+          <button id="close-global-nav-btn" onclick="toggleGlobalNav()" style="background: rgba(255,255,255,0.08); border: none; color: #94a3b8; width: 32px; height: 32px; border-radius: 8px; font-size: 16px; cursor: pointer;">✕</button>
+        </div>
+        
+        <!-- Gravitation Section -->
+        <div style="font-size: 11px; font-weight: 800; color: #38bdf8; letter-spacing: 0.5px; text-transform: uppercase;">🪐 Gravitation • 10 Qs in 2026</div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <a href="gravitation-story-guide.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; color: #f1f5f9; text-decoration: none; font-size: 12.5px; font-weight: 700;">📖 Master Story Guide</a>
+          <a href="gravitation-formulas.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(2, 132, 199, 0.1); border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 8px; color: #38bdf8; text-decoration: none; font-size: 12.5px; font-weight: 700;">⚡ Formulas (60-Sec Review)</a>
+          <a href="gravitation-traps.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(217, 119, 6, 0.1); border: 1px solid rgba(217, 119, 6, 0.3); border-radius: 8px; color: #fbbf24; text-decoration: none; font-size: 12.5px; font-weight: 700;">⚠️ Examiner Traps (10 Qs in 2026)</a>
+          <a href="gravitation-memory.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 8px; color: #c084fc; text-decoration: none; font-size: 12.5px; font-weight: 700;">🧠 Test My Memory (Flashcards)</a>
+          <a href="/gravitation-story-guide.pdf" download style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(37, 99, 235, 0.35); border-radius: 8px; color: #60a5fa; text-decoration: none; font-size: 12.5px; font-weight: 700;">📥 Download Master PDF</a>
+        </div>
+
+        <!-- Semiconductor Section -->
+        <div style="font-size: 11px; font-weight: 800; color: #38bdf8; letter-spacing: 0.5px; text-transform: uppercase; margin-top: 6px;">⚡ Semiconductors • 21 Qs in 2026</div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <a href="semiconductors-story-guide.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; color: #f1f5f9; text-decoration: none; font-size: 12.5px; font-weight: 700;">📖 Master Story Guide</a>
+          <a href="semiconductors-formulas.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(2, 132, 199, 0.1); border: 1px solid rgba(2, 132, 199, 0.3); border-radius: 8px; color: #38bdf8; text-decoration: none; font-size: 12.5px; font-weight: 700;">⚡ Formulas (60-Sec Review)</a>
+          <a href="semiconductors-traps.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(217, 119, 6, 0.1); border: 1px solid rgba(217, 119, 6, 0.3); border-radius: 8px; color: #fbbf24; text-decoration: none; font-size: 12.5px; font-weight: 700;">⚠️ Examiner Traps (21 Qs in 2026)</a>
+          <a href="semiconductors-memory.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(124, 58, 237, 0.1); border: 1px solid rgba(124, 58, 237, 0.3); border-radius: 8px; color: #c084fc; text-decoration: none; font-size: 12.5px; font-weight: 700;">🧠 Test My Memory (Flashcards)</a>
+          <a href="/semiconductors-story-guide.pdf" download style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(37, 99, 235, 0.35); border-radius: 8px; color: #60a5fa; text-decoration: none; font-size: 12.5px; font-weight: 700;">📥 Download Master PDF</a>
+        </div>
+
+        <!-- Quick Tools -->
+        <div style="font-size: 11px; font-weight: 800; color: #94a3b8; letter-spacing: 0.5px; text-transform: uppercase; margin-top: 6px;">🛠️ Student Tools</div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <button onclick="toggleGlobalNav(); QuizMode.open();" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: 8px; color: #34d399; text-align: left; font-size: 12.5px; font-weight: 700; cursor: pointer;">🎯 Practice Chapter Quiz</button>
+          <a href="/support.html?category=Chapter+Request" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 8px; color: #cbd5e1; text-decoration: none; font-size: 12.5px; font-weight: 700;">📬 Request Next Chapter</a>
+          <button onclick="toggleGlobalNav(); openChaiModal();" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 8px; color: #fbbf24; text-align: left; font-size: 12.5px; font-weight: 700; cursor: pointer;">☕ Buy Me a Coffee</button>
+        </div>
+      </div>
+    </div>
+
     <!-- Calm Hero Greeting -->
     <section class="calm-hero" style="padding: 4px 0 14px 0;">
       <p class="calm-subtitle" style="font-size: 13.5px; font-weight: 600; color: #94a3b8; margin: 0 auto 12px auto; max-width: 540px;">High-yield visual concept notes &amp; verified JEE Main past year questions.</p>
@@ -1683,20 +1811,17 @@
         </div>
       </div>
 
-      <!-- Optional Gentle 1-Question Drill (Collapsed by default - 0 Pressure!) -->
-      <div class="optional-drill-wrap" id="daily-pyq-box">
-        <div class="optional-drill-trigger" onclick="toggleDailyExpand()">
-          <div class="drill-left-text">
-            <span>☕</span>
-            <span>Today's 1-Question Drill</span>
-            <span class="drill-badge">Optional</span>
+      <!-- Daily PYQ Challenge & Streak Tracker -->
+      <div class="daily-pyq-card" id="daily-pyq-challenge" style="margin-bottom: 20px; background: linear-gradient(180deg, #111827 0%, #0d1322 100%); border: 1px solid #1e293b; border-radius: 14px; padding: 18px; box-shadow: 0 4px 16px rgba(0,0,0,0.25);">
+        <div class="daily-pyq-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 16px;">🎯</span>
+            <span style="font-weight: 800; font-size: 13.5px; color: #f8fafc; letter-spacing: 0.3px;">DAILY PYQ CHALLENGE</span>
           </div>
-          <span class="drill-toggle-arrow" id="drill-toggle-label">Tap to try &darr;</span>
+          <span class="streak-badge" id="streak-badge" style="background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.4); color: #fbbf24; font-size: 12px; font-weight: 800; padding: 3px 10px; border-radius: 12px; display: inline-flex; align-items: center; gap: 4px;">🔥 <span id="streak-count">0</span> Day Streak</span>
         </div>
-        <div id="daily-pyq-expandable">
-          <div id="daily-pyq-body">
-            <div style="font-size: 12px; color: #94a3b8;">Loading today's question...</div>
-          </div>
+        <div id="daily-pyq-body">
+          <div style="font-size: 13px; color: #94a3b8; text-align: center; padding: 12px 0;">Loading today's challenge...</div>
         </div>
       </div>
     </section>
@@ -1729,6 +1854,28 @@
     <div class="chapter-grid" id="chapter-grid">
       <!-- Populated via JS -->
     </div>
+
+    <!-- Community Voting Banner: Request Next Chapter -->
+    <section class="community-vote-banner" id="community-vote-banner" style="margin-top: 36px; background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.9) 100%); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 14px; padding: 22px 20px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.25);">
+      <div style="display: inline-block; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.35); color: #38bdf8; font-size: 11px; font-weight: 800; padding: 3px 10px; border-radius: 12px; margin-bottom: 8px; letter-spacing: 0.5px;">COMMUNITY VOTE 🗳️</div>
+      <h3 style="font-size: 17px; font-weight: 800; color: #f8fafc; margin-bottom: 6px;">Which chapter next? Modern Physics or Current Electricity?</h3>
+      <p style="font-size: 13px; color: #94a3b8; max-width: 480px; margin: 0 auto 16px auto; line-height: 1.5;">Our academic team is drafting the next high-yield Master Guide. Tell us what you need first to crack your mocks.</p>
+      
+      <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <a href="/support.html?category=Chapter+Request&chapter=Modern+Physics" class="btn-download" style="background: rgba(14, 165, 233, 0.2); border: 1px solid rgba(14, 165, 233, 0.5); color: #38bdf8; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+          <span>⚛️</span>
+          <span>Vote Modern Physics</span>
+        </a>
+        <a href="/support.html?category=Chapter+Request&chapter=Current+Electricity" class="btn-download" style="background: rgba(234, 179, 8, 0.15); border: 1px solid rgba(234, 179, 8, 0.4); color: #facc15; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+          <span>⚡</span>
+          <span>Vote Current Electricity</span>
+        </a>
+        <a href="https://instagram.com/nithlabs" target="_blank" rel="noopener noreferrer" class="btn-view" style="text-decoration: none; padding: 10px 16px; border-radius: 8px; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+          <span>📸</span>
+          <span>DM on Instagram (@nithlabs)</span>
+        </a>
+      </div>
+    </section>
 
     <!-- Footer with Calm & Helpful Links -->
     <footer style="margin-top: 48px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); text-align: center; color: #64748b; font-size: 12px;">
@@ -1897,23 +2044,29 @@
           id: 'gravitation',
           title: 'Gravitation',
           class: 'Class 11',
-          desc: 'Universal law, variation with height & depth, orbital/escape speeds, Kepler laws & verified PYQs.',
+          desc: 'Universal law, variation with height & depth, orbital/escape speeds, Kepler laws & 10 verified 2026 PYQs.',
           status: 'ready',
-          statusText: '🔥 PDF Ready',
+          statusText: '🔥 10 PYQs in 2026',
           pdfUrl: 'gravitation-story-guide.pdf',
           htmlUrl: 'gravitation-story-guide.html',
-          metaInfo: 'Complete Master Guide • Verified PYQs'
+          formulasUrl: 'gravitation-formulas.html',
+          trapsUrl: 'gravitation-traps.html',
+          memoryUrl: 'gravitation-memory.html',
+          metaInfo: '🔥 10 PYQs in JEE 2026 • Full Toolkit'
         },
         {
           id: 'semiconductors',
           title: 'Semiconductors',
           class: 'Class 12',
-          desc: 'P-N junction diodes, Zener voltage regulation, rectifiers & full Boolean logic toolkit with 7 PYQs.',
+          desc: 'P-N junction diodes, Zener voltage regulation, rectifiers & full Boolean logic toolkit with 21 verified 2026 PYQs.',
           status: 'ready',
-          statusText: '🔥 PDF Ready',
+          statusText: '🔥 21 PYQs in 2026',
           pdfUrl: 'semiconductors-story-guide.pdf',
           htmlUrl: 'semiconductors-story-guide.html',
-          metaInfo: 'Complete Master Guide • Verified PYQs'
+          formulasUrl: 'semiconductors-formulas.html',
+          trapsUrl: 'semiconductors-traps.html',
+          memoryUrl: 'semiconductors-memory.html',
+          metaInfo: '🔥 21 PYQs in JEE 2026 • Full Toolkit'
         },
         {
           id: 'current-electricity',
@@ -2146,12 +2299,15 @@
             <div class="card-title">${highlightQuery(ch.title, query)}</div>
             <div class="card-desc">${highlightQuery(ch.desc, query)}</div>
           </div>
-          <div class="card-footer">
-            <span>${ch.metaInfo}</span>
-            <div class="card-btn-row">
+          <div class="card-footer" style="flex-direction: column; align-items: stretch; gap: 8px;">
+            <span style="font-size: 11px; color: #94a3b8;">${ch.metaInfo}</span>
+            <div class="card-btn-row" style="display: flex; flex-wrap: wrap; gap: 6px; width: 100%;">
               ${ch.status === 'ready' ? `
+                <a href="${ch.htmlUrl}" class="card-btn view" onclick="event.stopPropagation(); Analytics.track('chapter_click', '${ch.title}')">📖 Guide</a>
+                <a href="${ch.formulasUrl}" class="card-btn" style="background: rgba(2, 132, 199, 0.15); border: 1px solid rgba(2, 132, 199, 0.35); color: #38bdf8;" onclick="event.stopPropagation()">⚡ Formulas</a>
+                <a href="${ch.trapsUrl}" class="card-btn" style="background: rgba(217, 119, 6, 0.15); border: 1px solid rgba(217, 119, 6, 0.35); color: #fbbf24;" onclick="event.stopPropagation()">⚠️ Traps</a>
+                <a href="${ch.memoryUrl}" class="card-btn" style="background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.35); color: #c084fc;" onclick="event.stopPropagation()">🧠 Memory</a>
                 <a href="${ch.pdfUrl}" download class="card-btn pdf" onclick="event.stopPropagation(); Analytics.track('download', '${ch.title}')">📥 PDF</a>
-                <a href="${ch.htmlUrl}" class="card-btn view" onclick="event.stopPropagation(); Analytics.track('chapter_click', '${ch.title}')">📖 Read Guide</a>
               ` : `
                 <span class="card-btn view" style="opacity: 0.5;">⏳ Soon</span>
               `}
@@ -2208,12 +2364,15 @@
             <div class="card-title">${ch.title}</div>
             <div class="card-desc">${ch.desc}</div>
           </div>
-          <div class="card-footer">
-            <span>${ch.metaInfo}</span>
-            <div class="card-btn-row">
+          <div class="card-footer" style="flex-direction: column; align-items: stretch; gap: 8px;">
+            <span style="font-size: 11px; color: #94a3b8;">${ch.metaInfo}</span>
+            <div class="card-btn-row" style="display: flex; flex-wrap: wrap; gap: 6px; width: 100%;">
               ${ch.status === 'ready' ? `
+                <a href="${ch.htmlUrl}" class="card-btn view" onclick="event.stopPropagation(); Analytics.track('chapter_click', '${ch.title}')">📖 Guide</a>
+                <a href="${ch.formulasUrl}" class="card-btn" style="background: rgba(2, 132, 199, 0.15); border: 1px solid rgba(2, 132, 199, 0.35); color: #38bdf8;" onclick="event.stopPropagation()">⚡ Formulas</a>
+                <a href="${ch.trapsUrl}" class="card-btn" style="background: rgba(217, 119, 6, 0.15); border: 1px solid rgba(217, 119, 6, 0.35); color: #fbbf24;" onclick="event.stopPropagation()">⚠️ Traps</a>
+                <a href="${ch.memoryUrl}" class="card-btn" style="background: rgba(124, 58, 237, 0.15); border: 1px solid rgba(124, 58, 237, 0.35); color: #c084fc;" onclick="event.stopPropagation()">🧠 Memory</a>
                 <a href="${ch.pdfUrl}" download class="card-btn pdf" onclick="event.stopPropagation(); Analytics.track('download', '${ch.title}')">📥 PDF</a>
-                <a href="${ch.htmlUrl}" class="card-btn view" onclick="event.stopPropagation(); Analytics.track('chapter_click', '${ch.title}')">📖 Read Guide</a>
               ` : `
                 <span class="card-btn view" style="opacity: 0.5;">⏳ Soon</span>
               `}
@@ -2263,6 +2422,13 @@
       }
     }
 
+    function toggleGlobalNav() {
+      const drawer = document.getElementById('global-nav-drawer');
+      if (drawer) {
+        drawer.style.display = drawer.style.display === 'flex' ? 'none' : 'flex';
+      }
+    }
+
     // Today's Question & Streak Tracker
     let dailyQuestionsList = [];
     let currentDailyQ = null;
@@ -2308,7 +2474,7 @@
     }
 
     function renderStreak() {
-      const streak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+      const streak = parseInt(localStorage.getItem('mjee_streak') || localStorage.getItem('mjee_daily_streak') || '0', 10);
       const lastDate = localStorage.getItem('mjee_last_date');
       const today = getTodayKey();
       const yesterday = getYesterdayKey();
@@ -2316,7 +2482,7 @@
       let activeStreak = streak;
       if (lastDate && lastDate !== today && lastDate !== yesterday) {
         activeStreak = 0;
-        localStorage.setItem('mjee_daily_streak', '0');
+        localStorage.setItem('mjee_streak', '0');
       }
 
       const streakElem = document.getElementById('streak-count');
@@ -2332,19 +2498,22 @@
       const body = document.getElementById('daily-pyq-body');
       if (!body) return;
       body.innerHTML = `
-        <div class="pyq-meta-line">
+        <div class="pyq-meta-line" style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;">
           <span class="pyq-tag" style="background: rgba(2, 132, 199, 0.2); color: #38bdf8;">${q.chapter}</span>
           <span class="pyq-tag">${q.examTag}</span>
           <span class="pyq-tag" style="color: #fbbf24;">${q.archetype}</span>
         </div>
-        <div class="pyq-question-text">${escapeHtml(q.question)}</div>
-        <div class="pyq-options-grid" id="pyq-opts">
+        <div class="pyq-question-text" style="font-size: 14px; font-weight: 600; color: #f1f5f9; line-height: 1.5; margin-bottom: 12px;">${escapeHtml(q.question)}</div>
+        <div class="pyq-options-grid" id="pyq-opts" style="display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 12px;">
           ${q.options.map((opt, i) => `
             <button class="pyq-opt-btn" id="opt-btn-${i}" onclick="handleOptionSelect(${i})">${escapeHtml(opt)}</button>
           `).join('')}
         </div>
-        <div class="pyq-expl-box" id="pyq-expl">
-          <strong>Solution &amp; Takeaway:</strong><br>
+        <button class="card-btn view" id="reveal-sol-btn" onclick="toggleDailySolution()" style="width: 100%; min-height: 42px; margin: 8px 0 12px 0; justify-content: center; font-size: 13px; font-weight: 700; border-radius: 8px;">
+          💡 Reveal Solution &amp; Derivation
+        </button>
+        <div class="pyq-expl-box" id="pyq-expl" style="display: none; background: rgba(15, 23, 42, 0.85); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.5; color: #cbd5e1;">
+          <strong style="color: #38bdf8;">Solution &amp; Takeaway:</strong><br>
           ${escapeHtml(q.explanation)}
         </div>
       `;
@@ -2353,6 +2522,15 @@
         const selectedIdx = parseInt(answeredRecord, 10);
         showAnswerState(selectedIdx);
       }
+    }
+
+    function toggleDailySolution() {
+      const expl = document.getElementById('pyq-expl');
+      const btn = document.getElementById('reveal-sol-btn');
+      if (!expl) return;
+      const isHidden = expl.style.display === 'none' || !expl.style.display;
+      expl.style.display = isHidden ? 'block' : 'none';
+      if (btn) btn.innerHTML = isHidden ? 'Hide Solution &uarr;' : '💡 Reveal Solution &amp; Derivation';
     }
 
     function handleOptionSelect(chosenIdx) {
@@ -2367,13 +2545,14 @@
 
       if (chosenIdx === q.correctIndex) {
         if (lastDate !== today) {
-          let currentStreak = parseInt(localStorage.getItem('mjee_daily_streak') || '0', 10);
+          let currentStreak = parseInt(localStorage.getItem('mjee_streak') || localStorage.getItem('mjee_daily_streak') || '0', 10);
           if (lastDate === yesterday) {
             currentStreak += 1;
           } else {
             currentStreak = 1;
           }
-          localStorage.setItem('mjee_daily_streak', currentStreak);
+          localStorage.setItem('mjee_streak', currentStreak.toString());
+          localStorage.setItem('mjee_daily_streak', currentStreak.toString());
           localStorage.setItem('mjee_last_date', today);
           renderStreak();
         }
@@ -2398,6 +2577,8 @@
 
       const expl = document.getElementById('pyq-expl');
       if (expl) expl.style.display = 'block';
+      const btn = document.getElementById('reveal-sol-btn');
+      if (btn) btn.innerHTML = 'Hide Solution &uarr;';
     }
 
     // Chai Modal Functions
@@ -2515,7 +2696,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('/sw.js?v=5')
           .then(reg => {
             console.log('Mission JEE ServiceWorker active:', reg.scope);
             reg.update();
@@ -2524,8 +2705,9 @@
       });
 
       let refreshing = false;
+      let hadController = Boolean(navigator.serviceWorker.controller);
       navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (!refreshing) {
+        if (hadController && !refreshing) {
           refreshing = true;
           window.location.reload();
         }

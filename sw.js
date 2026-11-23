@@ -1,11 +1,11 @@
-// Mission JEE 2027 - Offline Service Worker & Push Notifications (v2)
+// Mission JEE 2027 - Offline Service Worker & Push Notifications (v5)
 try {
   importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 } catch (e) {
   // Graceful fallback when offline
 }
 
-const CACHE_NAME = 'mission-jee-cache-v2';
+const CACHE_NAME = 'mission-jee-cache-v5';
 
 const STATIC_ASSETS = [
   '/',
@@ -19,18 +19,25 @@ const STATIC_ASSETS = [
   '/privacy.html',
   '/terms.html',
   '/gravitation-story-guide.html',
-  '/semiconductors-story-guide.html',
+  '/gravitation-formulas.html',
+  '/gravitation-traps.html',
+  '/gravitation-memory.html',
   '/gravitation-story-guide.pdf',
+  '/semiconductors-story-guide.html',
+  '/semiconductors-formulas.html',
+  '/semiconductors-traps.html',
+  '/semiconductors-memory.html',
   '/semiconductors-story-guide.pdf'
 ];
 
-// Install: Pre-cache core app shell & study guides
+// Install: Force skipWaiting immediately and pre-cache core app shell & study guides
 self.addEventListener('install', (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[SW] Pre-caching offline app shell & study guides (v2)...');
+      console.log('[SW] Pre-caching offline app shell & study guides (v5)...');
       return cache.addAll(STATIC_ASSETS);
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
@@ -61,7 +68,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 1. Navigation requests (HTML pages)
+  // 1. Navigation requests (HTML pages): Always Network First
   if (event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
@@ -81,7 +88,23 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // 2. Static assets (CSS, JS, images, PDFs, JSON): Cache First, background refresh
+  // 2. Dynamic JSON & Scripts: Always Network First with cache fallback
+  if (url.pathname.endsWith('.json') || url.pathname.endsWith('.js')) {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request))
+    );
+    return;
+  }
+
+  // 2. Static assets (CSS, JS, images, PDFs, JSON, KaTeX, Fonts): Cache First, background refresh
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
@@ -94,7 +117,13 @@ self.addEventListener('fetch', (event) => {
         }).catch(() => {});
         return cachedResponse;
       }
-      return fetch(event.request);
+      return fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const clone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
+        }
+        return networkResponse;
+      }).catch(() => cachedResponse);
     })
   );
 });

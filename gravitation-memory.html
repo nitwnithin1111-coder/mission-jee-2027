@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Gravitation — 🧠 Test My Memory (Active Recall) | Mission JEE 2027</title>
+  <link rel="canonical" href="https://missionjee2027.vercel.app/gravitation-memory.html" />
+  <meta name="description" content="Active recall flashcard trainer for Gravitation formulas in JEE Main 2027. Tap to reveal blurred equations and benchmark your recall." />
+
+  <!-- Academic Fonts & KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    :root {
+      --bg-cream: #FBF8F1;
+      --text-charcoal: #2C2C2C;
+      --box-shade: #EFECE4;
+      --border-soft: #D8D3C8;
+      --accent-purple: #7C3AED;
+      --accent-blue: #0369A1;
+      --accent-green: #15803D;
+      --accent-amber: #B45309;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background-color: var(--bg-cream);
+      color: var(--text-charcoal);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13pt;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 0;
+    }
+
+    /* Screen Toolbar */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #1E293B;
+      color: #F8FAFC;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+    .toolbar-title {
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+    .toolbar-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #F1F5F9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .toolbar-btn:hover { background: rgba(124, 58, 237, 0.2); border-color: #7c3aed; color: #c084fc; }
+    .toolbar-btn.active { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+
+    .toggle-3line-btn {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      font-size: 16px;
+      font-weight: 900;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Navigation Drawer */
+    .nav-drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+    .nav-drawer-overlay.open { display: flex !important; }
+    .nav-drawer-content {
+      width: min(320px, 85vw);
+      height: 100%;
+      background: #0f172a;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+    .nav-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-drawer-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .nav-drawer-links { display: flex; flex-direction: column; gap: 8px; }
+    .nav-drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #f1f5f9;
+      text-decoration: none;
+    }
+    .nav-drawer-item strong { display: block; font-size: 13.5px; }
+    .nav-drawer-item small { display: block; font-size: 11px; color: #94a3b8; }
+    .nav-drawer-item.active { background: rgba(124, 58, 237, 0.2); border-color: #7c3aed; color: #c084fc; }
+
+    /* Main Container */
+    .doc-container {
+      max-width: 8.5in;
+      margin: 20px auto;
+      padding: 24px 20px 100px 20px;
+      box-sizing: border-box;
+    }
+
+    .header-box {
+      border-bottom: 2px solid var(--text-charcoal);
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+    }
+    .header-box h1 {
+      font-size: 24pt;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+    }
+    .badge-line {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .badge-item {
+      font-size: 9pt;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: var(--box-shade);
+      border: 1px solid var(--border-soft);
+      color: var(--accent-purple);
+      text-transform: uppercase;
+    }
+
+    /* Active Recall Control Center */
+    .control-panel {
+      background: #F5F3FF;
+      border: 1.5px solid #DDD6FE;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .score-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .score-circle {
+      background: #7C3AED;
+      color: #FFFFFF;
+      font-weight: 900;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+    .score-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #5B21B6;
+    }
+    .control-btns {
+      display: flex;
+      gap: 8px;
+    }
+    .c-btn {
+      background: #FFFFFF;
+      border: 1px solid #C4B5FD;
+      color: #6D28D9;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .c-btn:hover {
+      background: #7C3AED;
+      color: #FFFFFF;
+      border-color: #7C3AED;
+    }
+
+    /* Memory Card */
+    .memory-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-soft);
+      border-left: 5px solid var(--accent-purple);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .memory-card:hover {
+      border-color: #C4B5FD;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .card-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: #6D28D9;
+      background: #EDE9FE;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .card-action-hint {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94A3B8;
+    }
+    .card-prompt {
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 10px;
+    }
+
+    /* Blurred Formula Box */
+    .blur-container {
+      position: relative;
+      margin-top: 6px;
+    }
+    .blur-formula {
+      filter: blur(8.5px);
+      user-select: none;
+      -webkit-user-select: none;
+      transition: filter 0.25s ease, background 0.25s ease;
+      background: var(--box-shade);
+      border: 1px dashed #CBD5E1;
+      border-radius: 8px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      max-width: 100%;
+    }
+    .blur-formula.unblurred {
+      filter: none;
+      user-select: text;
+      -webkit-user-select: text;
+      background: #F0FDF4;
+      border: 1px solid #86EFAC;
+    }
+    .blur-hint-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .blur-formula.unblurred + .blur-hint-overlay {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .blur-hint-badge {
+      background: rgba(15, 23, 42, 0.85);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .explanation {
+      margin-top: 10px;
+      font-size: 11pt;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    /* Mobile Floating Reader Toolbar */
+    .mobile-reader-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 12px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+      z-index: 99;
+      gap: 6px;
+    }
+    .m-reader-btn {
+      flex: 1;
+      min-height: 44px;
+      padding: 8px 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .m-reader-btn.highlight {
+      background: rgba(124, 58, 237, 0.2);
+      color: #c084fc;
+      border-color: rgba(124, 58, 237, 0.4);
+    }
+    .m-reader-btn.cta {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      html, body { font-size: 11.5pt; }
+      .doc-container { padding: 16px 14px 84px 14px; }
+      .header-box h1 { font-size: 19pt; }
+      .control-panel { flex-direction: column; align-items: stretch; text-align: center; }
+      .control-btns { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Toolbar with 3-Line Toggle Menu -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <button class="toggle-3line-btn" onclick="toggleChapterNav()" aria-label="Open Navigation">☰</button>
+      <a href="/index.html" style="color: #38bdf8; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">&larr; Hub</a>
+      <span style="opacity: 0.35;">|</span>
+      <span>Gravitation Memory</span>
+    </div>
+    <div class="toolbar-actions">
+      <a href="gravitation-story-guide.html" class="toolbar-btn">📖 Full Guide</a>
+      <a href="gravitation-formulas.html" class="toolbar-btn">⚡ Formulas</a>
+      <a href="gravitation-traps.html" class="toolbar-btn" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.4);">⚠️ Traps (2026: 10 Qs)</a>
+      <a href="gravitation-memory.html" class="toolbar-btn active">🧠 Memory</a>
+      <a href="/gravitation-story-guide.pdf" download="Gravitation-JEE-2027.pdf" class="toolbar-btn" style="background: #2563eb; color: #fff;">📥 PDF</a>
+    </div>
+  </div>
+
+  <!-- Navigation Drawer (3-Line Toggle Sheet) -->
+  <div id="chapter-nav-drawer" class="nav-drawer-overlay" onclick="toggleChapterNav()">
+    <div class="nav-drawer-content" onclick="event.stopPropagation()">
+      <div class="nav-drawer-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 22px;">🪐</span>
+          <div>
+            <h4 style="margin: 0; font-size: 15px; font-weight: 800; color: #f8fafc;">Gravitation</h4>
+            <p style="margin: 0; font-size: 11px; color: #c084fc; font-weight: 700;">Class 11 • 10 PYQs in JEE 2026</p>
+          </div>
+        </div>
+        <button class="nav-drawer-close" onclick="toggleChapterNav()">✕</button>
+      </div>
+      <div class="nav-drawer-links">
+        <a href="gravitation-story-guide.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">📖</span>
+          <div>
+            <strong>Master Story Guide</strong>
+            <small>Complete textbook with full derivations</small>
+          </div>
+        </a>
+        <a href="gravitation-formulas.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">⚡</span>
+          <div>
+            <strong>Formulas Only (Cheat Sheet)</strong>
+            <small>60-second high-yield formula sprint</small>
+          </div>
+        </a>
+        <a href="gravitation-traps.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">⚠️</span>
+          <div>
+            <strong>Examiner Traps (2026 PYQs)</strong>
+            <small>10 Questions in 2026 • Pitfalls &amp; tricks</small>
+          </div>
+        </a>
+        <a href="gravitation-memory.html" class="nav-drawer-item active">
+          <span style="font-size: 18px;">🧠</span>
+          <div>
+            <strong>Test My Memory</strong>
+            <small>Active recall flashcards • Tap to unblur</small>
+          </div>
+        </a>
+        <a href="/gravitation-story-guide.pdf" download="Gravitation-JEE-2027.pdf" class="nav-drawer-item" style="border-color: rgba(37, 99, 235, 0.4); background: rgba(37, 99, 235, 0.1);">
+          <span style="font-size: 18px;">📥</span>
+          <div>
+            <strong style="color: #60a5fa;">Download Master PDF</strong>
+            <small>High-contrast, 0.5-inch margin print edition</small>
+          </div>
+        </a>
+        <a href="/index.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🏠</span>
+          <div>
+            <strong>Back to Home Hub</strong>
+            <small>All chapters, quizzes &amp; daily streak</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-container">
+
+    <!-- Document Header -->
+    <div class="header-box">
+      <div class="badge-line">
+        <span class="badge-item">Active Recall Trainer</span>
+        <span class="badge-item">Self-Testing Mode</span>
+        <span class="badge-item" style="color: #7c3aed; border-color: #c4b5fd;">🧠 Tap to Unblur</span>
+      </div>
+      <h1 style="margin-top: 8px;">Gravitation — Test My Memory</h1>
+      <p style="font-size: 11.5pt; color: #64748B; margin-top: 4px;">Recite the formula in your mind first, then tap the card to verify. Active recall guarantees long-term retention.</p>
+    </div>
+
+    <!-- Active Recall Control Panel -->
+    <div class="control-panel">
+      <div class="score-badge">
+        <span class="score-circle" id="recall-count">0 / 10</span>
+        <span class="score-label">Cards Mastered (<span id="recall-pct">0%</span>)</span>
+      </div>
+      <div class="control-btns">
+        <button class="c-btn" onclick="revealAll()">👁️ Reveal All</button>
+        <button class="c-btn" onclick="hideAll()">🔒 Hide All (Reset)</button>
+      </div>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 01 • Surface Gravity</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is $g$ on the surface in terms of mass $M$ and uniform density $\rho$?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$g = \frac{GM}{R^2} = \frac{4}{3} \pi G \rho R$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Scaling: If density is constant, $g \propto R$. If mass is constant, $g \propto 1/R^2$.</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 02 • Exact Variation with Height</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is the exact formula for $g_h$ at any arbitrary altitude $h$ above Earth?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$g_h = \frac{GM}{(R+h)^2} = g \left( \frac{R}{R+h} \right)^2 = \frac{g}{\left( 1 + \frac{h}{R} \right)^2}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Never use binomial approximation when $h$ is large like $h = R$ or $h = 2R$!</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 03 • Small Altitude Approximation</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is the fractional and percentage decrease in $g$ when $h \ll R$?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$g_h \approx g \left( 1 - \frac{2h}{R} \right), \qquad \frac{\Delta g}{g} = -\frac{2h}{R}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Valid only for $h < 320\text{ km}$ ($5\%$ of Earth's radius).</div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 04 • Variation with Depth</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is $g_d$ at depth $d$ below the surface? What is $g$ at the Earth's center?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$g_d = g \left( 1 - \frac{d}{R} \right) = \frac{g}{R} r$$
+          $$\text{At center } (d=R, r=0): \quad g_{center} = 0$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• $g$ varies strictly LINEARLY with distance from center inside a uniform solid sphere.</div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 05 • Equal Drop in g</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">For small $h \ll R$, what depth $d$ produces the exact same decrease in $g$ as height $h$?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$d = 2h$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• A $1\%$ drop at height $h = 32\text{ km}$ requires digging to depth $d = 64\text{ km}$.</div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 06 • Work Done to Elevate Mass</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is the minimum work required to lift mass $m$ to height $h$ above Earth?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$W = \Delta U = \frac{mgh}{1 + \frac{h}{R}}$$
+          $$\text{For } h = R: \quad W = \frac{mgR}{1 + 1} = \frac{1}{2}mgR$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Only when $h \ll R$ does $W \approx mgh$. Over cosmic distances, always divide by $(1+h/R)$!</div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 07 • Satellite Orbital Speed & Period</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is the orbital speed $v_o$ and time period $T$ of a satellite in orbit radius $r$?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$v_o = \sqrt{\frac{GM}{r}} = \sqrt{\frac{GM}{R+h}}$$
+          $$T = \frac{2\pi r^{3/2}}{\sqrt{GM}} \implies T^2 = \left( \frac{4\pi^2}{GM} \right) r^3$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Kepler's 3rd Law: $T^2 \propto r^3$. Near-earth satellite period is $T \approx 84.6\text{ minutes}$.</div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 08 • Satellite Energy Relations</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">State the exact relationship between Kinetic ($K$), Potential ($U$), and Total Energy ($E$).</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$K = \frac{GMm}{2r}, \qquad U = -\frac{GMm}{r}, \qquad E = -\frac{GMm}{2r}$$
+          $$E = -K = \frac{U}{2}, \qquad \text{Binding Energy} = -E = \frac{GMm}{2r}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Total energy is NEGATIVE for any bound elliptical or circular orbit.</div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 09 • Escape Velocity from Surface</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is the surface escape speed $v_e$, its relation to $v_o$, and its angle dependence?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$v_e = \sqrt{\frac{2GM}{R}} = \sqrt{2gR} = \sqrt{2} \cdot v_o \approx 11.2\text{ km/s}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• $v_e$ is strictly INDEPENDENT of projection angle ($\theta$) and mass of the object!</div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 10 • Variation with Earth's Rotation</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is the apparent gravity $g'$ at latitude $\lambda$ due to Earth's rotation ($\omega$)?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$g' = g - R\omega^2 \cos^2\lambda$$
+          $$\text{Equator } (\lambda = 0^\circ): g_{eq} = g - R\omega^2 \qquad \text{Poles } (\lambda = 90^\circ): g_{pole} = g$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• $g$ is maximum at the poles and minimum at the equator. Weightlessness at equator occurs if $\omega = \sqrt{g/R}$ (17 times faster rotation).</div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Floating Reader Toolbar -->
+  <div class="mobile-reader-bar">
+    <button class="m-reader-btn" onclick="toggleChapterNav()" style="flex: 0 0 44px; font-size: 16px; font-weight: 900;">☰</button>
+    <a href="gravitation-story-guide.html" class="m-reader-btn">📖 Guide</a>
+    <a href="gravitation-formulas.html" class="m-reader-btn">⚡ Formulas</a>
+    <a href="gravitation-traps.html" class="m-reader-btn" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.4);">⚠️ Traps (2026: 10 Qs)</a>
+    <a href="/gravitation-story-guide.pdf" download="Gravitation-JEE-2027.pdf" class="m-reader-btn cta">📥 PDF</a>
+  </div>
+
+  <script>
+    function toggleChapterNav() {
+      const drawer = document.getElementById('chapter-nav-drawer');
+      if (drawer) drawer.classList.toggle('open');
+    }
+
+    function toggleCard(card) {
+      const blurEl = card.querySelector('.blur-formula');
+      if (blurEl) {
+        blurEl.classList.toggle('unblurred');
+        updateScore();
+      }
+    }
+
+    function revealAll() {
+      document.querySelectorAll('.blur-formula').forEach(el => el.classList.add('unblurred'));
+      updateScore();
+    }
+
+    function hideAll() {
+      document.querySelectorAll('.blur-formula').forEach(el => el.classList.remove('unblurred'));
+      updateScore();
+    }
+
+    function updateScore() {
+      const allCards = document.querySelectorAll('.blur-formula');
+      const unblurred = document.querySelectorAll('.blur-formula.unblurred');
+      const total = allCards.length;
+      const count = unblurred.length;
+      const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+
+      const countEl = document.getElementById('recall-count');
+      const pctEl = document.getElementById('recall-pct');
+      if (countEl) countEl.innerText = `${count} / ${total}`;
+      if (pctEl) pctEl.innerText = `${pct}%`;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Semiconductors — ⚠️ Examiner Traps & Pitfalls (2026 PYQs) | Mission JEE 2027</title>
+  <link rel="canonical" href="https://missionjee2027.vercel.app/semiconductors-traps.html" />
+  <meta name="description" content="All 21 questions from JEE Main 2026 analyzed. Common examiner traps, negative-marking pitfalls, Zener regulator mistakes, and logic gate tricks in Semiconductors." />
+
+  <!-- Academic Fonts & KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    :root {
+      --bg-cream: #FBF8F1;
+      --text-charcoal: #2C2C2C;
+      --box-shade: #EFECE4;
+      --border-soft: #D8D3C8;
+      --accent-blue: #0369A1;
+      --accent-red: #DC2626;
+      --accent-green: #16A34A;
+      --accent-amber: #D97706;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background-color: var(--bg-cream);
+      color: var(--text-charcoal);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13pt;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 0;
+    }
+
+    /* Screen Toolbar */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #1E293B;
+      color: #F8FAFC;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+    .toolbar-title {
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+    .toolbar-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #F1F5F9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .toolbar-btn:hover { background: rgba(2, 132, 199, 0.2); border-color: #0284c7; color: #38bdf8; }
+    .toolbar-btn.active { background: #d97706; border-color: #d97706; color: #fff; }
+
+    .toggle-3line-btn {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      font-size: 16px;
+      font-weight: 900;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Navigation Drawer */
+    .nav-drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+    .nav-drawer-overlay.open { display: flex !important; }
+    .nav-drawer-content {
+      width: min(320px, 85vw);
+      height: 100%;
+      background: #0f172a;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+    .nav-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-drawer-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .nav-drawer-links { display: flex; flex-direction: column; gap: 8px; }
+    .nav-drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #f1f5f9;
+      text-decoration: none;
+    }
+    .nav-drawer-item strong { display: block; font-size: 13.5px; }
+    .nav-drawer-item small { display: block; font-size: 11px; color: #94a3b8; }
+    .nav-drawer-item.active { background: rgba(217, 119, 6, 0.2); border-color: #d97706; color: #fbbf24; }
+
+    /* Main Container */
+    .doc-container {
+      max-width: 8.5in;
+      margin: 20px auto;
+      padding: 24px 20px 100px 20px;
+      box-sizing: border-box;
+    }
+
+    .header-box {
+      border-bottom: 2px solid var(--text-charcoal);
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+    }
+    .header-box h1 {
+      font-size: 24pt;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+    }
+    .badge-line {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .badge-item {
+      font-size: 9pt;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: var(--box-shade);
+      border: 1px solid var(--border-soft);
+      color: var(--accent-amber);
+      text-transform: uppercase;
+    }
+
+    /* 2026 Question Distribution Card */
+    .pyq-stat-banner {
+      background: #FFFBEB;
+      border: 1.5px solid #FCD34D;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+    .pyq-stat-title {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #92400E;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .pyq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .pyq-pill {
+      background: #FFFFFF;
+      border: 1px solid #FDE68A;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .pyq-pill-count {
+      font-size: 18px;
+      font-weight: 900;
+      color: #D97706;
+    }
+    .pyq-pill-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #78350F;
+    }
+
+    /* Trap Cards */
+    .trap-card {
+      background: #FFFFFF;
+      border: 1px solid #FECACA;
+      border-left: 5px solid var(--accent-red);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.05);
+    }
+    .trap-num {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #DC2626;
+      background: #FEE2E2;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    .trap-title {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #991B1B;
+      margin-bottom: 12px;
+    }
+    .trap-section {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 11.5pt;
+      line-height: 1.5;
+      overflow-x: auto;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+      word-break: break-word;
+    }
+    .trap-wrong {
+      background: #FEF2F2;
+      border-left: 3px solid #EF4444;
+      color: #991B1B;
+      margin-bottom: 10px;
+    }
+    .trap-right {
+      background: #F0FDF4;
+      border-left: 3px solid #22C55E;
+      color: #166534;
+    }
+    .trap-label {
+      font-weight: 800;
+      font-size: 10.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    /* Mobile Floating Reader Toolbar */
+    .mobile-reader-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 12px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+      z-index: 99;
+      gap: 6px;
+    }
+    .m-reader-btn {
+      flex: 1;
+      min-height: 44px;
+      padding: 8px 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .m-reader-btn.highlight {
+      background: rgba(217, 119, 6, 0.2);
+      color: #fbbf24;
+      border-color: rgba(217, 119, 6, 0.4);
+    }
+    .m-reader-btn.cta {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      html, body { font-size: 11.5pt; }
+      .doc-container { padding: 16px 14px 84px 14px; }
+      .header-box h1 { font-size: 19pt; }
+      .pyq-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Toolbar with 3-Line Toggle Menu -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <button class="toggle-3line-btn" onclick="toggleChapterNav()" aria-label="Open Navigation">☰</button>
+      <a href="/index.html" style="color: #38bdf8; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">&larr; Hub</a>
+      <span style="opacity: 0.35;">|</span>
+      <span>Semiconductor Traps</span>
+    </div>
+    <div class="toolbar-actions">
+      <a href="semiconductors-story-guide.html" class="toolbar-btn">📖 Full Guide</a>
+      <a href="semiconductors-formulas.html" class="toolbar-btn">⚡ Formulas</a>
+      <a href="semiconductors-traps.html" class="toolbar-btn active">⚠️ Traps (2026: 21 Qs)</a>
+      <a href="semiconductors-memory.html" class="toolbar-btn" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);">🧠 Memory</a>
+      <a href="/semiconductors-story-guide.pdf" download="Semiconductors-JEE-2027.pdf" class="toolbar-btn" style="background: #2563eb; color: #fff;">📥 PDF</a>
+    </div>
+  </div>
+
+  <!-- Navigation Drawer (3-Line Toggle Sheet) -->
+  <div id="chapter-nav-drawer" class="nav-drawer-overlay" onclick="toggleChapterNav()">
+    <div class="nav-drawer-content" onclick="event.stopPropagation()">
+      <div class="nav-drawer-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 22px;">⚡</span>
+          <div>
+            <h4 style="margin: 0; font-size: 15px; font-weight: 800; color: #f8fafc;">Semiconductors</h4>
+            <p style="margin: 0; font-size: 11px; color: #fbbf24; font-weight: 700;">Class 12 • 21 PYQs in JEE 2026</p>
+          </div>
+        </div>
+        <button class="nav-drawer-close" onclick="toggleChapterNav()">✕</button>
+      </div>
+      <div class="nav-drawer-links">
+        <a href="semiconductors-story-guide.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">📖</span>
+          <div>
+            <strong>Master Story Guide</strong>
+            <small>Complete textbook with full derivations</small>
+          </div>
+        </a>
+        <a href="semiconductors-formulas.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">⚡</span>
+          <div>
+            <strong>Formulas Only (Cheat Sheet)</strong>
+            <small>60-second high-yield formula sprint</small>
+          </div>
+        </a>
+        <a href="semiconductors-traps.html" class="nav-drawer-item active">
+          <span style="font-size: 18px;">⚠️</span>
+          <div>
+            <strong>Examiner Traps (2026 PYQs)</strong>
+            <small>21 Questions in 2026 • Pitfalls &amp; tricks</small>
+          </div>
+        </a>
+        <a href="semiconductors-memory.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🧠</span>
+          <div>
+            <strong>Test My Memory</strong>
+            <small>Active recall flashcards • Tap to unblur</small>
+          </div>
+        </a>
+        <a href="/semiconductors-story-guide.pdf" download="Semiconductors-JEE-2027.pdf" class="nav-drawer-item" style="border-color: rgba(37, 99, 235, 0.4); background: rgba(37, 99, 235, 0.1);">
+          <span style="font-size: 18px;">📥</span>
+          <div>
+            <strong style="color: #60a5fa;">Download Master PDF</strong>
+            <small>High-contrast, 0.5-inch margin print edition</small>
+          </div>
+        </a>
+        <a href="/index.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🏠</span>
+          <div>
+            <strong>Back to Home Hub</strong>
+            <small>All chapters, quizzes &amp; daily streak</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-container">
+
+    <!-- Document Header -->
+    <div class="header-box">
+      <div class="badge-line">
+        <span class="badge-item">Negative Marking Shield</span>
+        <span class="badge-item">JEE Main 2026 Focus</span>
+        <span class="badge-item" style="color: #dc2626; border-color: #fca5a5;">⚠️ Critical Pitfalls</span>
+      </div>
+      <h1 style="margin-top: 8px;">Semiconductors — Examiner Traps & 2026 PYQ Archetypes</h1>
+      <p style="font-size: 11.5pt; color: #64748B; margin-top: 4px;">Save your -1 marks. Every pitfall from the 21 questions asked in JEE Main 2026 with exact solutions.</p>
+    </div>
+
+    <!-- 2026 Question Distribution Stats -->
+    <div class="pyq-stat-banner">
+      <div class="pyq-stat-title">
+        <span>🔥</span>
+        <span>JEE Main 2026: Massive 21 Questions Appeared in Semiconductors</span>
+      </div>
+      <div class="pyq-grid">
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">8 Qs</div>
+          <div class="pyq-pill-label">Logic Gates &amp; De Morgan's Simplification</div>
+        </div>
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">6 Qs</div>
+          <div class="pyq-pill-label">Zener Regulators ($I_Z, I_S, R_S, V_L$)</div>
+        </div>
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">4 Qs</div>
+          <div class="pyq-pill-label">Diode Biasing &amp; Resistor Bridge Networks</div>
+        </div>
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">3 Qs</div>
+          <div class="pyq-pill-label">Optoelectronics (Photodiode, LED, Solar Cell)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trap 1 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 01 • MOST FREQUENT IN JEE 2026</span>
+      <div class="trap-title">Zener Diode with Input Voltage Below Breakdown ($V_{in} < V_Z$)</div>
+      
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong &rarr; -1 Mark)</div>
+        A problem states: "A Zener diode of breakdown voltage $V_Z = 10\text{ V}$ is placed in a regulator circuit with $R_S = 1\text{ k}\Omega$ and $R_L = 1\text{ k}\Omega$. If $V_{in} = 8\text{ V}$, find voltage across $R_L$."<br>
+        Student reflexively writes: $V_L = 10\text{ V}$ because "it's a Zener regulator!" (How can output be 10V when power supply is only 8V?!).
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        The Zener diode <strong>conducts ONLY IF $V_{in} \ge V_Z$</strong> across its terminals.<br>
+        If $V_{in} < V_Z$, the Zener is OFF ($I_Z = 0$), acting as an OPEN CIRCUIT.<br>
+        The circuit becomes a simple resistive voltage divider:
+        $$V_L = V_{in} \left(\frac{R_L}{R_S + R_L}\right) = 8 \text{ V} \times \left(\frac{1}{1 + 1}\right) = 4\text{ V}$$
+        Always check if the unregulated input exceeds $V_Z$ before clamping to $V_Z$!
+      </div>
+    </div>
+
+    <!-- Trap 2 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 02 • THEORETICAL FAVORITE</span>
+      <div class="trap-title">Why Photodiode Operates in Reverse Bias (Not Forward Bias)</div>
+
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong)</div>
+        Student reasons: "In forward bias, current is in milliamperes, which is large and easily detectable, so photodiode should operate in forward bias."
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        Let majority carrier density be $10^{16}$ and minority be $10^8$.<br>
+        When illuminated, suppose optical generation produces $\Delta n = 10^7$ carriers:<br>
+        • <strong>Forward bias (majority carriers)</strong>: Fractional increase is $\frac{10^7}{10^{16}} = 10^{-9}$ (utterly undetectable!).<br>
+        • <strong>Reverse bias (minority carriers)</strong>: Fractional increase is $\frac{10^7}{10^8} = 10\% = 0.1$ (massive, immediately measurable!).<br>
+        Hence, photodiodes are <strong>strictly operated in reverse bias</strong> for maximum optical sensitivity.
+      </div>
+    </div>
+
+    <!-- Trap 3 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 03 • POLARITY CONFUSION</span>
+      <div class="trap-title">Identifying Forward vs Reverse Bias with Negative Terminal Potentials</div>
+
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong)</div>
+        A diode has p-side at $-4\text{ V}$ and n-side at $-8\text{ V}$.<br>
+        Student sees negative voltages on both sides and marks "Reverse biased" because "negative sign means reverse bias".
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        Bias condition depends strictly on relative potential difference $V_p - V_n$:<br>
+        $$\text{Forward Biased} \iff V_p > V_n$$
+        Here, $V_p = -4\text{ V}$ and $V_n = -8\text{ V}$.<br>
+        Since $-4\text{ V} > -8\text{ V}$, the p-side is at a <strong>HIGHER</strong> potential than the n-side ($\Delta V = +4\text{ V}$).<br>
+        Therefore, the diode is <strong>FORWARD BIASED</strong> and conducts current!
+      </div>
+    </div>
+
+    <!-- Trap 4 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 04 • RECTIFIER RIPPLE FREQUENCY</span>
+      <div class="trap-title">Full-Wave vs Half-Wave Rectifier AC Ripple Frequency</div>
+
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong)</div>
+        "If input mains frequency is 50 Hz, what is the ripple frequency in full-wave rectifier output?"<br>
+        Student answers: 50 Hz.
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        • In <strong>Half-Wave Rectifier</strong>: Only 1 pulse per cycle $\implies f_{ripple} = f_{in} = 50\text{ Hz}$.<br>
+        • In <strong>Full-Wave Rectifier</strong>: Both positive and negative half-cycles are folded into positive peaks $\implies 2$ pulses per cycle $\implies f_{ripple} = 2 f_{in} = 2 \times 50 = \mathbf{100\text{ Hz}}$.
+      </div>
+    </div>
+
+    <!-- Trap 5 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 05 • SOLAR CELL GRAPH</span>
+      <div class="trap-title">Operating Quadrant of a Solar Cell $I\text{-}V$ Characteristic</div>
+
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong)</div>
+        Student draws the solar cell curve in the 1st quadrant like a standard diode or LED because "it's a semiconductor device."
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        A solar cell does not consume electrical power; it <strong>GENERATES electrical power</strong> to an external load.<br>
+        In generator convention, current flows OUT of the positive terminal ($I < 0$ while $V > 0$).<br>
+        Hence, the characteristic curve lies exclusively in the <strong>FOURTH QUADRANT</strong> of the Cartesian plane!
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Floating Reader Toolbar -->
+  <div class="mobile-reader-bar">
+    <button class="m-reader-btn" onclick="toggleChapterNav()" style="flex: 0 0 44px; font-size: 16px; font-weight: 900;">☰</button>
+    <a href="semiconductors-story-guide.html" class="m-reader-btn">📖 Guide</a>
+    <a href="semiconductors-formulas.html" class="m-reader-btn">⚡ Formulas</a>
+    <a href="semiconductors-memory.html" class="m-reader-btn" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);">🧠 Memory</a>
+    <a href="/semiconductors-story-guide.pdf" download="Semiconductors-JEE-2027.pdf" class="m-reader-btn cta">📥 PDF</a>
+  </div>
+
+  <script>
+    function toggleChapterNav() {
+      const drawer = document.getElementById('chapter-nav-drawer');
+      if (drawer) drawer.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Semiconductors — 🧠 Test My Memory (Active Recall) | Mission JEE 2027</title>
+  <link rel="canonical" href="https://missionjee2027.vercel.app/semiconductors-memory.html" />
+  <meta name="description" content="Active recall flashcard trainer for Semiconductor Electronics formulas in JEE Main 2027. Tap to reveal blurred equations and benchmark your recall." />
+
+  <!-- Academic Fonts & KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    :root {
+      --bg-cream: #FBF8F1;
+      --text-charcoal: #2C2C2C;
+      --box-shade: #EFECE4;
+      --border-soft: #D8D3C8;
+      --accent-purple: #7C3AED;
+      --accent-blue: #0369A1;
+      --accent-green: #15803D;
+      --accent-amber: #B45309;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background-color: var(--bg-cream);
+      color: var(--text-charcoal);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13pt;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 0;
+    }
+
+    /* Screen Toolbar */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #1E293B;
+      color: #F8FAFC;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+    .toolbar-title {
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+    .toolbar-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #F1F5F9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .toolbar-btn:hover { background: rgba(124, 58, 237, 0.2); border-color: #7c3aed; color: #c084fc; }
+    .toolbar-btn.active { background: #7c3aed; border-color: #7c3aed; color: #fff; }
+
+    .toggle-3line-btn {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      font-size: 16px;
+      font-weight: 900;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Navigation Drawer */
+    .nav-drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+    .nav-drawer-overlay.open { display: flex !important; }
+    .nav-drawer-content {
+      width: min(320px, 85vw);
+      height: 100%;
+      background: #0f172a;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+    .nav-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-drawer-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .nav-drawer-links { display: flex; flex-direction: column; gap: 8px; }
+    .nav-drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #f1f5f9;
+      text-decoration: none;
+    }
+    .nav-drawer-item strong { display: block; font-size: 13.5px; }
+    .nav-drawer-item small { display: block; font-size: 11px; color: #94a3b8; }
+    .nav-drawer-item.active { background: rgba(124, 58, 237, 0.2); border-color: #7c3aed; color: #c084fc; }
+
+    /* Main Container */
+    .doc-container {
+      max-width: 8.5in;
+      margin: 20px auto;
+      padding: 24px 20px 100px 20px;
+      box-sizing: border-box;
+    }
+
+    .header-box {
+      border-bottom: 2px solid var(--text-charcoal);
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+    }
+    .header-box h1 {
+      font-size: 24pt;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+    }
+    .badge-line {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .badge-item {
+      font-size: 9pt;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: var(--box-shade);
+      border: 1px solid var(--border-soft);
+      color: var(--accent-purple);
+      text-transform: uppercase;
+    }
+
+    /* Active Recall Control Center */
+    .control-panel {
+      background: #F5F3FF;
+      border: 1.5px solid #DDD6FE;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .score-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .score-circle {
+      background: #7C3AED;
+      color: #FFFFFF;
+      font-weight: 900;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 20px;
+    }
+    .score-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #5B21B6;
+    }
+    .control-btns {
+      display: flex;
+      gap: 8px;
+    }
+    .c-btn {
+      background: #FFFFFF;
+      border: 1px solid #C4B5FD;
+      color: #6D28D9;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .c-btn:hover {
+      background: #7C3AED;
+      color: #FFFFFF;
+      border-color: #7C3AED;
+    }
+
+    /* Memory Card */
+    .memory-card {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-soft);
+      border-left: 5px solid var(--accent-purple);
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .memory-card:hover {
+      border-color: #C4B5FD;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .card-tag {
+      font-size: 10px;
+      font-weight: 800;
+      color: #6D28D9;
+      background: #EDE9FE;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .card-action-hint {
+      font-size: 11px;
+      font-weight: 700;
+      color: #94A3B8;
+    }
+    .card-prompt {
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 10px;
+    }
+
+    /* Blurred Formula Box */
+    .blur-container {
+      position: relative;
+      margin-top: 6px;
+    }
+    .blur-formula {
+      filter: blur(8.5px);
+      user-select: none;
+      -webkit-user-select: none;
+      transition: filter 0.25s ease, background 0.25s ease;
+      background: var(--box-shade);
+      border: 1px dashed #CBD5E1;
+      border-radius: 8px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      max-width: 100%;
+    }
+    .blur-formula.unblurred {
+      filter: none;
+      user-select: text;
+      -webkit-user-select: text;
+      background: #F0FDF4;
+      border: 1px solid #86EFAC;
+    }
+    .blur-hint-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .blur-formula.unblurred + .blur-hint-overlay {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .blur-hint-badge {
+      background: rgba(15, 23, 42, 0.85);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 20px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .explanation {
+      margin-top: 10px;
+      font-size: 11pt;
+      color: #475569;
+      line-height: 1.45;
+    }
+
+    /* Mobile Floating Reader Toolbar */
+    .mobile-reader-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 12px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+      z-index: 99;
+      gap: 6px;
+    }
+    .m-reader-btn {
+      flex: 1;
+      min-height: 44px;
+      padding: 8px 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .m-reader-btn.highlight {
+      background: rgba(124, 58, 237, 0.2);
+      color: #c084fc;
+      border-color: rgba(124, 58, 237, 0.4);
+    }
+    .m-reader-btn.cta {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      html, body { font-size: 11.5pt; }
+      .doc-container { padding: 16px 14px 84px 14px; }
+      .header-box h1 { font-size: 19pt; }
+      .control-panel { flex-direction: column; align-items: stretch; text-align: center; }
+      .control-btns { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Toolbar with 3-Line Toggle Menu -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <button class="toggle-3line-btn" onclick="toggleChapterNav()" aria-label="Open Navigation">☰</button>
+      <a href="/index.html" style="color: #38bdf8; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">&larr; Hub</a>
+      <span style="opacity: 0.35;">|</span>
+      <span>Semiconductor Memory</span>
+    </div>
+    <div class="toolbar-actions">
+      <a href="semiconductors-story-guide.html" class="toolbar-btn">📖 Full Guide</a>
+      <a href="semiconductors-formulas.html" class="toolbar-btn">⚡ Formulas</a>
+      <a href="semiconductors-traps.html" class="toolbar-btn" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.4);">⚠️ Traps (2026: 21 Qs)</a>
+      <a href="semiconductors-memory.html" class="toolbar-btn active">🧠 Memory</a>
+      <a href="/semiconductors-story-guide.pdf" download="Semiconductors-JEE-2027.pdf" class="toolbar-btn" style="background: #2563eb; color: #fff;">📥 PDF</a>
+    </div>
+  </div>
+
+  <!-- Navigation Drawer (3-Line Toggle Sheet) -->
+  <div id="chapter-nav-drawer" class="nav-drawer-overlay" onclick="toggleChapterNav()">
+    <div class="nav-drawer-content" onclick="event.stopPropagation()">
+      <div class="nav-drawer-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 22px;">⚡</span>
+          <div>
+            <h4 style="margin: 0; font-size: 15px; font-weight: 800; color: #f8fafc;">Semiconductors</h4>
+            <p style="margin: 0; font-size: 11px; color: #c084fc; font-weight: 700;">Class 12 • 21 PYQs in JEE 2026</p>
+          </div>
+        </div>
+        <button class="nav-drawer-close" onclick="toggleChapterNav()">✕</button>
+      </div>
+      <div class="nav-drawer-links">
+        <a href="semiconductors-story-guide.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">📖</span>
+          <div>
+            <strong>Master Story Guide</strong>
+            <small>Complete textbook with full derivations</small>
+          </div>
+        </a>
+        <a href="semiconductors-formulas.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">⚡</span>
+          <div>
+            <strong>Formulas Only (Cheat Sheet)</strong>
+            <small>60-second high-yield formula sprint</small>
+          </div>
+        </a>
+        <a href="semiconductors-traps.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">⚠️</span>
+          <div>
+            <strong>Examiner Traps (2026 PYQs)</strong>
+            <small>21 Questions in 2026 • Pitfalls &amp; tricks</small>
+          </div>
+        </a>
+        <a href="semiconductors-memory.html" class="nav-drawer-item active">
+          <span style="font-size: 18px;">🧠</span>
+          <div>
+            <strong>Test My Memory</strong>
+            <small>Active recall flashcards • Tap to unblur</small>
+          </div>
+        </a>
+        <a href="/semiconductors-story-guide.pdf" download="Semiconductors-JEE-2027.pdf" class="nav-drawer-item" style="border-color: rgba(37, 99, 235, 0.4); background: rgba(37, 99, 235, 0.1);">
+          <span style="font-size: 18px;">📥</span>
+          <div>
+            <strong style="color: #60a5fa;">Download Master PDF</strong>
+            <small>High-contrast, 0.5-inch margin print edition</small>
+          </div>
+        </a>
+        <a href="/index.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🏠</span>
+          <div>
+            <strong>Back to Home Hub</strong>
+            <small>All chapters, quizzes &amp; daily streak</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-container">
+
+    <!-- Document Header -->
+    <div class="header-box">
+      <div class="badge-line">
+        <span class="badge-item">Active Recall Trainer</span>
+        <span class="badge-item">Self-Testing Mode</span>
+        <span class="badge-item" style="color: #7c3aed; border-color: #c4b5fd;">🧠 Tap to Unblur</span>
+      </div>
+      <h1 style="margin-top: 8px;">Semiconductors — Test My Memory</h1>
+      <p style="font-size: 11.5pt; color: #64748B; margin-top: 4px;">Recite the formula in your mind first, then tap the card to verify. Active recall guarantees long-term retention.</p>
+    </div>
+
+    <!-- Active Recall Control Panel -->
+    <div class="control-panel">
+      <div class="score-badge">
+        <span class="score-circle" id="recall-count">0 / 10</span>
+        <span class="score-label">Cards Mastered (<span id="recall-pct">0%</span>)</span>
+      </div>
+      <div class="control-btns">
+        <button class="c-btn" onclick="revealAll()">👁️ Reveal All</button>
+        <button class="c-btn" onclick="hideAll()">🔒 Hide All (Reset)</button>
+      </div>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 01 • Mass Action Law</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What relates electron and hole density in doped semiconductors at thermal equilibrium?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$n_e \cdot n_h = n_i^2$$
+          $$\text{In n-type: } n_e \approx N_D, \quad n_h = \frac{n_i^2}{N_D}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Valid at any doping concentration provided temperature remains constant.</div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 02 • Electrical Conductivity</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is the formula for conductivity $\sigma$ and total current $I$ in terms of mobilities?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$\sigma = e \left( n_e \mu_e + n_h \mu_h \right)$$
+          $$I = e A \left( n_e v_e + n_h v_h \right) = e A E \left( n_e \mu_e + n_h \mu_h \right)$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Electron mobility $\mu_e$ is always greater than hole mobility $\mu_h$ ($\mu_e > \mu_h$).</div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 03 • Diode Dynamic Resistance</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">How is dynamic (AC) diode resistance defined from an $I\text{-}V$ operating curve?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$r_d = \frac{\Delta V}{\Delta I} = \left( \frac{dI}{dV} \right)^{-1}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Under forward bias, typical $r_d$ is $10\text{ to }100\ \Omega$. Under reverse bias, $r_d \sim 10^6\ \Omega$ (infinite ideal).</div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 04 • Full-Wave Rectifier Ripple</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is the DC output voltage and output ripple frequency for a Full-Wave Rectifier?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$V_{dc} = \frac{2V_0}{\pi}, \qquad f_{ripple} = 2 f_{in} = 100\text{ Hz (for 50 Hz input)}$$
+          $$\eta_{max} \approx 81.2\%$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• For Half-Wave: $V_{dc} = V_0/\pi$, $f_{ripple} = f_{in} = 50\text{ Hz}$, $\eta_{max} \approx 40.6\%$.</div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 05 • Zener Regulator Current Relations</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">State the node current equation (KCL) for source, Zener, and load in a regulator circuit.</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$I_S = I_Z + I_L \implies I_Z = \frac{V_{in} - V_Z}{R_S} - \frac{V_Z}{R_L}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Condition for regulation: $I_Z \ge I_{Z,min} > 0$. If $V_{in} < V_Z$, Zener turns OFF ($I_Z = 0$).</div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 06 • Maximum Zener Current</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">How do you find the maximum allowable current $I_{Z,max}$ given rated power $P_{max}$?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$I_{Z,max} = \frac{P_{Z,max}}{V_Z}$$
+          $$R_{S,min} = \frac{V_{in,max} - V_Z}{I_{Z,max} + I_L}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• If series resistance $R_S < R_{S,min}$, the Zener diode overheats and destroys itself.</div>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 07 • Optoelectronic Cutoff Wavelength</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">What is the cutoff wavelength $\lambda_{max}$ to excite electrons across bandgap $E_g$?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$\lambda_{cutoff} = \frac{hc}{E_g} \approx \frac{12400 \text{ \AA}}{E_g(\text{eV})} = \frac{1240 \text{ nm}}{E_g(\text{eV})}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Photodiode responds only to photons with $h\nu \ge E_g$ ($\lambda \le \lambda_{cutoff}$).</div>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 08 • Photodiode vs LED Biasing</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">In which bias mode do Photodiodes, LEDs, and Solar Cells operate?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$\text{Photodiode: } \textbf{Reverse Bias} \quad \left(\frac{\Delta I_{minority}}{I_{minority}} \text{ is huge}\right)$$
+          $$\text{LED: } \textbf{Forward Bias} \quad (\text{Direct bandgap, visible } E_g \ge 1.8\text{ eV})$$
+          $$\text{Solar Cell: } \textbf{Unbiased (4th Quadrant)}$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Tested 3 times in JEE Main 2026!</div>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 09 • De Morgan's Theorems</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">State both of De Morgan's Laws for Boolean logic gate algebra.</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$\overline{A + B} = \bar{A} \cdot \bar{B} \qquad (\text{NOR to AND inversion})$$
+          $$\overline{A \cdot B} = \bar{A} + \bar{B} \qquad (\text{NAND to OR inversion})$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• "Break the bar, change the sign".</div>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="memory-card" onclick="toggleCard(this)">
+      <div class="card-top">
+        <span class="card-tag">Card 10 • Universal NAND Gate Realization Counts</span>
+        <span class="card-action-hint">Tap to flip</span>
+      </div>
+      <div class="card-prompt">How many NAND gates are needed to construct NOT, AND, OR, XOR, and XNOR?</div>
+      <div class="blur-container">
+        <div class="blur-formula">
+          $$\text{NOT: } 1, \quad \text{AND: } 2, \quad \text{OR: } 3, \quad \text{XOR: } 4, \quad \text{XNOR: } 5$$
+        </div>
+        <div class="blur-hint-overlay">
+          <span class="blur-hint-badge">👆 Tap to Reveal Formula</span>
+        </div>
+      </div>
+      <div class="explanation">• Memorize the clean count: 1, 2, 3, 4, 5! For NOR gates, it mirrors to: 1, 3, 2, 5, 4.</div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Floating Reader Toolbar -->
+  <div class="mobile-reader-bar">
+    <button class="m-reader-btn" onclick="toggleChapterNav()" style="flex: 0 0 44px; font-size: 16px; font-weight: 900;">☰</button>
+    <a href="semiconductors-story-guide.html" class="m-reader-btn">📖 Guide</a>
+    <a href="semiconductors-formulas.html" class="m-reader-btn">⚡ Formulas</a>
+    <a href="semiconductors-traps.html" class="m-reader-btn" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.4);">⚠️ Traps (2026: 21 Qs)</a>
+    <a href="/semiconductors-story-guide.pdf" download="Semiconductors-JEE-2027.pdf" class="m-reader-btn cta">📥 PDF</a>
+  </div>
+
+  <script>
+    function toggleChapterNav() {
+      const drawer = document.getElementById('chapter-nav-drawer');
+      if (drawer) drawer.classList.toggle('open');
+    }
+
+    function toggleCard(card) {
+      const blurEl = card.querySelector('.blur-formula');
+      if (blurEl) {
+        blurEl.classList.toggle('unblurred');
+        updateScore();
+      }
+    }
+
+    function revealAll() {
+      document.querySelectorAll('.blur-formula').forEach(el => el.classList.add('unblurred'));
+      updateScore();
+    }
+
+    function hideAll() {
+      document.querySelectorAll('.blur-formula').forEach(el => el.classList.remove('unblurred'));
+      updateScore();
+    }
+
+    function updateScore() {
+      const allCards = document.querySelectorAll('.blur-formula');
+      const unblurred = document.querySelectorAll('.blur-formula.unblurred');
+      const total = allCards.length;
+      const count = unblurred.length;
+      const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+
+      const countEl = document.getElementById('recall-count');
+      const pctEl = document.getElementById('recall-pct');
+      if (countEl) countEl.innerText = `${count} / ${total}`;
+      if (pctEl) pctEl.innerText = `${pct}%`;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Gravitation — ⚠️ Examiner Traps & Pitfalls (2026 PYQs) | Mission JEE 2027</title>
+  <link rel="canonical" href="https://missionjee2027.vercel.app/gravitation-traps.html" />
+  <meta name="description" content="All 10 questions from JEE Main 2026 analyzed. Common examiner traps, negative-marking pitfalls, and what NTA expects in Gravitation." />
+
+  <!-- Academic Fonts & KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    :root {
+      --bg-cream: #FBF8F1;
+      --text-charcoal: #2C2C2C;
+      --box-shade: #EFECE4;
+      --border-soft: #D8D3C8;
+      --accent-blue: #0369A1;
+      --accent-red: #DC2626;
+      --accent-green: #16A34A;
+      --accent-amber: #D97706;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background-color: var(--bg-cream);
+      color: var(--text-charcoal);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13pt;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 0;
+    }
+
+    /* Screen Toolbar */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #1E293B;
+      color: #F8FAFC;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+    .toolbar-title {
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+    .toolbar-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #F1F5F9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .toolbar-btn:hover { background: rgba(2, 132, 199, 0.2); border-color: #0284c7; color: #38bdf8; }
+    .toolbar-btn.active { background: #d97706; border-color: #d97706; color: #fff; }
+
+    .toggle-3line-btn {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      font-size: 16px;
+      font-weight: 900;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Navigation Drawer */
+    .nav-drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+    .nav-drawer-overlay.open { display: flex !important; }
+    .nav-drawer-content {
+      width: min(320px, 85vw);
+      height: 100%;
+      background: #0f172a;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+    .nav-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-drawer-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .nav-drawer-links { display: flex; flex-direction: column; gap: 8px; }
+    .nav-drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #f1f5f9;
+      text-decoration: none;
+    }
+    .nav-drawer-item strong { display: block; font-size: 13.5px; }
+    .nav-drawer-item small { display: block; font-size: 11px; color: #94a3b8; }
+    .nav-drawer-item.active { background: rgba(217, 119, 6, 0.2); border-color: #d97706; color: #fbbf24; }
+
+    /* Main Container */
+    .doc-container {
+      max-width: 8.5in;
+      margin: 20px auto;
+      padding: 24px 20px 100px 20px;
+      box-sizing: border-box;
+    }
+
+    .header-box {
+      border-bottom: 2px solid var(--text-charcoal);
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+    }
+    .header-box h1 {
+      font-size: 24pt;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+    }
+    .badge-line {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .badge-item {
+      font-size: 9pt;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: var(--box-shade);
+      border: 1px solid var(--border-soft);
+      color: var(--accent-amber);
+      text-transform: uppercase;
+    }
+
+    /* 2026 Question Distribution Card */
+    .pyq-stat-banner {
+      background: #FFFBEB;
+      border: 1.5px solid #FCD34D;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 28px;
+    }
+    .pyq-stat-title {
+      font-size: 13pt;
+      font-weight: 800;
+      color: #92400E;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .pyq-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+    .pyq-pill {
+      background: #FFFFFF;
+      border: 1px solid #FDE68A;
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .pyq-pill-count {
+      font-size: 18px;
+      font-weight: 900;
+      color: #D97706;
+    }
+    .pyq-pill-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #78350F;
+    }
+
+    /* Trap Cards */
+    .trap-card {
+      background: #FFFFFF;
+      border: 1px solid #FECACA;
+      border-left: 5px solid var(--accent-red);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 2px 8px rgba(220, 38, 38, 0.05);
+    }
+    .trap-num {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #DC2626;
+      background: #FEE2E2;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    .trap-title {
+      font-size: 14pt;
+      font-weight: 800;
+      color: #991B1B;
+      margin-bottom: 12px;
+    }
+    .trap-section {
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      font-size: 11.5pt;
+      line-height: 1.5;
+      overflow-x: auto;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+      word-break: break-word;
+    }
+    .trap-wrong {
+      background: #FEF2F2;
+      border-left: 3px solid #EF4444;
+      color: #991B1B;
+      margin-bottom: 10px;
+    }
+    .trap-right {
+      background: #F0FDF4;
+      border-left: 3px solid #22C55E;
+      color: #166534;
+    }
+    .trap-label {
+      font-weight: 800;
+      font-size: 10.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    /* Mobile Floating Reader Toolbar */
+    .mobile-reader-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 12px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+      z-index: 99;
+      gap: 6px;
+    }
+    .m-reader-btn {
+      flex: 1;
+      min-height: 44px;
+      padding: 8px 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .m-reader-btn.highlight {
+      background: rgba(217, 119, 6, 0.2);
+      color: #fbbf24;
+      border-color: rgba(217, 119, 6, 0.4);
+    }
+    .m-reader-btn.cta {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      html, body { font-size: 11.5pt; }
+      .doc-container { padding: 16px 14px 84px 14px; }
+      .header-box h1 { font-size: 19pt; }
+      .pyq-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Toolbar with 3-Line Toggle Menu -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <button class="toggle-3line-btn" onclick="toggleChapterNav()" aria-label="Open Navigation">☰</button>
+      <a href="/index.html" style="color: #38bdf8; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">&larr; Hub</a>
+      <span style="opacity: 0.35;">|</span>
+      <span>Gravitation Traps</span>
+    </div>
+    <div class="toolbar-actions">
+      <a href="gravitation-story-guide.html" class="toolbar-btn">📖 Full Guide</a>
+      <a href="gravitation-formulas.html" class="toolbar-btn">⚡ Formulas</a>
+      <a href="gravitation-traps.html" class="toolbar-btn active">⚠️ Traps (2026: 10 Qs)</a>
+      <a href="gravitation-memory.html" class="toolbar-btn" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);">🧠 Memory</a>
+      <a href="/gravitation-story-guide.pdf" download="Gravitation-JEE-2027.pdf" class="toolbar-btn" style="background: #2563eb; color: #fff;">📥 PDF</a>
+    </div>
+  </div>
+
+  <!-- Navigation Drawer (3-Line Toggle Sheet) -->
+  <div id="chapter-nav-drawer" class="nav-drawer-overlay" onclick="toggleChapterNav()">
+    <div class="nav-drawer-content" onclick="event.stopPropagation()">
+      <div class="nav-drawer-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 22px;">🪐</span>
+          <div>
+            <h4 style="margin: 0; font-size: 15px; font-weight: 800; color: #f8fafc;">Gravitation</h4>
+            <p style="margin: 0; font-size: 11px; color: #fbbf24; font-weight: 700;">Class 11 • 10 PYQs in JEE 2026</p>
+          </div>
+        </div>
+        <button class="nav-drawer-close" onclick="toggleChapterNav()">✕</button>
+      </div>
+      <div class="nav-drawer-links">
+        <a href="gravitation-story-guide.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">📖</span>
+          <div>
+            <strong>Master Story Guide</strong>
+            <small>Complete textbook with full derivations</small>
+          </div>
+        </a>
+        <a href="gravitation-formulas.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">⚡</span>
+          <div>
+            <strong>Formulas Only (Cheat Sheet)</strong>
+            <small>60-second high-yield formula sprint</small>
+          </div>
+        </a>
+        <a href="gravitation-traps.html" class="nav-drawer-item active">
+          <span style="font-size: 18px;">⚠️</span>
+          <div>
+            <strong>Examiner Traps (2026 PYQs)</strong>
+            <small>10 Questions in 2026 • Pitfalls &amp; tricks</small>
+          </div>
+        </a>
+        <a href="gravitation-memory.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🧠</span>
+          <div>
+            <strong>Test My Memory</strong>
+            <small>Active recall flashcards • Tap to unblur</small>
+          </div>
+        </a>
+        <a href="/gravitation-story-guide.pdf" download="Gravitation-JEE-2027.pdf" class="nav-drawer-item" style="border-color: rgba(37, 99, 235, 0.4); background: rgba(37, 99, 235, 0.1);">
+          <span style="font-size: 18px;">📥</span>
+          <div>
+            <strong style="color: #60a5fa;">Download Master PDF</strong>
+            <small>High-contrast, 0.5-inch margin print edition</small>
+          </div>
+        </a>
+        <a href="/index.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🏠</span>
+          <div>
+            <strong>Back to Home Hub</strong>
+            <small>All chapters, quizzes &amp; daily streak</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-container">
+
+    <!-- Document Header -->
+    <div class="header-box">
+      <div class="badge-line">
+        <span class="badge-item">Negative Marking Shield</span>
+        <span class="badge-item">JEE Main 2026 Focus</span>
+        <span class="badge-item" style="color: #dc2626; border-color: #fca5a5;">⚠️ Critical Pitfalls</span>
+      </div>
+      <h1 style="margin-top: 8px;">Gravitation — Examiner Traps & 2026 PYQ Archetypes</h1>
+      <p style="font-size: 11.5pt; color: #64748B; margin-top: 4px;">Save your -1 marks. Every trap where students lose points in JEE Main, side-by-side with NTA's exact testing pattern.</p>
+    </div>
+
+    <!-- 2026 Question Distribution Stats -->
+    <div class="pyq-stat-banner">
+      <div class="pyq-stat-title">
+        <span>🔥</span>
+        <span>JEE Main 2026: Exactly 10 Questions Appeared in Gravitation</span>
+      </div>
+      <div class="pyq-grid">
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">3 Qs</div>
+          <div class="pyq-pill-label">Orbital Motion &amp; Kepler ($T^2 \propto r^3$)</div>
+        </div>
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">2 Qs</div>
+          <div class="pyq-pill-label">Variation of $g$ (Height &amp; Depth)</div>
+        </div>
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">2 Qs</div>
+          <div class="pyq-pill-label">Small Altitude $\Delta g$ Scaling</div>
+        </div>
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">1 Q</div>
+          <div class="pyq-pill-label">Escape Velocity Scaling ($v_e \propto R\sqrt{\rho}$)</div>
+        </div>
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">1 Q</div>
+          <div class="pyq-pill-label">Gravitational Potential Energy ($\Delta U$)</div>
+        </div>
+        <div class="pyq-pill">
+          <div class="pyq-pill-count">1 Q</div>
+          <div class="pyq-pill-label">Center Net Force &amp; Symmetry</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trap 1 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 01 • VERY COMMON IN JEE 2026</span>
+      <div class="trap-title">Applying Binomial Approximation for Large Altitude $h$</div>
+      
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong &rarr; -1 Mark)</div>
+        When a problem asks for $g$ at height $h = R$ or $h = 2R$, student mindlessly writes:
+        $$g' = g \left(1 - \frac{2h}{R}\right) \implies g' = g(1 - 2) = -g \quad \text{(Absurd!)}$$
+        Or at $h = R/2$, gets $g' = g(1 - 1) = 0$, giving an impossible zero.
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        The binomial approximation $g_h \approx g\left(1 - \frac{2h}{R}\right)$ is valid <strong>ONLY IF $h \ll R$</strong> (typically $h < 320\text{ km}$, i.e., $h < 5\% R$).<br>
+        For any substantial height (like $h = R, 2R, R/2$), you <strong>MUST</strong> use the exact formula:
+        $$g_h = \frac{GM}{(R+h)^2} = g \left(\frac{R}{R+h}\right)^2 = \frac{g}{\left(1 + \frac{h}{R}\right)^2}$$
+        For $h = R$: $g_h = \frac{g}{(1+1)^2} = \frac{g}{4}$.
+      </div>
+    </div>
+
+    <!-- Trap 2 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 02 • FREQUENT CONFUSION</span>
+      <div class="trap-title">Equal Reduction in $g$: Height vs Depth Equivalence</div>
+
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong)</div>
+        Equating $g(1 - 2h/R)$ to $g(1 - d/R)$ to conclude $d = 2h$ when $h$ is large ($h = R$).<br>
+        They state: "At depth $d = 2R$, $g$ is equal to $g$ at $h = R$". (Depth cannot exceed $R$ because Earth's center is at $d = R$!).
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        1. For <strong>small altitude</strong> ($h \ll R$):
+        $$g_h = g\left(1 - \frac{2h}{R}\right) \quad \text{and} \quad g_d = g\left(1 - \frac{d}{R}\right) \implies d = 2h$$
+        A fall in $g$ by $1\%$ at height $h$ requires a depth of $d = 2h$.<br>
+        2. For <strong>finite height</strong> (e.g. $h = R$, so $g_h = g/4$):
+        $$g_d = g\left(1 - \frac{d}{R}\right) = \frac{g}{4} \implies 1 - \frac{d}{R} = \frac{1}{4} \implies d = \frac{3}{4}R$$
+      </div>
+    </div>
+
+    <!-- Trap 3 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 03 • WORK & ENERGY</span>
+      <div class="trap-title">Assuming Work Done to Raise a Mass is $W = mgh$</div>
+
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong)</div>
+        "Find the minimum work done to lift a mass $m$ to height $h = R$ above Earth's surface."<br>
+        Student writes: $W = mgh = mgR$. Incorrect!
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        Because gravity is NOT constant over cosmic distances, work done equals change in potential energy:
+        $$W = \Delta U = U_f - U_i = -\frac{GMm}{R+h} - \left(-\frac{GMm}{R}\right) = GMm \left(\frac{1}{R} - \frac{1}{R+h}\right) = \frac{mgh}{1 + \frac{h}{R}}$$
+        For $h = R$:
+        $$W = \frac{mgR}{1 + 1} = \frac{1}{2}mgR \quad \text{(Exactly half of } mgR\text{!)}$$
+      </div>
+    </div>
+
+    <!-- Trap 4 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 04 • ESCAPE VELOCITY</span>
+      <div class="trap-title">Believing Escape Velocity Depends on the Angle of Projection</div>
+
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong)</div>
+        NTA Question: "A body is projected at an angle of $60^\circ$ to the horizontal. If vertical escape velocity is $v_e$, what is the escape velocity at $60^\circ$?"<br>
+        Student computes: $v = v_e / \cos(60^\circ) = 2 v_e$ or $v_e \cos(60^\circ)$.
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        Escape condition comes from total mechanical energy $E \ge 0$:
+        $$\frac{1}{2}m v_e^2 - \frac{GMm}{R} = 0 \implies v_e = \sqrt{\frac{2GM}{R}}$$
+        Kinetic energy $\frac{1}{2}mv^2$ is a <strong>pure scalar</strong>. As long as the trajectory doesn't collide with the Earth's surface, $v_e$ is <strong>strictly independent of projection angle</strong>! Answer is always $v_e \approx 11.2\text{ km/s}$.
+      </div>
+    </div>
+
+    <!-- Trap 5 -->
+    <div class="trap-card">
+      <span class="trap-num">TRAP 05 • SATELLITE ORBIT SCALING</span>
+      <div class="trap-title">Confusing Orbital Speed ($v_o$) with Orbital Kinetic Energy or Period</div>
+
+      <div class="trap-section trap-wrong">
+        <div class="trap-label">🛑 What the Student Does (Wrong)</div>
+        "If the orbit radius increases, what happens to speed and kinetic energy?"<br>
+        Student thinks: "Larger orbit has more total energy, so satellite must move faster ($v \uparrow$)."
+      </div>
+
+      <div class="trap-section trap-right">
+        <div class="trap-label">✅ What NTA Expects (Right Approach)</div>
+        Recall the satellite triad:
+        $$v_o = \sqrt{\frac{GM}{r}} \implies \text{As } r \uparrow, \quad v_o \downarrow \quad \text{and} \quad K \downarrow$$
+        $$U = -\frac{GMm}{r} \implies \text{As } r \uparrow, \quad U \text{ becomes less negative} \implies U \uparrow$$
+        $$E = -\frac{GMm}{2r} \implies \text{As } r \uparrow, \quad E \uparrow$$
+        The satellite moves <strong>SLOWER</strong> in a higher orbit, even though its total mechanical energy is greater!
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Floating Reader Toolbar -->
+  <div class="mobile-reader-bar">
+    <button class="m-reader-btn" onclick="toggleChapterNav()" style="flex: 0 0 44px; font-size: 16px; font-weight: 900;">☰</button>
+    <a href="gravitation-story-guide.html" class="m-reader-btn">📖 Guide</a>
+    <a href="gravitation-formulas.html" class="m-reader-btn">⚡ Formulas</a>
+    <a href="gravitation-memory.html" class="m-reader-btn" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);">🧠 Memory</a>
+    <a href="/gravitation-story-guide.pdf" download="Gravitation-JEE-2027.pdf" class="m-reader-btn cta">📥 PDF</a>
+  </div>
+
+  <script>
+    function toggleChapterNav() {
+      const drawer = document.getElementById('chapter-nav-drawer');
+      if (drawer) drawer.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

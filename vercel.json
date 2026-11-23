@@ -2,7 +2,13 @@
   "cleanUrls": false,
   "rewrites": [
     { "source": "/gravitation-story-guide", "destination": "/gravitation-story-guide.html" },
+    { "source": "/gravitation-formulas", "destination": "/gravitation-formulas.html" },
+    { "source": "/gravitation-traps", "destination": "/gravitation-traps.html" },
+    { "source": "/gravitation-memory", "destination": "/gravitation-memory.html" },
     { "source": "/semiconductors-story-guide", "destination": "/semiconductors-story-guide.html" },
+    { "source": "/semiconductors-formulas", "destination": "/semiconductors-formulas.html" },
+    { "source": "/semiconductors-traps", "destination": "/semiconductors-traps.html" },
+    { "source": "/semiconductors-memory", "destination": "/semiconductors-memory.html" },
     { "source": "/admin(.*)", "destination": "/index.html" }
   ]
 }

@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Semiconductors — ⚡ Formulas Only (60-Sec Review) | Mission JEE 2027</title>
+  <link rel="canonical" href="https://missionjee2027.vercel.app/semiconductors-formulas.html" />
+  <meta name="description" content="All high-yield Semiconductor Electronics formulas for JEE Main 2027 in one 60-second speedrun cheat sheet. Diodes, Zener regulators, and Logic Gates." />
+
+  <!-- Academic Fonts & KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      renderMathInElement(document.body, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    });
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    :root {
+      --bg-cream: #FBF8F1;
+      --text-charcoal: #2C2C2C;
+      --box-shade: #EFECE4;
+      --border-soft: #D8D3C8;
+      --accent-blue: #0369A1;
+      --accent-green: #15803D;
+      --accent-amber: #B45309;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      background-color: var(--bg-cream);
+      color: var(--text-charcoal);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 13pt;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    .katex-display {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+      padding: 4px 0;
+    }
+
+    /* Screen Toolbar */
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #1E293B;
+      color: #F8FAFC;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+    }
+    .toolbar-title {
+      font-size: 14px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+    }
+    .toolbar-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #F1F5F9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .toolbar-btn:hover { background: rgba(2, 132, 199, 0.2); border-color: #0284c7; color: #38bdf8; }
+    .toolbar-btn.active { background: #0284c7; border-color: #0284c7; color: #fff; }
+
+    .toggle-3line-btn {
+      background: #0f172a;
+      border: 1px solid #334155;
+      color: #f1f5f9;
+      font-size: 16px;
+      font-weight: 900;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Navigation Drawer */
+    .nav-drawer-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+    }
+    .nav-drawer-overlay.open { display: flex !important; }
+    .nav-drawer-content {
+      width: min(320px, 85vw);
+      height: 100%;
+      background: #0f172a;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      box-sizing: border-box;
+    }
+    .nav-drawer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .nav-drawer-close {
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .nav-drawer-links { display: flex; flex-direction: column; gap: 8px; }
+    .nav-drawer-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      color: #f1f5f9;
+      text-decoration: none;
+    }
+    .nav-drawer-item strong { display: block; font-size: 13.5px; }
+    .nav-drawer-item small { display: block; font-size: 11px; color: #94a3b8; }
+    .nav-drawer-item.active { background: rgba(2, 132, 199, 0.15); border-color: #0284c7; color: #38bdf8; }
+
+    /* Main Container */
+    .doc-container {
+      max-width: 8.5in;
+      margin: 20px auto;
+      padding: 24px 20px 100px 20px;
+      box-sizing: border-box;
+    }
+
+    .header-box {
+      border-bottom: 2px solid var(--text-charcoal);
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+    }
+    .header-box h1 {
+      font-size: 24pt;
+      font-weight: 800;
+      color: #0F172A;
+      letter-spacing: -0.5px;
+    }
+    .badge-line {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+    }
+    .badge-item {
+      font-size: 9pt;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 4px;
+      background: var(--box-shade);
+      border: 1px solid var(--border-soft);
+      color: var(--accent-blue);
+      text-transform: uppercase;
+    }
+
+    /* Formula Cards Grid */
+    .formula-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-soft);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    }
+    .formula-num {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      color: #0284c7;
+      background: rgba(2, 132, 199, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    .formula-title {
+      font-size: 13.5pt;
+      font-weight: 700;
+      color: #0F172A;
+      margin-bottom: 8px;
+    }
+    .math-display {
+      background: var(--box-shade);
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin: 8px 0;
+      overflow-x: auto;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
+    }
+    .takeaway {
+      font-size: 11pt;
+      color: #475569;
+      margin-top: 6px;
+      line-height: 1.45;
+    }
+    .takeaway strong { color: #0f172a; }
+
+    /* Mobile Floating Reader Toolbar */
+    .mobile-reader-bar {
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 10px 12px;
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+      z-index: 99;
+      gap: 6px;
+    }
+    .m-reader-btn {
+      flex: 1;
+      min-height: 44px;
+      padding: 8px 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      color: #f1f5f9;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .m-reader-btn.highlight {
+      background: rgba(14, 165, 233, 0.15);
+      color: #38bdf8;
+      border-color: rgba(14, 165, 233, 0.4);
+    }
+    .m-reader-btn.cta {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      html, body { font-size: 11.5pt; }
+      .doc-container { padding: 16px 14px 84px 14px; }
+      .header-box h1 { font-size: 19pt; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Toolbar with 3-Line Toggle Menu -->
+  <div class="toolbar">
+    <div class="toolbar-title">
+      <button class="toggle-3line-btn" onclick="toggleChapterNav()" aria-label="Open Navigation">☰</button>
+      <a href="/index.html" style="color: #38bdf8; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 4px;">&larr; Hub</a>
+      <span style="opacity: 0.35;">|</span>
+      <span>Semiconductors</span>
+    </div>
+    <div class="toolbar-actions">
+      <a href="semiconductors-story-guide.html" class="toolbar-btn">📖 Full Guide</a>
+      <a href="semiconductors-formulas.html" class="toolbar-btn active">⚡ Formulas</a>
+      <a href="semiconductors-traps.html" class="toolbar-btn" style="color: #fbbf24; border-color: rgba(251, 191, 36, 0.4);">⚠️ Traps (2026: 21 Qs)</a>
+      <a href="semiconductors-memory.html" class="toolbar-btn" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);">🧠 Memory</a>
+      <a href="/semiconductors-story-guide.pdf" download="Semiconductors-JEE-2027.pdf" class="toolbar-btn" style="background: #2563eb; color: #fff;">📥 PDF</a>
+    </div>
+  </div>
+
+  <!-- Navigation Drawer (3-Line Toggle Sheet) -->
+  <div id="chapter-nav-drawer" class="nav-drawer-overlay" onclick="toggleChapterNav()">
+    <div class="nav-drawer-content" onclick="event.stopPropagation()">
+      <div class="nav-drawer-header">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 22px;">⚡</span>
+          <div>
+            <h4 style="margin: 0; font-size: 15px; font-weight: 800; color: #f8fafc;">Semiconductors</h4>
+            <p style="margin: 0; font-size: 11px; color: #38bdf8; font-weight: 700;">Class 12 • 21 PYQs in JEE 2026</p>
+          </div>
+        </div>
+        <button class="nav-drawer-close" onclick="toggleChapterNav()">✕</button>
+      </div>
+      <div class="nav-drawer-links">
+        <a href="semiconductors-story-guide.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">📖</span>
+          <div>
+            <strong>Master Story Guide</strong>
+            <small>Complete textbook with full derivations</small>
+          </div>
+        </a>
+        <a href="semiconductors-formulas.html" class="nav-drawer-item active">
+          <span style="font-size: 18px;">⚡</span>
+          <div>
+            <strong>Formulas Only (Cheat Sheet)</strong>
+            <small>60-second high-yield formula sprint</small>
+          </div>
+        </a>
+        <a href="semiconductors-traps.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">⚠️</span>
+          <div>
+            <strong>Examiner Traps (2026 PYQs)</strong>
+            <small>21 Questions in 2026 • Pitfalls &amp; tricks</small>
+          </div>
+        </a>
+        <a href="semiconductors-memory.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🧠</span>
+          <div>
+            <strong>Test My Memory</strong>
+            <small>Active recall flashcards • Tap to unblur</small>
+          </div>
+        </a>
+        <a href="/semiconductors-story-guide.pdf" download="Semiconductors-JEE-2027.pdf" class="nav-drawer-item" style="border-color: rgba(37, 99, 235, 0.4); background: rgba(37, 99, 235, 0.1);">
+          <span style="font-size: 18px;">📥</span>
+          <div>
+            <strong style="color: #60a5fa;">Download Master PDF</strong>
+            <small>High-contrast, 0.5-inch margin print edition</small>
+          </div>
+        </a>
+        <a href="/index.html" class="nav-drawer-item">
+          <span style="font-size: 18px;">🏠</span>
+          <div>
+            <strong>Back to Home Hub</strong>
+            <small>All chapters, quizzes &amp; daily streak</small>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc-container">
+
+    <!-- Document Header -->
+    <div class="header-box">
+      <div class="badge-line">
+        <span class="badge-item">Physics Cheat Sheet</span>
+        <span class="badge-item">Class 12 Chapter 14</span>
+        <span class="badge-item">⚡ 60-Second Speedrun Review</span>
+      </div>
+      <h1 style="margin-top: 8px;">Semiconductors — Formula Master Sheet</h1>
+      <p style="font-size: 11.5pt; color: #64748B; margin-top: 4px;">Zero fluff. Pure equations, diode circuits, Zener regulators, and Boolean algebra tested in JEE Main.</p>
+    </div>
+
+    <!-- Formula 1 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 01</span>
+      <div class="formula-title">Mass Action Law & Carrier Concentrations</div>
+      <div class="math-display">
+        $$n_e \cdot n_h = n_i^2$$
+      </div>
+      <div class="takeaway">
+        • <strong>Intrinsic semiconductor</strong>: $n_e = n_h = n_i$.<br>
+        • <strong>n-type (Donors $N_D$)</strong>: $n_e \approx N_D$, and minority hole density $n_h = \frac{n_i^2}{N_D}$.<br>
+        • <strong>p-type (Acceptors $N_A$)</strong>: $n_h \approx N_A$, and minority electron density $n_e = \frac{n_i^2}{N_A}$.<br>
+        • <strong>Crucial Rule</strong>: Mass action law is valid at thermal equilibrium under constant temperature regardless of doping level.
+      </div>
+    </div>
+
+    <!-- Formula 2 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 02</span>
+      <div class="formula-title">Current & Electrical Conductivity ($\sigma$)</div>
+      <div class="math-display">
+        $$I = I_e + I_h = e A \left( n_e v_e + n_h v_h \right)$$
+        $$\sigma = e \left( n_e \mu_e + n_h \mu_h \right), \quad \rho = \frac{1}{\sigma}$$
+      </div>
+      <div class="takeaway">
+        • $e = 1.6 \times 10^{-19}\text{ C}$, $\mu_e$ is electron mobility, $\mu_h$ is hole mobility.<br>
+        • Mobility relation: $\mu_e > \mu_h$ always because conduction electrons move in empty conduction band while holes move via bound valence states.<br>
+        • Current density: $J = \sigma E = e (n_e \mu_e + n_h \mu_h) E$.
+      </div>
+    </div>
+
+    <!-- Formula 3 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 03</span>
+      <div class="formula-title">Dynamic (AC) & Static (DC) Diode Resistance</div>
+      <div class="math-display">
+        $$r_d = \frac{\Delta V}{\Delta I} \quad (\text{Dynamic/AC Resistance}), \qquad R_{dc} = \frac{V}{I} \quad (\text{Static/DC Resistance})$$
+      </div>
+      <div class="takeaway">
+        • <strong>Dynamic resistance</strong> is the inverse slope of the forward $I\text{-}V$ characteristic: $r_d = \left(\frac{dI}{dV}\right)^{-1}$.<br>
+        • Typical forward dynamic resistance: $10\ \Omega \text{ to } 100\ \Omega$.<br>
+        • In reverse bias below breakdown: resistance is virtually infinite ($r_d \sim 10^6\ \Omega$).
+      </div>
+    </div>
+
+    <!-- Formula 4 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 04</span>
+      <div class="formula-title">Rectifier Efficiencies & Ripple Factors</div>
+      <div class="math-display">
+        $$\text{Half-Wave: } V_{dc} = \frac{V_0}{\pi}, \quad \eta_{max} = \frac{0.406 R_L}{r_f + R_L} \approx 40.6\%, \quad f_{ripple} = f_{in}, \quad r = 1.21$$
+        $$\text{Full-Wave: } V_{dc} = \frac{2V_0}{\pi}, \quad \eta_{max} = \frac{0.812 R_L}{r_f + R_L} \approx 81.2\%, \quad f_{ripple} = 2f_{in}, \quad r = 0.482$$
+      </div>
+      <div class="takeaway">
+        • For 50 Hz input mains: Half-wave ripple frequency = <strong>50 Hz</strong>, Full-wave ripple frequency = <strong>100 Hz</strong>.<br>
+        • Capacitor filter: $r \approx \frac{1}{4\sqrt{3} f C R_L}$ (Full-wave) &mdash; larger $C$ and larger $R_L$ yields flatter DC.
+      </div>
+    </div>
+
+    <!-- Formula 5 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 05</span>
+      <div class="formula-title">Zener Diode Voltage Regulator (6 Questions in JEE 2026!)</div>
+      <div class="math-display">
+        $$V_L = V_Z = \text{Constant}, \qquad I_L = \frac{V_Z}{R_L}$$
+        $$I_S = \frac{V_{in} - V_Z}{R_S}, \qquad I_Z = I_S - I_L = \frac{V_{in} - V_Z}{R_S} - \frac{V_Z}{R_L}$$
+      </div>
+      <div class="takeaway">
+        • <strong>Zener operates in REVERSE BREAKDOWN</strong>. If $V_{in} < V_Z$, Zener does not conduct ($I_Z = 0$), acting as open circuit.<br>
+        • Maximum Zener current: $I_{Z,max} = \frac{P_{Z,max}}{V_Z}$.<br>
+        • Minimum series resistance to prevent blowout: $R_{S,min} = \frac{V_{in,max} - V_Z}{I_{Z,max} + I_L}$.
+      </div>
+    </div>
+
+    <!-- Formula 6 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 06</span>
+      <div class="formula-title">Optoelectronic Devices & Cutoff Wavelength</div>
+      <div class="math-display">
+        $$\lambda_{cutoff} = \frac{hc}{E_g} \approx \frac{12400 \text{ \AA}}{E_g(\text{eV})} = \frac{1240 \text{ nm}}{E_g(\text{eV})}$$
+      </div>
+      <div class="takeaway">
+        • <strong>Photodiode</strong>: Operated in <em>REVERSE BIAS</em> because fractional change in minority current ($\frac{\Delta I}{I_0}$) is orders of magnitude easier to measure than majority current.<br>
+        • <strong>LED</strong>: Operated in <em>FORWARD BIAS</em> using direct bandgap semiconductors ($E_g \ge 1.8\text{ eV}$ for visible light).<br>
+        • <strong>Solar Cell</strong>: Unbiased ($V=0$); operates in the <strong>4th quadrant</strong> of the $I\text{-}V$ graph.
+      </div>
+    </div>
+
+    <!-- Formula 7 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 07</span>
+      <div class="formula-title">Logic Gates Truth Equations (8 Questions in JEE 2026!)</div>
+      <div class="math-display">
+        $$\text{AND: } Y = A \cdot B \qquad \text{OR: } Y = A + B \qquad \text{NOT: } Y = \bar{A}$$
+        $$\text{NAND: } Y = \overline{A \cdot B} \qquad \text{NOR: } Y = \overline{A + B}$$
+        $$\text{XOR: } Y = A\bar{B} + \bar{A}B = A \oplus B \qquad \text{XNOR: } Y = AB + \bar{A}\bar{B} = \overline{A \oplus B}$$
+      </div>
+      <div class="takeaway">
+        • <strong>XOR Rule</strong>: Output is 1 only when inputs are DIFFERENT ($0 \oplus 1 = 1, 1 \oplus 0 = 1, 1 \oplus 1 = 0, 0 \oplus 0 = 0$).<br>
+        • <strong>Universal Gates</strong>: Any Boolean expression can be synthesized using NAND alone or NOR alone.
+      </div>
+    </div>
+
+    <!-- Formula 8 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 08</span>
+      <div class="formula-title">De Morgan's Laws & Boolean Simplification</div>
+      <div class="math-display">
+        $$\overline{A + B} = \bar{A} \cdot \bar{B} \qquad \text{(Break the line, change the sign)}$$
+        $$\overline{A \cdot B} = \bar{A} + \bar{B}$$
+        $$A + \bar{A}B = A + B, \qquad A(A + B) = A, \qquad A + AB = A$$
+      </div>
+      <div class="takeaway">
+        • Double inversion identity: $\overline{\overline{A}} = A$.<br>
+        • Redundancy theorem: $AB + \bar{A}C + BC = AB + \bar{A}C$ (The term $BC$ is redundant).
+      </div>
+    </div>
+
+    <!-- Formula 9 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 09</span>
+      <div class="formula-title">Universal Gate Realization Minimum Gate Counts</div>
+      <div class="math-display">
+        $$\begin{array}{|c|c|c|}
+        \hline
+        \textbf{Target Gate} & \textbf{NANDs Required} & \textbf{NORs Required} \\
+        \hline
+        \text{NOT} & 1 & 1 \\
+        \text{AND} & 2 & 3 \\
+        \text{OR} & 3 & 2 \\
+        \text{XOR} & 4 & 5 \\
+        \text{XNOR} & 5 & 4 \\
+        \hline
+        \end{array}$$
+      </div>
+      <div class="takeaway">
+        • Memorize the symmetric count sequence: NAND pattern is <strong>1, 2, 3, 4, 5</strong> for NOT, AND, OR, XOR, XNOR.<br>
+        • NOR pattern mirrors it: <strong>1, 3, 2, 5, 4</strong>!
+      </div>
+    </div>
+
+    <!-- Formula 10 -->
+    <div class="formula-card">
+      <span class="formula-num">FORMULA 10</span>
+      <div class="formula-title">Temperature Coefficient & Band Gap Energy</div>
+      <div class="math-display">
+        $$n_i(T) = A \cdot T^{3/2} e^{-\frac{E_g}{2 k_B T}}$$
+        $$\alpha = \frac{1}{\rho}\frac{d\rho}{dT} < 0 \quad (\text{Negative Temperature Coefficient})$$
+      </div>
+      <div class="takeaway">
+        • At $T = 0\text{ K}$, semiconductor behaves as a <strong>perfect insulator</strong> (valence band completely full, conduction band completely empty).<br>
+        • As $T \uparrow$, covalent bonds rupture exponentially $\implies n_e, n_h \uparrow \implies \text{Conductivity } \sigma \uparrow, \text{Resistivity } \rho \downarrow$.<br>
+        • Silicon bandgap: $E_g \approx 1.1\text{ eV}$. Germanium bandgap: $E_g \approx 0.7\text{ eV}$.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile Floating Reader Toolbar -->
+  <div class="mobile-reader-bar">
+    <button class="m-reader-btn" onclick="toggleChapterNav()" style="flex: 0 0 44px; font-size: 16px; font-weight: 900;">☰</button>
+    <a href="semiconductors-story-guide.html" class="m-reader-btn">📖 Guide</a>
+    <a href="semiconductors-traps.html" class="m-reader-btn highlight">⚠️ Traps (2026: 21 Qs)</a>
+    <a href="semiconductors-memory.html" class="m-reader-btn" style="color: #c084fc; border-color: rgba(192, 132, 252, 0.4);">🧠 Memory</a>
+    <a href="/semiconductors-story-guide.pdf" download="Semiconductors-JEE-2027.pdf" class="m-reader-btn cta">📥 PDF</a>
+  </div>
+
+  <script>
+    function toggleChapterNav() {
+      const drawer = document.getElementById('chapter-nav-drawer');
+      if (drawer) drawer.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
